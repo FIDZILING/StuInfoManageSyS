@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using Model;
 
 namespace DAL
 {
@@ -35,7 +36,14 @@ namespace DAL
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
+                for (int i = 0; i < Data_Table.Columns.Count; i++)
+                {
+                    //用户表
+                    Data_Table.Rows[0][i].ToString();
+                    
+                }
 
+               
                 Cmd.Parameters.AddRange(Paras);
                 return (int)Cmd.ExecuteScalar();
             }
