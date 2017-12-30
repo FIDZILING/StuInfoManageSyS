@@ -11,6 +11,7 @@ namespace BLL
     public class ScholBLL
     {
         private ScholDAL scholDAL = new ScholDAL();
+
         /// <summary>
         /// 核对并添加新的奖学金类型
         /// </summary>
@@ -20,6 +21,7 @@ namespace BLL
         {
             return scholDAL.Cherk_ScholType(S_Char);
         }
+
         /// <summary>
         /// 添加奖学金信息
         /// </summary>
@@ -32,6 +34,7 @@ namespace BLL
         {
             return scholDAL.Add_ScholInfo(StdNo, ScholType, ScholLevel, Day);
         }
+
         /// <summary>
         /// 通过学号查找奖学金信息
         /// </summary>
@@ -41,6 +44,7 @@ namespace BLL
         {
             return scholDAL.Find_ScholInfoByStdNo(StdNo);
         }
+
         /// <summary>
         /// 通过奖学金类型查找奖学金信息
         /// </summary>
@@ -50,6 +54,7 @@ namespace BLL
         {
             return scholDAL.Find_ScholInfoByScholType(ScholType);
         }
+
         /// <summary>
         /// 显示全部奖学金类型信息
         /// </summary>
@@ -58,6 +63,7 @@ namespace BLL
         {
             return scholDAL.Find_AllType();
         }
+
         /// <summary>
         /// 显示全部奖学金信息
         /// </summary>

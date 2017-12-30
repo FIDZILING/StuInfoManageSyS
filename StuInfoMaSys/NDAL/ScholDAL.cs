@@ -39,6 +39,7 @@ namespace DAL
                 else
                     //返回错误信息，存在该奖学金信息
                     return false;
+
             }
             catch (Exception ex)
             {
@@ -47,9 +48,13 @@ namespace DAL
             finally
             {
                 if (Conn != null)
+                {
                     Conn.Dispose();
+                }
             }
+
         }
+
         /// <summary>
         /// 添加奖学金类型
         /// </summary>
@@ -62,9 +67,7 @@ namespace DAL
             string S_Type = Find_LastScholType();
             if (S_Type != "null")
             {
-                Sql_Str.Append("insert");
-                Sql_Str.Append(" into dbo.ScholType(ScholType,ScholChar)");
-                Sql_Str.Append(" values('@ScholType','@ScholChar')");
+                Sql_Str.Append("insert into dbo.ScholType values (@ScholType,@ScholChar)");
                 SqlParameter[] Paras =
                     {
                     new SqlParameter("@ScholType",S_Type),
@@ -81,13 +84,6 @@ namespace DAL
                 catch (Exception ex)
                 {
                     return false;
-                }
-                finally
-                {
-                    if (Conn != null)
-                    {
-                        Conn.Dispose();
-                    }
                 }
             }
             else
@@ -123,13 +119,6 @@ namespace DAL
                 //读取错误？
                 return "null";
             }
-            finally
-            {
-                if (Conn != null)
-                {
-                    Conn.Dispose();
-                }
-            }
         }
 
         /// <summary>
@@ -145,7 +134,7 @@ namespace DAL
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("insert");
             Sql_Str.Append(" into dbo.ScholarshipInfo(StdNo,ScholType,ScholLevel,Day)");
-            Sql_Str.Append(" values('@StdNo','@ScholType','@ScholLevel','@Day')");
+            Sql_Str.Append(" values(@StdNo,@ScholType,@ScholLevel,@Day)");
             SqlParameter[] Paras =
                 {
                     new SqlParameter("@StdNo",StdNo),
@@ -190,6 +179,7 @@ namespace DAL
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Paras);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
@@ -224,6 +214,7 @@ namespace DAL
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Paras);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
