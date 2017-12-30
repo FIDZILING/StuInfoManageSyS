@@ -9,7 +9,7 @@ namespace Model
     /// <summary>
     /// 奖学金信息
     /// </summary>
-    class ScholInfo
+    public class ScholInfo
     {
         ScholInfo(int id, string studentID, string type, string level, DateTime day)
         {

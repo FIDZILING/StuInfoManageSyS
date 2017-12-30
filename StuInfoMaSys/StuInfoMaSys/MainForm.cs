@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace StuInfoMaSys
         public MainForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
     }
 }

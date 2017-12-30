@@ -9,7 +9,7 @@ namespace Model
     /// <summary>
     /// 奖学金类型
     /// </summary>
-    class ScholType
+    public class ScholType
     {
         private string type;
         /// <summary>

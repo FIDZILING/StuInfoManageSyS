@@ -9,7 +9,7 @@ namespace Model
     /// <summary>
     /// 领导
     /// </summary>
-    class Leader
+    public class Leader
     {
         Leader(int id, string name, string passward, string identify, string college, string grade)
         {
