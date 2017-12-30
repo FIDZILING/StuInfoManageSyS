@@ -104,6 +104,7 @@
             // 
             // Quitbutton
             // 
+            this.Quitbutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Quitbutton.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Quitbutton.Location = new System.Drawing.Point(284, 218);
             this.Quitbutton.Name = "Quitbutton";
@@ -118,6 +119,7 @@
             this.AcceptButton = this.Loginbutton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.Quitbutton;
             this.ClientSize = new System.Drawing.Size(582, 353);
             this.Controls.Add(this.Quitbutton);
             this.Controls.Add(this.Loginbutton);

@@ -33,13 +33,12 @@ namespace DAL
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
                 //先判断是否有该奖学金类型，没有再添加
-                if (Data_Table.Rows.Count == 0 && Data_Table.Columns.Count == 0)
+                if (Data_Table.Rows.Count == 0)
                     //插入信息
                     return Add_ScholType(S_Char);
                 else
                     //返回错误信息，存在该奖学金信息
                     return false;
-
             }
             catch (Exception ex)
             {
@@ -48,13 +47,9 @@ namespace DAL
             finally
             {
                 if (Conn != null)
-                {
                     Conn.Dispose();
-                }
             }
-
         }
-
         /// <summary>
         /// 添加奖学金类型
         /// </summary>
@@ -184,7 +179,7 @@ namespace DAL
         /// </summary>
         /// <param name="StdNo">学号</param>
         /// <returns></returns>
-        public bool Find_ScholInfoByStdNo(string StdNo)
+        public DataTable Find_ScholInfoByStdNo(string StdNo)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select * from dbo.ScholarshipInfo");
@@ -198,22 +193,11 @@ namespace DAL
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
-                //ui设计
-                //..
-                /*
-                for(int i = 0;i < Data_Table.Rows.Count;i++)
-                {
-                    for(int j = 0;j < Data_Table.Columns.Count;j++)
-                    {
-                        //...
-                    }
-                }
-                */
-                return true;
+                return Data_Table;
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
             finally
             {
@@ -229,7 +213,7 @@ namespace DAL
         /// </summary>
         /// <param name="ScholType">奖学金类型</param>
         /// <returns></returns>
-        public bool Find_ScholInfoByScholType(string ScholType)
+        public DataTable Find_ScholInfoByScholType(string ScholType)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select * from dbo.ScholarshipInfo");
@@ -243,22 +227,42 @@ namespace DAL
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
-                //ui设计
-                //..
-                /*
-                for(int i = 0;i < Data_Table.Rows.Count;i++)
-                {
-                    for(int j = 0;j < Data_Table.Columns.Count;j++)
-                    {
-                        //...
-                    }
-                }
-                */
-                return true;
+                return Data_Table;
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 显示全部奖学金类型信息
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Find_AllType()
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("select * from dbo.ScholType");
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
             finally
             {
@@ -273,7 +277,7 @@ namespace DAL
         /// 显示全部奖学金信息
         /// </summary>
         /// <returns></returns>
-        public bool Find_All()
+        public DataTable Find_AllInfo()
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select * from dbo.ScholarshipInfo");
@@ -285,22 +289,11 @@ namespace DAL
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
-                //ui设计
-                //..
-                /*
-                for(int i = 0;i < Data_Table.Rows.Count;i++)
-                {
-                    for(int j = 0;j < Data_Table.Columns.Count;j++)
-                    {
-                        //...
-                    }
-                }
-                */
-                return true;
+                return Data_Table;
             }
             catch (Exception ex)
             {
-                return false;
+                return null;
             }
             finally
             {
