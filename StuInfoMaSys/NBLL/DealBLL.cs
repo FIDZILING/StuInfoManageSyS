@@ -26,9 +26,15 @@ namespace BLL
             return dealDAL.SignIn_User(User_Name, User_Pwd, out id, out identify, out college, out grade);
         }
 
-        public void Power_Judge(DataTable Data_Table)
+        /// <summary>
+        /// 数据库连接测试，成功返回true
+        /// </summary>
+        /// <param name="IP">数据库IP，用户输入</param>
+        /// <returns></returns>
+        public bool Link_DB(string IP)
         {
-
+            return dealDAL.Link_DB(IP);
         }
+
     }
 }

@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DealDAL
     {
-        private static string Sql_Con_Str = "server=localhost;database=StuInfoDB;user id=sa;pwd=sa";
+        public static string Sql_Con_Str = "database=StuInfoDB;user id=sa;pwd=sa;";
         /// <summary>
         /// 判断输入的用户名和密码是否匹配，匹配返回true
         /// </summary>
@@ -63,6 +63,29 @@ namespace DAL
                 }
             }
         }
+        /// <summary>
+        /// 数据库连接测试，成功返回true
+        /// </summary>
+        /// <param name="IP">数据库IP，用户输入</param>
+        /// <returns></returns>
+        public bool Link_DB(string IP)
+        {
+            Sql_Con_Str = "server=" + IP + ";" + Sql_Con_Str;
+            try
+            {
+                SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+                Conn.Open();
+                Conn.Dispose();
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                return false;
+            }
+
+        }
+
+
 
 
     }

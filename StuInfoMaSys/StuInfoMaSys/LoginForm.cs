@@ -36,11 +36,17 @@ namespace StuInfoMaSys
         {
             string name = NametextBox.Text.Trim();
             string password = PasswordtextBox.Text.Trim();
+            string IP = IPtextBox.Text.Trim();
             string id = "";
             string identify = "", college = "", grade = "";
             if (name == "" || password == "")
             {
                 MessageBox.Show("缺少用户名或密码!");
+                return;
+            }
+            if (!dealBLL.Link_DB(IP))
+            {
+                MessageBox.Show("数据库连接失败！");
                 return;
             }
             if (dealBLL.Log_In(name, password, out id, out identify, out college, out grade)) // 查询登陆

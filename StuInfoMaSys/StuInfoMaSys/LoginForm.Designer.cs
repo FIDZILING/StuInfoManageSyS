@@ -132,6 +132,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "LoginForm";
+            this.ShowIcon = false;
             this.Text = "登陆";
             this.ResumeLayout(false);
             this.PerformLayout();
