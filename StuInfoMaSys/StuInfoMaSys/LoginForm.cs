@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace StuInfoMaSys
 {
     public partial class LoginForm : Form
     {
+        private BLL.DealBLL dealBLL = new DealBLL();
         public LoginForm()
         {
             InitializeComponent();
@@ -34,13 +36,16 @@ namespace StuInfoMaSys
         {
             string name = NametextBox.Text.Trim();
             string password = PasswordtextBox.Text.Trim();
+            string id = "";
+            string identify = "", college = "", grade = "";
             if (name == "" || password == "")
             {
                 MessageBox.Show("缺少用户名或密码!");
                 return;
             }
-            if (true) // 查询登陆
+            if (dealBLL.Log_In(name, password, out id, out identify, out college, out grade)) // 查询登陆
             {
+                StuInfoMaSys.Program.programleader = new Model.Leader(id, name, password, identify, college, grade);
                 this.DialogResult = DialogResult.OK;
             }
             else

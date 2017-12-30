@@ -13,10 +13,21 @@ namespace StuInfoMaSys
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        /// <summary>
+        /// 领导者信息
+        /// </summary>
+        private Leader leader;
+
+        public MainForm(Leader leader)
         {
+            this.leader = leader;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            label1.Text = leader.ID + leader.Name + leader.Password + leader.Identify + leader.College + leader.Grade;
         }
     }
 }

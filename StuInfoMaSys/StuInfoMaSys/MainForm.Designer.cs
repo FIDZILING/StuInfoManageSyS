@@ -47,6 +47,7 @@
             this.ClubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddClubInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.QueryClubInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.AddClubPeoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.QueryClubPeoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteClubPeoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,7 @@
             this.ChangePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -192,31 +193,36 @@
             // AddClubInfoToolStripMenuItem
             // 
             this.AddClubInfoToolStripMenuItem.Name = "AddClubInfoToolStripMenuItem";
-            this.AddClubInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.AddClubInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.AddClubInfoToolStripMenuItem.Text = "添加社团信息";
             // 
             // QueryClubInfoToolStripMenuItem
             // 
             this.QueryClubInfoToolStripMenuItem.Name = "QueryClubInfoToolStripMenuItem";
-            this.QueryClubInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.QueryClubInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.QueryClubInfoToolStripMenuItem.Text = "查询社团信息";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(171, 6);
             // 
             // AddClubPeoToolStripMenuItem
             // 
             this.AddClubPeoToolStripMenuItem.Name = "AddClubPeoToolStripMenuItem";
-            this.AddClubPeoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.AddClubPeoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.AddClubPeoToolStripMenuItem.Text = "添加社团成员";
             // 
             // QueryClubPeoToolStripMenuItem
             // 
             this.QueryClubPeoToolStripMenuItem.Name = "QueryClubPeoToolStripMenuItem";
-            this.QueryClubPeoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.QueryClubPeoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.QueryClubPeoToolStripMenuItem.Text = "查询社团成员";
             // 
             // DeleteClubPeoToolStripMenuItem
             // 
             this.DeleteClubPeoToolStripMenuItem.Name = "DeleteClubPeoToolStripMenuItem";
-            this.DeleteClubPeoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.DeleteClubPeoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.DeleteClubPeoToolStripMenuItem.Text = "删除社团成员";
             // 
             // OtherToolStripMenuItem
@@ -246,22 +252,28 @@
             this.AboutToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.AboutToolStripMenuItem.Text = "关于";
             // 
-            // toolStripSeparator4
+            // label1
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(178, 6);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(162, 182);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 524);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.Text = "本科生信息关系系统";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -298,5 +310,6 @@
         private System.Windows.Forms.ToolStripMenuItem AlterStuFamInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem QueryStuFamInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.Label label1;
     }
 }

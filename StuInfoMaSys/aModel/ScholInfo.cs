@@ -11,7 +11,7 @@ namespace Model
     /// </summary>
     public class ScholInfo
     {
-        ScholInfo(int id, string studentID, string type, string level, DateTime day)
+        public ScholInfo(int id, string studentID, string type, string level, DateTime day)
         {
             this.id = id;
             this.studentID = studentID;
@@ -19,7 +19,7 @@ namespace Model
             this.level = level;
             this.day = day;
         }
-        ScholInfo(string studentID, string type, string level, DateTime day)
+        public ScholInfo(string studentID, string type, string level, DateTime day)
         {
             this.studentID = studentID;
             this.type = type;

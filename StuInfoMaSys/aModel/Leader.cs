@@ -11,16 +11,20 @@ namespace Model
     /// </summary>
     public class Leader
     {
-        Leader(int id, string name, string passward, string identify, string college, string grade)
+        public Leader(string id, string name, string passward, string identify, string college, string grade)
         {
-            ID = id;
+            this.id = id;
             this.name = name;
             this.passward = passward;
             this.identify = identify;
             this.college = college;
             this.grade = grade;
         }
-        private int ID;
+        private string id;
+        public string ID
+        {
+            get { return id; }
+        }
         private string name;
         /// <summary>
         /// 用户名
