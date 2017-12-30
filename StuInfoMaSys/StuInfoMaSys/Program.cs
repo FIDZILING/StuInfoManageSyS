@@ -16,7 +16,15 @@ namespace StuInfoMaSys
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            LoginForm loginForm = new LoginForm
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            }; // 登陆窗体
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new MainForm());
+            }
+
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace StuInfoMaSys
 {
-    partial class Login
+    partial class LoginForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -113,8 +113,9 @@
             this.Quitbutton.UseVisualStyleBackColor = true;
             this.Quitbutton.Click += new System.EventHandler(this.Quitbutton_Click);
             // 
-            // Login
+            // LoginForm
             // 
+            this.AcceptButton = this.Loginbutton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 353);
@@ -130,7 +131,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.Name = "Login";
+            this.Name = "LoginForm";
             this.Text = "登陆";
             this.ResumeLayout(false);
             this.PerformLayout();
