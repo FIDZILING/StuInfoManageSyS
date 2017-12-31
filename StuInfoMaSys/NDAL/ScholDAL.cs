@@ -12,6 +12,7 @@ namespace DAL
     public class ScholDAL
     {
         private static string Sql_Con_Str = DealDAL.Sql_Con_Str;
+
         /// <summary>
         /// 查找有无相同的奖学金类型
         /// </summary>
@@ -48,6 +49,7 @@ namespace DAL
                     Conn.Dispose();
             }
         }
+
         /// <summary>
         /// 查找最后一行的数据编号ScholType,返回需要的ScholType
         /// </summary>
@@ -77,7 +79,13 @@ namespace DAL
                 //读取错误？
                 return "null";
             }
+            finally
+            {
+                if (Conn != null)
+                    Conn.Dispose();
+            }
         }
+
         /// <summary>
         /// 添加奖学金类型
         /// </summary>
@@ -108,7 +116,13 @@ namespace DAL
             {
                 return false;
             }
+            finally
+            {
+                if (conn != null)
+                    conn.Dispose();
+            }
         }
+
         /// <summary>
         /// 添加奖学金信息
         /// </summary>
@@ -119,24 +133,26 @@ namespace DAL
         /// <returns></returns>
         public bool Add_ScholInfo(string StdNo, string ScholType, string ScholLevel, string Day)
         {
-            StringBuilder Sql_Str = new StringBuilder();
-            Sql_Str.Append("insert");
-            Sql_Str.Append(" into dbo.ScholarshipInfo(StdNo,ScholType,ScholLevel,Day)");
-            Sql_Str.Append(" values(@StdNo,@ScholType,@ScholLevel,@Day)");
-            SqlParameter[] Paras =
+            StringBuilder sqlStr = new StringBuilder();
+            sqlStr.Append("insert into dbo.ScholarshipInfo (StdNo,ScholType,ScholLevel,Day) values (@StdNo,@ScholType,@ScholLevel,@Day)");
+            SqlParameter[] param = 
                 {
                     new SqlParameter("@StdNo",StdNo),
                     new SqlParameter("@ScholType",ScholType),
                     new SqlParameter("@ScholLevel",ScholLevel),
                     new SqlParameter("@Day",Day)
-                };
-            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+                 };
+            SqlConnection conn = null;
             try
             {
-                Conn.Open();
-                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
-                Cmd.Parameters.AddRange(Paras);
-                return true;
+                conn = new SqlConnection(Sql_Con_Str);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr.ToString(), conn);
+                cmd.Parameters.AddRange(param);
+                if ((int)cmd.ExecuteNonQuery() == 1)
+                    return true;
+                else
+                    return false;
             }
             catch (Exception ex)
             {
@@ -144,10 +160,8 @@ namespace DAL
             }
             finally
             {
-                if (Conn != null)
-                {
-                    Conn.Dispose();
-                }
+                if (conn != null)
+                    conn.Dispose();
             }
         }
 
@@ -259,7 +273,11 @@ namespace DAL
         public DataTable Find_AllInfo()
         {
             StringBuilder Sql_Str = new StringBuilder();
-            Sql_Str.Append("select * from dbo.ScholarshipInfo");
+            Sql_Str.Append("select dbo.ScholarshipInfo.ID,dbo.ScholarshipInfo.StdNo,");
+            Sql_Str.Append("dbo.ScholType.ScholChar,");
+            Sql_Str.Append("dbo.ScholarshipInfo.ScholLevel,dbo.ScholarshipInfo.Day");
+            Sql_Str.Append(" from dbo.ScholarshipInfo,dbo.ScholType");
+            Sql_Str.Append(" where dbo.ScholarshipInfo.ScholType=dbo.ScholType.ScholType");
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
