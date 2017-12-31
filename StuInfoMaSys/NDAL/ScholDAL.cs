@@ -166,7 +166,7 @@ namespace DAL
         }
 
         /// <summary>
-        /// 通过学号查找奖学金信息
+        /// 通过学号查找奖学金信息（模糊查询）
         /// </summary>
         /// <param name="StdNo">学号</param>
         /// <returns></returns>

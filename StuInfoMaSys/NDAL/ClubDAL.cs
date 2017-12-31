@@ -169,5 +169,190 @@ namespace DAL
                     Conn.Dispose();
             }
         }
+
+        /// <summary>
+        /// 查询社团信息总表,返回DataTable
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Find_ALLInfo()
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("select * from dbo.ClubInfo");
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 查询社团成员总表,返回DataTable
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Find_ALLPeo()
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("select dbo.ClubPeople.ID,");
+            Sql_Str.Append("dbo.ClubInfo.ClubName,");
+            Sql_Str.Append("dbo.ClubPeople.StuNo,dbo.ClubPeople.ClubPost");
+            Sql_Str.Append(" from dbo.ClubPeople,dbo.ClubInfo");
+            Sql_Str.Append(" where dbo.ClubPeople.ClubNum=dbo.ClubInfo.ClubNum");
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 通过社团名称查询社团信息（模糊查询）
+        /// </summary>
+        /// <param name="ClubName">社团名</param>
+        /// <returns></returns>
+        public DataTable Find_ClubInfoByClubName(string ClubName)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            //模糊查询
+            ClubName = "%" + ClubName + "%";
+            Sql_Str.Append("select * from dbo.ClubInfo");
+            Sql_Str.Append(" where ClubName like @ClubName");
+            SqlParameter Param = new SqlParameter("@ClubName", ClubName);
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 通过社团名称查询社团成员的信息（模糊查询）
+        /// </summary>
+        /// <param name="ClubName"></param>
+        /// <returns></returns>
+        public DataTable Find_ClubPeoByClubName(string ClubName)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            //模糊查询
+            ClubName = "%" + ClubName + "%";
+            Sql_Str.Append("select dbo.ClubPeople.ID,");
+            Sql_Str.Append("dbo.ClubInfo.ClubName,");
+            Sql_Str.Append("dbo.ClubPeople.StuNo,dbo.ClubPeople.ClubPost");
+            Sql_Str.Append(" from dbo.ClubPeople,dbo.ClubInfo");
+            Sql_Str.Append(" where dbo.ClubPeople.ClubNum=dbo.ClubInfo.ClubNum and ClubPeople.ClubNum in");
+            Sql_Str.Append(" (select ClubNum from dbo.ClubInfo");
+            Sql_Str.Append(" where ClubName like @ClubName)");
+           SqlParameter Param = new SqlParameter("@ClubName", ClubName);
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 通过学号查询社团成员信息（模糊查询）
+        /// </summary>
+        /// <param name="StuNo"></param>
+        /// <returns></returns>
+        public DataTable Find_ClubPeoByStuNo(string StuNo)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            //模糊查询
+            StuNo = "%" + StuNo + "%";
+            Sql_Str.Append("select dbo.ClubPeople.ID,");
+            Sql_Str.Append("dbo.ClubInfo.ClubName,");
+            Sql_Str.Append("dbo.ClubPeople.StuNo,dbo.ClubPeople.ClubPost");
+            Sql_Str.Append(" from dbo.ClubPeople,dbo.ClubInfo");
+            Sql_Str.Append(" where dbo.ClubPeople.ClubNum=dbo.ClubInfo.ClubNum and StuNo like @StuNo");
+            SqlParameter Paras = new SqlParameter("@StuNo", StuNo);
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Paras);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
     }
 }

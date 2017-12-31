@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using System.Data;
 
 namespace BLL
 {
@@ -37,6 +38,54 @@ namespace BLL
             if (clubDAL.Cherk_ClubPeo(ClubNum,StuNo))
                 return false;//存在该社团名
             return clubDAL.Add_ClubPeo(ClubNum, StuNo, ClubPost);
+        }
+
+        /// <summary>
+        /// 查询社团信息总表
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Find_ALLInfo()
+        {
+            return clubDAL.Find_ALLInfo();
+        }
+
+        /// <summary>
+        /// 查询社团成员信息总表
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Find_ALLPeo()
+        {
+            return clubDAL.Find_ALLPeo();
+        }
+
+        /// <summary>
+        /// 通过社团名称查询社团信息
+        /// </summary>
+        /// <param name="ClubName"></param>
+        /// <returns></returns>
+        public DataTable Find_ClubInfoByClubName(string ClubName)
+        {
+            return clubDAL.Find_ClubInfoByClubName(ClubName);
+        }
+
+        /// <summary>
+        /// 通过社团名称查询社团成员的信息
+        /// </summary>
+        /// <param name="ClubName"></param>
+        /// <returns></returns>
+        public DataTable Find_ClubPeoByClubName(string ClubName)
+        {
+            return clubDAL.Find_ClubPeoByClubName(ClubName);
+        }
+
+        /// <summary>
+        /// 通过学号查询社团成员信息
+        /// </summary>
+        /// <param name="StuNo"></param>
+        /// <returns></returns>
+        public DataTable Find_ClubPeoByStuNo(String StuNo)
+        {
+            return clubDAL.Find_ClubPeoByStuNo(StuNo);
         }
     }
 }
