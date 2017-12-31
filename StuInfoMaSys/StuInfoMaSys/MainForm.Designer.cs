@@ -185,6 +185,7 @@
             this.QueryScholInfoToolStripMenuItem.Name = "QueryScholInfoToolStripMenuItem";
             this.QueryScholInfoToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.QueryScholInfoToolStripMenuItem.Text = "查询奖学金信息";
+            this.QueryScholInfoToolStripMenuItem.Click += new System.EventHandler(this.QueryScholInfoToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -471,6 +472,7 @@
             this.QueryScholInfobutton.TabIndex = 8;
             this.QueryScholInfobutton.Text = "查询奖学金信息";
             this.QueryScholInfobutton.UseVisualStyleBackColor = true;
+            this.QueryScholInfobutton.Click += new System.EventHandler(this.QueryScholInfobutton_Click);
             // 
             // groupBox1
             // 

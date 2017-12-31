@@ -135,7 +135,7 @@ namespace DAL
         {
             StringBuilder sqlStr = new StringBuilder();
             sqlStr.Append("insert into dbo.ScholarshipInfo (StdNo,ScholType,ScholLevel,Day) values (@StdNo,@ScholType,@ScholLevel,@Day)");
-            SqlParameter[] param = 
+            SqlParameter[] param =
                 {
                     new SqlParameter("@StdNo",StdNo),
                     new SqlParameter("@ScholType",ScholType),
@@ -173,11 +173,12 @@ namespace DAL
         public DataTable Find_ScholInfoByStdNo(string StdNo)
         {
             StringBuilder Sql_Str = new StringBuilder();
+            StdNo = "%" + StdNo + "%";
             Sql_Str.Append("select dbo.ScholarshipInfo.ID,dbo.ScholarshipInfo.StdNo,");
             Sql_Str.Append("dbo.ScholType.ScholChar,");
             Sql_Str.Append("dbo.ScholarshipInfo.ScholLevel,dbo.ScholarshipInfo.Day");
             Sql_Str.Append(" from dbo.ScholarshipInfo,dbo.ScholType");
-            Sql_Str.Append(" where dbo.ScholarshipInfo.ScholType=dbo.ScholType.ScholType and StdNo like %@StdNo%");
+            Sql_Str.Append(" where dbo.ScholarshipInfo.ScholType=dbo.ScholType.ScholType and StdNo like @StdNo");
             SqlParameter Paras = new SqlParameter("@StdNo", StdNo);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try

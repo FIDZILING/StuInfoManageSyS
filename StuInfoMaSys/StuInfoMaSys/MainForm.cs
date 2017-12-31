@@ -124,5 +124,31 @@ namespace StuInfoMaSys
             };
             addScholInfoForm.Show();
         }
+        /// <summary>
+        /// 查询奖学金信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryScholInfobutton_Click(object sender, EventArgs e)
+        {
+            QueryScholInfoForm queryScholInfoForm = new QueryScholInfoForm(this.leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryScholInfoForm.Show();
+        }
+        /// <summary>
+        /// 查询奖学金信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryScholInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QueryScholInfoForm queryScholInfoForm = new QueryScholInfoForm(this.leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryScholInfoForm.Show();
+        }
     }
 }

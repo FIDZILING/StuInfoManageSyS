@@ -28,7 +28,7 @@ namespace StuInfoMaSys.Scholarship
             // 颜色交替
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.White;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(224, 254, 254);
-            dataGridView1.ReadOnly = true;
+            dataGridView1.ReadOnly = true; // 设置只读
             try
             {
                 this.dataGridView1.DataSource = scholBLL.Find_AllType();

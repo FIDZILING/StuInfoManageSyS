@@ -17,7 +17,7 @@ namespace StuInfoMaSys.Scholarship
         private Leader leader;
         private ScholBLL scholBLL = new ScholBLL();
         /// <summary>
-        /// 类型列表
+        /// 奖学金类型列表
         /// </summary>
         private DataTable typedataTable;
         public AddScholInfoForm(Leader leader)
