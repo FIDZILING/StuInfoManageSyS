@@ -13,7 +13,7 @@ namespace DAL
     {
         private static string Sql_Con_Str = DealDAL.Sql_Con_Str;
         /// <summary>
-        /// 判断是否为可插入的奖学金类型
+        /// 查找有无相同的奖学金类型
         /// </summary>
         /// <param name="Type">类型名称</param>
         /// <returns></returns>
@@ -32,64 +32,22 @@ namespace DAL
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
-                //先判断是否有该奖学金类型，没有再添加
-                if (Data_Table.Rows.Count == 0)
-                    //插入信息
-                    return Add_ScholType(S_Char);
-                else
-                    //返回错误信息，存在该奖学金信息
-                    return false;
 
+                if (Data_Table.Rows.Count == 0)
+                    return false;
+                else
+                    return true; // 不为零，存在此奖学金
             }
             catch (Exception ex)
             {
-                return false;
+                return true;
             }
             finally
             {
                 if (Conn != null)
-                {
                     Conn.Dispose();
-                }
             }
-
         }
-
-        /// <summary>
-        /// 添加奖学金类型
-        /// </summary>
-        /// <param name="S_Char">奖学金类型</param>
-        /// <returns></returns>
-        public bool Add_ScholType(string S_Char)
-        {
-            StringBuilder Sql_Str = new StringBuilder();
-            //ScholType导入
-            string S_Type = Find_LastScholType();
-            if (S_Type != "null")
-            {
-                Sql_Str.Append("insert into dbo.ScholType values (@ScholType,@ScholChar)");
-                SqlParameter[] Paras =
-                    {
-                    new SqlParameter("@ScholType",S_Type),
-                    new SqlParameter("@ScholChar",S_Char)
-                };
-                SqlConnection Conn = new SqlConnection(Sql_Con_Str);
-                try
-                {
-                    Conn.Open();
-                    SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
-                    Cmd.Parameters.AddRange(Paras);
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    return false;
-                }
-            }
-            else
-                return false;
-        }
-
         /// <summary>
         /// 查找最后一行的数据编号ScholType,返回需要的ScholType
         /// </summary>
@@ -120,7 +78,37 @@ namespace DAL
                 return "null";
             }
         }
-
+        /// <summary>
+        /// 添加奖学金类型
+        /// </summary>
+        /// <param name="S_Type">奖学金代码</param>
+        /// <param name="S_Char">奖学金类型</param>
+        /// <returns></returns>
+        public bool Add_ScholType(string S_Type, string S_Char)
+        {
+            StringBuilder sqlStr = new StringBuilder();
+            sqlStr.Append("insert into dbo.ScholType (ScholType,ScholChar) values (@ID,@SChar)");
+            SqlParameter[] param = {
+                new SqlParameter("@ID",S_Type),
+                new SqlParameter("@SChar",S_Char)
+            };
+            SqlConnection conn = null;
+            try
+            {
+                conn = new SqlConnection(Sql_Con_Str);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr.ToString(), conn);
+                cmd.Parameters.AddRange(param);
+                if ((int)cmd.ExecuteNonQuery() == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         /// <summary>
         /// 添加奖学金信息
         /// </summary>

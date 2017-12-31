@@ -62,7 +62,7 @@ namespace StuInfoMaSys.Scholarship
             }
             if (MessageBox.Show("确定添加 " + scholchar + "？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
-                if (scholBLL.Cherk_ScholType(scholchar))
+                if (scholBLL.Add_ScholType(scholchar))
                     MessageBox.Show("添加成功！");
                 else
                     MessageBox.Show("添加失败！");

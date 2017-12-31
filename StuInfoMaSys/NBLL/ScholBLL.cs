@@ -17,9 +17,14 @@ namespace BLL
         /// </summary>
         /// <param name="S_Char">奖学金类型</param>
         /// <returns></returns>
-        public bool Cherk_ScholType(string S_Char)
+        public bool Add_ScholType(string S_Char)
         {
-            return scholDAL.Cherk_ScholType(S_Char);
+            if (scholDAL.Cherk_ScholType(S_Char))
+                return false; // 存在此奖学金
+            string type = scholDAL.Find_LastScholType();
+            if (type.Equals("null"))
+                return false; // 获取不到最后一行奖学金类型
+            return scholDAL.Add_ScholType(type, S_Char);
         }
 
         /// <summary>
