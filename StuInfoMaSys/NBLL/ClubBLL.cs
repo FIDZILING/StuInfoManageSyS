@@ -95,7 +95,7 @@ namespace BLL
         /// <param name="ClubTeach">社团指导老师</param>
         /// <param name="TeacherTel">指导老师电话</param>
         /// <returns></returns>
-        public DataTable Change_ClubInfoByClubNum(string ClubNum, string ClubTeach, string TeacherTel)
+        public bool Change_ClubInfoByClubNum(string ClubNum, string ClubTeach, string TeacherTel)
         {
             return clubDAL.Change_ClubInfoByClubNum(ClubNum, ClubTeach, TeacherTel);
         }
@@ -106,9 +106,19 @@ namespace BLL
         /// <param name="ID">编号</param>
         /// <param name="ClubPost">社团职务</param>
         /// <returns></returns>
-        public DataTable Change_ClubPeoByID(string ID, string ClubPost)
+        public bool Change_ClubPeoByID(string ID, string ClubPost)
         {
             return clubDAL.Change_ClubPeoByID(ID, ClubPost);
+        }
+
+        /// <summary>
+        /// 通过ID删除该元组的社团信息
+        /// </summary>
+        /// <param name="ID">编号</param>
+        /// <returns></returns>
+        public bool DEL_ClubPeoByID(string ID)
+        {
+            return clubDAL.DEL_ClubPeoByID(ID);
         }
     }
 }

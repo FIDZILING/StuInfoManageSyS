@@ -362,7 +362,7 @@ namespace DAL
         /// <param name="ClubTeach">社团指导老师</param>
         /// <param name="TeacherTel">指导老师电话</param>
         /// <returns></returns>
-        public DataTable Change_ClubInfoByClubNum(string ClubNum, string ClubTeach, string TeacherTel)
+        public bool Change_ClubInfoByClubNum(string ClubNum, string ClubTeach, string TeacherTel)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("update dbo.ClubInfo");
@@ -379,14 +379,14 @@ namespace DAL
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
                 Cmd.Parameters.AddRange(Paras);
-                DataTable Data_Table = new DataTable();
-                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                Data_Table.Load(dr);
-                return Data_Table;
+                if ((int)Cmd.ExecuteNonQuery() == 1)
+                    return true;
+                else
+                    return false;
             }
             catch (Exception ex)
             {
-                return null;
+                return false;
             }
             finally
             {
@@ -403,7 +403,7 @@ namespace DAL
         /// <param name="ID">编号</param>
         /// <param name="ClubPost">社团职务</param>
         /// <returns></returns>
-        public DataTable Change_ClubPeoByID(string ID, string ClubPost)
+        public bool Change_ClubPeoByID(string ID, string ClubPost)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("update dbo.ClubPeople");
@@ -419,14 +419,49 @@ namespace DAL
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
                 Cmd.Parameters.AddRange(Paras);
-                DataTable Data_Table = new DataTable();
-                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                Data_Table.Load(dr);
-                return Data_Table;
+                if ((int)Cmd.ExecuteNonQuery() == 1)
+                    return true;
+                else
+                    return false;
             }
             catch (Exception ex)
             {
-                return null;
+                return false;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 通过ID删除该元组的社团信息
+        /// </summary>
+        /// <param name="ID">编号</param>
+        /// <returns></returns>
+        public bool DEL_ClubPeoByID(string ID)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("delete from dbo.ClubPeople");
+            Sql_Str.Append(" where ID=@ID");
+            SqlParameter Param = new SqlParameter("@ID", ID);
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
+                if ((int)Cmd.ExecuteNonQuery() == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
             finally
             {
