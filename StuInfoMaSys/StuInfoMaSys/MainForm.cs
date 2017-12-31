@@ -203,5 +203,57 @@ namespace StuInfoMaSys
             };
             addClubInfoForm.Show();
         }
+        /// <summary>
+        /// 查询社团人员
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryClubPeobutton_Click(object sender, EventArgs e)
+        {
+            QueryClubPeoForm queryClubPeoForm = new QueryClubPeoForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryClubPeoForm.Show();
+        }
+        /// <summary>
+        /// 查询社团人员
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryClubPeoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QueryClubPeoForm queryClubPeoForm = new QueryClubPeoForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryClubPeoForm.Show();
+        }
+        /// <summary>
+        /// 添加社团成员
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddClubPeobutton_Click(object sender, EventArgs e)
+        {
+            AddClubPeoForm addClubPeoForm = new AddClubPeoForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            addClubPeoForm.Show();
+        }
+        /// <summary>
+        /// 添加社团成员
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddClubPeoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddClubPeoForm addClubPeoForm = new AddClubPeoForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            addClubPeoForm.Show();
+        }
     }
 }

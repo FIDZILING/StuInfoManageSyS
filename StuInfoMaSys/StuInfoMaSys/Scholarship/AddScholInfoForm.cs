@@ -46,7 +46,11 @@ namespace StuInfoMaSys.Scholarship
             for (int i = 0; i < typedataTable.Rows.Count; i++)
                 TypecomboBox.Items.Add(typedataTable.Rows[i][1].ToString());
         }
-
+        /// <summary>
+        /// 添加奖学金信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddScholInfobutton_Click(object sender, EventArgs e)
         {
             string StuNo = StuNotextBox.Text.Trim();
@@ -73,9 +77,7 @@ namespace StuInfoMaSys.Scholarship
                     this.Close();
             }
             else
-            {
                 MessageBox.Show("添加失败！");
-            }
         }
     }
 }

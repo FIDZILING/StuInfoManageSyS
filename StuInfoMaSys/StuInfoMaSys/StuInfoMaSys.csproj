@@ -51,11 +51,23 @@
     <Compile Include="Club\AddClubInfoForm.Designer.cs">
       <DependentUpon>AddClubInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Club\AddClubPeoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Club\AddClubPeoForm.Designer.cs">
+      <DependentUpon>AddClubPeoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Club\QueryClubInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Club\QueryClubInfoForm.Designer.cs">
       <DependentUpon>QueryClubInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Club\QueryClubPeoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Club\QueryClubPeoForm.Designer.cs">
+      <DependentUpon>QueryClubPeoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -92,8 +104,14 @@
     <EmbeddedResource Include="Club\AddClubInfoForm.resx">
       <DependentUpon>AddClubInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Club\AddClubPeoForm.resx">
+      <DependentUpon>AddClubPeoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Club\QueryClubInfoForm.resx">
       <DependentUpon>QueryClubInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Club\QueryClubPeoForm.resx">
+      <DependentUpon>QueryClubPeoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

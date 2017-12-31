@@ -153,13 +153,13 @@
             // AddRPInfoToolStripMenuItem
             // 
             this.AddRPInfoToolStripMenuItem.Name = "AddRPInfoToolStripMenuItem";
-            this.AddRPInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.AddRPInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.AddRPInfoToolStripMenuItem.Text = "添加奖惩信息";
             // 
             // QueryRPInfoToolStripMenuItem
             // 
             this.QueryRPInfoToolStripMenuItem.Name = "QueryRPInfoToolStripMenuItem";
-            this.QueryRPInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.QueryRPInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.QueryRPInfoToolStripMenuItem.Text = "查询奖惩信息";
             // 
             // ScholarshipToolStripMenuItem
@@ -214,33 +214,35 @@
             // AddClubInfoToolStripMenuItem
             // 
             this.AddClubInfoToolStripMenuItem.Name = "AddClubInfoToolStripMenuItem";
-            this.AddClubInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.AddClubInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.AddClubInfoToolStripMenuItem.Text = "添加社团信息";
             this.AddClubInfoToolStripMenuItem.Click += new System.EventHandler(this.AddClubInfoToolStripMenuItem_Click);
             // 
             // QueryClubInfoToolStripMenuItem
             // 
             this.QueryClubInfoToolStripMenuItem.Name = "QueryClubInfoToolStripMenuItem";
-            this.QueryClubInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.QueryClubInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.QueryClubInfoToolStripMenuItem.Text = "查询社团信息";
             this.QueryClubInfoToolStripMenuItem.Click += new System.EventHandler(this.QueryClubInfoToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(178, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(171, 6);
             // 
             // AddClubPeoToolStripMenuItem
             // 
             this.AddClubPeoToolStripMenuItem.Name = "AddClubPeoToolStripMenuItem";
             this.AddClubPeoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.AddClubPeoToolStripMenuItem.Text = "添加社团成员";
+            this.AddClubPeoToolStripMenuItem.Click += new System.EventHandler(this.AddClubPeoToolStripMenuItem_Click);
             // 
             // QueryClubPeoToolStripMenuItem
             // 
             this.QueryClubPeoToolStripMenuItem.Name = "QueryClubPeoToolStripMenuItem";
-            this.QueryClubPeoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.QueryClubPeoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.QueryClubPeoToolStripMenuItem.Text = "查询社团成员";
+            this.QueryClubPeoToolStripMenuItem.Click += new System.EventHandler(this.QueryClubPeoToolStripMenuItem_Click);
             // 
             // OtherToolStripMenuItem
             // 
@@ -255,18 +257,18 @@
             // AlterPasswordToolStripMenuItem
             // 
             this.AlterPasswordToolStripMenuItem.Name = "AlterPasswordToolStripMenuItem";
-            this.AlterPasswordToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.AlterPasswordToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.AlterPasswordToolStripMenuItem.Text = "修改密码";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(178, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
             // 
             // AboutToolStripMenuItem
             // 
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.AboutToolStripMenuItem.Text = "关于";
             // 
             // lowestLeveltableLayoutPanel
@@ -403,6 +405,7 @@
             this.QueryClubPeobutton.TabIndex = 10;
             this.QueryClubPeobutton.Text = "查询社团成员";
             this.QueryClubPeobutton.UseVisualStyleBackColor = true;
+            this.QueryClubPeobutton.Click += new System.EventHandler(this.QueryClubPeobutton_Click);
             // 
             // AddClubPeobutton
             // 
@@ -412,6 +415,7 @@
             this.AddClubPeobutton.TabIndex = 9;
             this.AddClubPeobutton.Text = "添加社团成员";
             this.AddClubPeobutton.UseVisualStyleBackColor = true;
+            this.AddClubPeobutton.Click += new System.EventHandler(this.AddClubPeobutton_Click);
             // 
             // QueryClubInfobutton
             // 

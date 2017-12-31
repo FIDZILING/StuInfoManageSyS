@@ -94,7 +94,8 @@ namespace StuInfoMaSys.Club
                 MessageBox.Show("请输入第" + (seIndex + 1).ToString() + "行数据");
                 return;
             }
-            if (dataGridView1.Rows[seIndex].Cells[3].Value.ToString().Length != 11)
+            if (dataGridView1.Rows[seIndex].Cells[3].Value.ToString().Length != 11
+                && dataGridView1.Rows[seIndex].Cells[3].Value.ToString().Length != 0)
             {
                 MessageBox.Show("电话号码位数不对！");
                 return;
