@@ -153,8 +153,9 @@
             // AddRPInfoToolStripMenuItem
             // 
             this.AddRPInfoToolStripMenuItem.Name = "AddRPInfoToolStripMenuItem";
-            this.AddRPInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.AddRPInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.AddRPInfoToolStripMenuItem.Text = "添加奖惩信息";
+            this.AddRPInfoToolStripMenuItem.Click += new System.EventHandler(this.AddRPInfoToolStripMenuItem_Click);
             // 
             // QueryRPInfoToolStripMenuItem
             // 
@@ -233,7 +234,7 @@
             // AddClubPeoToolStripMenuItem
             // 
             this.AddClubPeoToolStripMenuItem.Name = "AddClubPeoToolStripMenuItem";
-            this.AddClubPeoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.AddClubPeoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.AddClubPeoToolStripMenuItem.Text = "添加社团成员";
             this.AddClubPeoToolStripMenuItem.Click += new System.EventHandler(this.AddClubPeoToolStripMenuItem_Click);
             // 
@@ -380,6 +381,7 @@
             this.AddRPInfobutton.TabIndex = 10;
             this.AddRPInfobutton.Text = "添加奖惩信息";
             this.AddRPInfobutton.UseVisualStyleBackColor = true;
+            this.AddRPInfobutton.Click += new System.EventHandler(this.AddRPInfobutton_Click);
             // 
             // groupBox3
             // 

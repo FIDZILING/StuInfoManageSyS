@@ -83,11 +83,11 @@ namespace StuInfoMaSys.Club
             {
                 if (clubBLL.DEL_ClubPeoByID(dataGridView1.Rows[seIndex].Cells[0].Value.ToString()))
                 {
-                    MessageBox.Show("修改成功！");
+                    MessageBox.Show("删除成功！");
                     this.QueryClubPeoForm_Load(sender, e);
                 }
                 else
-                    MessageBox.Show("修改失败！");
+                    MessageBox.Show("删除失败！");
             }
         }
         /// <summary>

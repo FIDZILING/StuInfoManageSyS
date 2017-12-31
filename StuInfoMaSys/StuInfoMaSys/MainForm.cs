@@ -1,5 +1,6 @@
 ﻿using Model;
 using StuInfoMaSys.Club;
+using StuInfoMaSys.RewardPunishment;
 using StuInfoMaSys.Scholarship;
 using System;
 using System.Collections.Generic;
@@ -254,6 +255,32 @@ namespace StuInfoMaSys
                 StartPosition = FormStartPosition.CenterScreen
             };
             addClubPeoForm.Show();
+        }
+        /// <summary>
+        /// 添加奖惩信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddRPInfobutton_Click(object sender, EventArgs e)
+        {
+            AddRPForm addRPForm = new AddRPForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            addRPForm.Show();
+        }
+        /// <summary>
+        /// 添加奖惩信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddRPInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRPForm addRPForm = new AddRPForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            addRPForm.Show();
         }
     }
 }

@@ -83,6 +83,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RewardPunishment\AddRPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RewardPunishment\AddRPForm.Designer.cs">
+      <DependentUpon>AddRPForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RewardPunishment\QueryRPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RewardPunishment\QueryRPForm.Designer.cs">
+      <DependentUpon>QueryRPForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scholarship\AddScholInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +140,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RewardPunishment\AddRPForm.resx">
+      <DependentUpon>AddRPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RewardPunishment\QueryRPForm.resx">
+      <DependentUpon>QueryRPForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Scholarship\AddScholInfoForm.resx">
       <DependentUpon>AddScholInfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,7 +179,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="RewardPunishment\" />
     <Folder Include="StudentInfo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
