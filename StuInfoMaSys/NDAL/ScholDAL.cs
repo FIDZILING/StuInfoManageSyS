@@ -131,7 +131,7 @@ namespace DAL
         /// <param name="ScholLevel">奖学金等级</param>
         /// <param name="Day">奖学金获取时间</param>
         /// <returns></returns>
-        public bool Add_ScholInfo(string StdNo, string ScholType, string ScholLevel, string Day)
+        public bool Add_ScholInfo(string StdNo, string ScholType, string ScholLevel, DateTime Day)
         {
             StringBuilder sqlStr = new StringBuilder();
             sqlStr.Append("insert into dbo.ScholarshipInfo (StdNo,ScholType,ScholLevel,Day) values (@StdNo,@ScholType,@ScholLevel,@Day)");
