@@ -50,7 +50,7 @@
             this.QueryClubInfobutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.QueryClubInfobutton.Name = "QueryClubInfobutton";
             this.QueryClubInfobutton.Size = new System.Drawing.Size(112, 32);
-            this.QueryClubInfobutton.TabIndex = 7;
+            this.QueryClubInfobutton.TabIndex = 2;
             this.QueryClubInfobutton.Text = "查询";
             this.QueryClubInfobutton.UseVisualStyleBackColor = true;
             this.QueryClubInfobutton.Click += new System.EventHandler(this.QueryClubInfobutton_Click);
@@ -61,7 +61,7 @@
             this.AddClubInfobutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddClubInfobutton.Name = "AddClubInfobutton";
             this.AddClubInfobutton.Size = new System.Drawing.Size(112, 32);
-            this.AddClubInfobutton.TabIndex = 10;
+            this.AddClubInfobutton.TabIndex = 2;
             this.AddClubInfobutton.Text = "添加";
             this.AddClubInfobutton.UseVisualStyleBackColor = true;
             this.AddClubInfobutton.Click += new System.EventHandler(this.AddClubInfobutton_Click);
@@ -73,7 +73,7 @@
             this.Returnbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Returnbutton.Name = "Returnbutton";
             this.Returnbutton.Size = new System.Drawing.Size(112, 32);
-            this.Returnbutton.TabIndex = 9;
+            this.Returnbutton.TabIndex = 4;
             this.Returnbutton.Text = "返回";
             this.Returnbutton.UseVisualStyleBackColor = true;
             this.Returnbutton.Click += new System.EventHandler(this.Returnbutton_Click);
@@ -86,7 +86,7 @@
             this.groupBox1.Location = new System.Drawing.Point(26, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(585, 100);
-            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
             // 
@@ -95,7 +95,7 @@
             this.ClubNametextBox.Location = new System.Drawing.Point(118, 39);
             this.ClubNametextBox.Name = "ClubNametextBox";
             this.ClubNametextBox.Size = new System.Drawing.Size(209, 27);
-            this.ClubNametextBox.TabIndex = 9;
+            this.ClubNametextBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -103,7 +103,7 @@
             this.label1.Location = new System.Drawing.Point(28, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 20);
-            this.label1.TabIndex = 8;
+            this.label1.TabIndex = 0;
             this.label1.Text = "社团名称：";
             // 
             // dataGridView1
@@ -118,7 +118,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(585, 274);
-            this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.TabIndex = 1;
             // 
             // num
             // 
@@ -153,7 +153,7 @@
             this.AlterClubInfobutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AlterClubInfobutton.Name = "AlterClubInfobutton";
             this.AlterClubInfobutton.Size = new System.Drawing.Size(112, 32);
-            this.AlterClubInfobutton.TabIndex = 13;
+            this.AlterClubInfobutton.TabIndex = 3;
             this.AlterClubInfobutton.Text = "修改";
             this.AlterClubInfobutton.UseVisualStyleBackColor = true;
             this.AlterClubInfobutton.Click += new System.EventHandler(this.AlterClubInfobutton_Click);

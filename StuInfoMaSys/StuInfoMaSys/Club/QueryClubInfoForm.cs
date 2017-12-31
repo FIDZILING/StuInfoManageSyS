@@ -63,13 +63,9 @@ namespace StuInfoMaSys.Club
         {
             string clubname = ClubNametextBox.Text.Trim();
             if (clubname.Equals(""))
-            {
                 QueryClubInfoForm_Load(sender, e);
-            }
             else
-            {
                 this.dataGridView1.DataSource = clubBLL.Find_ClubInfoByClubName(clubname);
-            }
         }
         /// <summary>
         /// 添加按钮
@@ -91,7 +87,33 @@ namespace StuInfoMaSys.Club
         /// <param name="e"></param>
         private void AlterClubInfobutton_Click(object sender, EventArgs e)
         {
-
+            int seIndex = this.dataGridView1.CurrentCell.RowIndex;
+            if (dataGridView1.Rows[seIndex].Cells[2].Value.ToString() == ""
+                && dataGridView1.Rows[seIndex].Cells[3].Value.ToString() == "")
+            {
+                MessageBox.Show("请输入第" + (seIndex + 1).ToString() + "行数据");
+                return;
+            }
+            if (dataGridView1.Rows[seIndex].Cells[3].Value.ToString().Length != 11)
+            {
+                MessageBox.Show("电话号码位数不对！");
+                return;
+            }
+            if (MessageBox.Show("确定修改 " + dataGridView1.Rows[seIndex].Cells[1].Value.ToString() + " 的指导老师为 "
+                + dataGridView1.Rows[seIndex].Cells[2].Value.ToString() + " , 其联系电话为："
+                + dataGridView1.Rows[seIndex].Cells[3].Value.ToString() + "？",
+                "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                if (clubBLL.Change_ClubInfoByClubNum(dataGridView1.Rows[seIndex].Cells[0].Value.ToString(),
+                    dataGridView1.Rows[seIndex].Cells[2].Value.ToString(),
+                    dataGridView1.Rows[seIndex].Cells[3].Value.ToString()))
+                {
+                    MessageBox.Show("修改成功！");
+                    this.QueryClubInfoForm_Load(sender, e);
+                }
+                else
+                    MessageBox.Show("修改失败！");
+            }
         }
     }
 }
