@@ -43,25 +43,18 @@ namespace StuInfoMaSys.Scholarship
         {
             string No = StuNotextBox.Text.Trim();
             int type = ScholTypecomboBox.SelectedIndex; // 选择的奖学金类型序号
-            try
+            if (!No.Equals(""))
             {
-                if (!No.Equals(""))
-                {
-                    this.dataGridView1.DataSource = scholBLL.Find_ScholInfoByStdNo(No);
-                }
-                else if (type != -1 && ScholTypecomboBox.Text != "")
-                {
-                    string typeChar = typedataTable.Rows[type][0].ToString();
-                    this.dataGridView1.DataSource = scholBLL.Find_ScholInfoByScholType(typeChar);
-                }
-                else
-                {
-                    QueryScholInfoForm_Load(sender, e);
-                }
+                this.dataGridView1.DataSource = scholBLL.Find_ScholInfoByStdNo(No);
             }
-            catch (Exception ex)
+            else if (type != -1 && ScholTypecomboBox.Text != "")
             {
-                MessageBox.Show("网络错误！");
+                string typeChar = typedataTable.Rows[type][0].ToString();
+                this.dataGridView1.DataSource = scholBLL.Find_ScholInfoByScholType(typeChar);
+            }
+            else
+            {
+                QueryScholInfoForm_Load(sender, e);
             }
         }
         /// <summary>
@@ -97,14 +90,7 @@ namespace StuInfoMaSys.Scholarship
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.White;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(224, 254, 254);
             dataGridView1.ReadOnly = true; // 设置只读
-            try
-            {
-                this.dataGridView1.DataSource = scholBLL.Find_AllInfo();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("网络错误！");
-            }
+            this.dataGridView1.DataSource = scholBLL.Find_AllInfo();
         }
     }
 }

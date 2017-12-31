@@ -1,4 +1,5 @@
 ﻿using Model;
+using StuInfoMaSys.Club;
 using StuInfoMaSys.Scholarship;
 using System;
 using System.Collections.Generic;
@@ -149,6 +150,58 @@ namespace StuInfoMaSys
                 StartPosition = FormStartPosition.CenterScreen
             };
             queryScholInfoForm.Show();
+        }
+        /// <summary>
+        /// 查询社团信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryClubInfobutton_Click(object sender, EventArgs e)
+        {
+            QueryClubInfoForm queryClubInfoForm = new QueryClubInfoForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryClubInfoForm.Show();
+        }
+        /// <summary>
+        /// 查询社团信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryClubInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QueryClubInfoForm queryClubInfoForm = new QueryClubInfoForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryClubInfoForm.Show();
+        }
+        /// <summary>
+        /// 添加社团信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddClubInfobutton_Click(object sender, EventArgs e)
+        {
+            AddClubInfoForm addClubInfoForm = new AddClubInfoForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            addClubInfoForm.Show();
+        }
+        /// <summary>
+        /// 添加社团信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddClubInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddClubInfoForm addClubInfoForm = new AddClubInfoForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            addClubInfoForm.Show();
         }
     }
 }

@@ -96,7 +96,7 @@ namespace DAL
         /// <param name="StuNo">学号</param>
         /// <param name="ClubPost">职位</param>
         /// <returns></returns>
-        public bool Add_ClubPeo(string ClubNum,string StuNo,string ClubPost)
+        public bool Add_ClubPeo(string ClubNum, string StuNo, string ClubPost)
         {
             StringBuilder sqlStr = new StringBuilder();
             sqlStr.Append("insert into dbo.ClubPeople (ClubNum,StuNo,ClubPost) values (@ClubNum,@StuNo,@ClubPost)");
@@ -276,7 +276,7 @@ namespace DAL
         /// <summary>
         /// 通过社团名称查询社团成员的信息（模糊查询）
         /// </summary>
-        /// <param name="ClubName"></param>
+        /// <param name="ClubName">社团名称</param>
         /// <returns></returns>
         public DataTable Find_ClubPeoByClubName(string ClubName)
         {
@@ -290,7 +290,7 @@ namespace DAL
             Sql_Str.Append(" where dbo.ClubPeople.ClubNum=dbo.ClubInfo.ClubNum and ClubPeople.ClubNum in");
             Sql_Str.Append(" (select ClubNum from dbo.ClubInfo");
             Sql_Str.Append(" where ClubName like @ClubName)");
-           SqlParameter Param = new SqlParameter("@ClubName", ClubName);
+            SqlParameter Param = new SqlParameter("@ClubName", ClubName);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
@@ -318,7 +318,7 @@ namespace DAL
         /// <summary>
         /// 通过学号查询社团成员信息（模糊查询）
         /// </summary>
-        /// <param name="StuNo"></param>
+        /// <param name="StuNo">学号</param>
         /// <returns></returns>
         public DataTable Find_ClubPeoByStuNo(string StuNo)
         {
@@ -337,6 +337,88 @@ namespace DAL
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
                 Cmd.Parameters.Add(Paras);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 通过社团编号修改社团信息表的指导老师及其电话
+        /// </summary>
+        /// <param name="ClubNum">社团编号</param>
+        /// <param name="ClubTeach">社团指导老师</param>
+        /// <param name="TeacherTel">指导老师电话</param>
+        /// <returns></returns>
+        public DataTable Change_ClubInfoByClubNum(string ClubNum, string ClubTeach, string TeacherTel)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("update dbo.ClubInfo");
+            Sql_Str.Append(" set ClubTeach=@ClubTeach,TeacherTel=@TeacherTel");
+            Sql_Str.Append(" where ClubNum=@ClubNum");
+            SqlParameter[] Paras = {
+                new SqlParameter("@ClubTeach", ClubTeach),
+                new SqlParameter("@TeacherTel", TeacherTel),
+                new SqlParameter("@ClubNum", ClubNum)
+            };
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.AddRange(Paras);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 通过ID修改社团成员信息表中的社团职务
+        /// </summary>
+        /// <param name="ID">编号</param>
+        /// <param name="ClubPost">社团职务</param>
+        /// <returns></returns>
+        public DataTable Change_ClubPeoByID(string ID, string ClubPost)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("update dbo.ClubPeople");
+            Sql_Str.Append(" set ClubPost=@ClubPost");
+            Sql_Str.Append(" where ID=@ID");
+            SqlParameter[] Paras = {
+                new SqlParameter("@ClubPost", ClubPost),
+                new SqlParameter("@ID", ID),
+            };
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.AddRange(Paras);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);

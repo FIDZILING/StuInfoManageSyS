@@ -29,14 +29,7 @@ namespace StuInfoMaSys.Scholarship
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.White;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(224, 254, 254);
             dataGridView1.ReadOnly = true; // 设置只读
-            try
-            {
-                this.dataGridView1.DataSource = scholBLL.Find_AllType();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("网络错误！");
-            }
+            this.dataGridView1.DataSource = scholBLL.Find_AllType();
         }
         /// <summary>
         /// 返回按钮 关闭此窗口

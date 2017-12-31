@@ -38,10 +38,10 @@
             this.schollevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.StuNotextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.ScholTypecomboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.StuNotextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -142,21 +142,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
             // 
-            // label1
+            // ScholTypecomboBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(114, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "学号：";
-            // 
-            // StuNotextBox
-            // 
-            this.StuNotextBox.Location = new System.Drawing.Point(197, 20);
-            this.StuNotextBox.Name = "StuNotextBox";
-            this.StuNotextBox.Size = new System.Drawing.Size(144, 27);
-            this.StuNotextBox.TabIndex = 8;
+            this.ScholTypecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ScholTypecomboBox.FormattingEnabled = true;
+            this.ScholTypecomboBox.Location = new System.Drawing.Point(197, 60);
+            this.ScholTypecomboBox.Name = "ScholTypecomboBox";
+            this.ScholTypecomboBox.Size = new System.Drawing.Size(144, 28);
+            this.ScholTypecomboBox.TabIndex = 10;
             // 
             // label2
             // 
@@ -167,14 +160,21 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "奖学金类型：";
             // 
-            // ScholTypecomboBox
+            // StuNotextBox
             // 
-            this.ScholTypecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ScholTypecomboBox.FormattingEnabled = true;
-            this.ScholTypecomboBox.Location = new System.Drawing.Point(197, 60);
-            this.ScholTypecomboBox.Name = "ScholTypecomboBox";
-            this.ScholTypecomboBox.Size = new System.Drawing.Size(144, 28);
-            this.ScholTypecomboBox.TabIndex = 10;
+            this.StuNotextBox.Location = new System.Drawing.Point(197, 20);
+            this.StuNotextBox.Name = "StuNotextBox";
+            this.StuNotextBox.Size = new System.Drawing.Size(144, 27);
+            this.StuNotextBox.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(114, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "学号：";
             // 
             // QueryScholInfoForm
             // 
