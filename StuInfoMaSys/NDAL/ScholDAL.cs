@@ -173,6 +173,7 @@ namespace DAL
         public DataTable Find_ScholInfoByStdNo(string StdNo)
         {
             StringBuilder Sql_Str = new StringBuilder();
+            //模糊查询
             StdNo = "%" + StdNo + "%";
             Sql_Str.Append("select dbo.ScholarshipInfo.ID,dbo.ScholarshipInfo.StdNo,");
             Sql_Str.Append("dbo.ScholType.ScholChar,");
