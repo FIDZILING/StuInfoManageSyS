@@ -215,7 +215,7 @@ namespace DAL
             Sql_Str.Append("dbo.ScholType.ScholChar,");
             Sql_Str.Append("dbo.ScholarshipInfo.ScholLevel,dbo.ScholarshipInfo.Day");
             Sql_Str.Append(" from dbo.ScholarshipInfo,dbo.ScholType");
-            Sql_Str.Append(" where dbo.ScholarshipInfo.ScholType=dbo.ScholType.ScholType and ScholType=@ScholType");
+            Sql_Str.Append(" where dbo.ScholarshipInfo.ScholType=dbo.ScholType.ScholType and dbo.ScholarshipInfo.ScholType=@ScholType");
             SqlParameter Paras = new SqlParameter("@ScholType", ScholType);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
