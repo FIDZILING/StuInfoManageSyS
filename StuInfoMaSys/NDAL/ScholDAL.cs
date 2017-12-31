@@ -173,8 +173,11 @@ namespace DAL
         public DataTable Find_ScholInfoByStdNo(string StdNo)
         {
             StringBuilder Sql_Str = new StringBuilder();
-            Sql_Str.Append("select * from dbo.ScholarshipInfo");
-            Sql_Str.Append(" where StdNo=@StdNo");
+            Sql_Str.Append("select dbo.ScholarshipInfo.ID,dbo.ScholarshipInfo.StdNo,");
+            Sql_Str.Append("dbo.ScholType.ScholChar,");
+            Sql_Str.Append("dbo.ScholarshipInfo.ScholLevel,dbo.ScholarshipInfo.Day");
+            Sql_Str.Append(" from dbo.ScholarshipInfo,dbo.ScholType");
+            Sql_Str.Append(" where dbo.ScholarshipInfo.ScholType=dbo.ScholType.ScholType and StdNo=@StdNo");
             SqlParameter Paras = new SqlParameter("@StdNo", StdNo);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
@@ -208,8 +211,11 @@ namespace DAL
         public DataTable Find_ScholInfoByScholType(string ScholType)
         {
             StringBuilder Sql_Str = new StringBuilder();
-            Sql_Str.Append("select * from dbo.ScholarshipInfo");
-            Sql_Str.Append(" where ScholType=@ScholType");
+            Sql_Str.Append("select dbo.ScholarshipInfo.ID,dbo.ScholarshipInfo.StdNo,");
+            Sql_Str.Append("dbo.ScholType.ScholChar,");
+            Sql_Str.Append("dbo.ScholarshipInfo.ScholLevel,dbo.ScholarshipInfo.Day");
+            Sql_Str.Append(" from dbo.ScholarshipInfo,dbo.ScholType");
+            Sql_Str.Append(" where dbo.ScholarshipInfo.ScholType=dbo.ScholType.ScholType and ScholType=@ScholType");
             SqlParameter Paras = new SqlParameter("@ScholType", ScholType);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
