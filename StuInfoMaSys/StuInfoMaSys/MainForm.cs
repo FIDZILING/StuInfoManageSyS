@@ -83,7 +83,7 @@ namespace StuInfoMaSys
             {
                 StartPosition = FormStartPosition.CenterScreen
             };
-            addScholTypeForm.ShowDialog();
+            addScholTypeForm.Show();
         }
         /// <summary>
         /// 添加奖学金类别
@@ -96,7 +96,33 @@ namespace StuInfoMaSys
             {
                 StartPosition = FormStartPosition.CenterScreen
             };
-            addScholTypeForm.ShowDialog();
+            addScholTypeForm.Show();
+        }
+        /// <summary>
+        /// 添加奖学金信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddScholInfobutton_Click(object sender, EventArgs e)
+        {
+            AddScholInfoForm addScholInfoForm = new AddScholInfoForm(this.leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            addScholInfoForm.Show();
+        }
+        /// <summary>
+        /// 添加奖学金信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddScholInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddScholInfoForm addScholInfoForm = new AddScholInfoForm(this.leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            addScholInfoForm.Show();
         }
     }
 }

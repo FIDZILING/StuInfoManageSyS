@@ -59,11 +59,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scholarship\AddScholInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scholarship\AddScholInfoForm.Designer.cs">
+      <DependentUpon>AddScholInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scholarship\AddScholTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Scholarship\AddScholTypeForm.Designer.cs">
       <DependentUpon>AddScholTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scholarship\QueryScholInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scholarship\QueryScholInfoForm.Designer.cs">
+      <DependentUpon>QueryScholInfoForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -80,8 +92,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Scholarship\AddScholInfoForm.resx">
+      <DependentUpon>AddScholInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Scholarship\AddScholTypeForm.resx">
       <DependentUpon>AddScholTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scholarship\QueryScholInfoForm.resx">
+      <DependentUpon>QueryScholInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

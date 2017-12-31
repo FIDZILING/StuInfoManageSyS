@@ -178,6 +178,7 @@
             this.AddScholInfoToolStripMenuItem.Name = "AddScholInfoToolStripMenuItem";
             this.AddScholInfoToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.AddScholInfoToolStripMenuItem.Text = "添加奖学金信息";
+            this.AddScholInfoToolStripMenuItem.Click += new System.EventHandler(this.AddScholInfoToolStripMenuItem_Click);
             // 
             // QueryScholInfoToolStripMenuItem
             // 
@@ -460,6 +461,7 @@
             this.AddScholInfobutton.TabIndex = 7;
             this.AddScholInfobutton.Text = "添加奖学金信息";
             this.AddScholInfobutton.UseVisualStyleBackColor = true;
+            this.AddScholInfobutton.Click += new System.EventHandler(this.AddScholInfobutton_Click);
             // 
             // QueryScholInfobutton
             // 
