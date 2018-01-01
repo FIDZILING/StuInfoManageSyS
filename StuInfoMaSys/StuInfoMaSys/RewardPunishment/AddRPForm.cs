@@ -94,9 +94,9 @@ namespace StuInfoMaSys.RewardPunishment
             }
             string level;
             if (RPTypecomboBox.SelectedIndex == 0)
-                level = rewarddictionary[RPTypecomboBox.SelectedIndex];
+                level = rewarddictionary[RPLevelcomboBox.SelectedIndex];
             else
-                level = punishdictionary[RPTypecomboBox.SelectedIndex];
+                level = punishdictionary[RPLevelcomboBox.SelectedIndex];
             if (rPBLL.Add_RPInfo(StuNum, typedictionary[RPTypecomboBox.SelectedIndex],
                 level, dateTimePicker1.Value.Date, info))
             {
