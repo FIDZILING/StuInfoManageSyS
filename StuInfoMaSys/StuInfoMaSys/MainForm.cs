@@ -282,5 +282,31 @@ namespace StuInfoMaSys
             };
             addRPForm.Show();
         }
+        /// <summary>
+        /// 查询奖惩信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryRPInfobutton_Click(object sender, EventArgs e)
+        {
+            QueryRPForm queryRPForm = new QueryRPForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryRPForm.Show();
+        }
+        /// <summary>
+        /// 查询奖惩信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryRPInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QueryRPForm queryRPForm = new QueryRPForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryRPForm.Show();
+        }
     }
 }

@@ -153,15 +153,16 @@
             // AddRPInfoToolStripMenuItem
             // 
             this.AddRPInfoToolStripMenuItem.Name = "AddRPInfoToolStripMenuItem";
-            this.AddRPInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.AddRPInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.AddRPInfoToolStripMenuItem.Text = "添加奖惩信息";
             this.AddRPInfoToolStripMenuItem.Click += new System.EventHandler(this.AddRPInfoToolStripMenuItem_Click);
             // 
             // QueryRPInfoToolStripMenuItem
             // 
             this.QueryRPInfoToolStripMenuItem.Name = "QueryRPInfoToolStripMenuItem";
-            this.QueryRPInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.QueryRPInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.QueryRPInfoToolStripMenuItem.Text = "查询奖惩信息";
+            this.QueryRPInfoToolStripMenuItem.Click += new System.EventHandler(this.QueryRPInfoToolStripMenuItem_Click);
             // 
             // ScholarshipToolStripMenuItem
             // 
@@ -372,6 +373,7 @@
             this.QueryRPInfobutton.TabIndex = 11;
             this.QueryRPInfobutton.Text = "查询奖惩信息";
             this.QueryRPInfobutton.UseVisualStyleBackColor = true;
+            this.QueryRPInfobutton.Click += new System.EventHandler(this.QueryRPInfobutton_Click);
             // 
             // AddRPInfobutton
             // 

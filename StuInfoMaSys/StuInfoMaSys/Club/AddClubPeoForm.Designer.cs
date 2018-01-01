@@ -59,6 +59,7 @@
             this.Returnbutton.TabIndex = 4;
             this.Returnbutton.Text = "返回";
             this.Returnbutton.UseVisualStyleBackColor = true;
+            this.Returnbutton.Click += new System.EventHandler(this.Returnbutton_Click);
             // 
             // label1
             // 
