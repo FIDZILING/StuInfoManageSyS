@@ -116,5 +116,18 @@ namespace StuInfoMaSys.Club
                     MessageBox.Show("修改失败！");
             }
         }
+        /// <summary>
+        /// 导出当前dataGridView到文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Exportbutton_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = (dataGridView1.DataSource as DataTable);
+            if (Program.ToExcelFile(dataTable))
+                MessageBox.Show("导出成功！");
+            else
+                MessageBox.Show("导出失败");
+        }
     }
 }

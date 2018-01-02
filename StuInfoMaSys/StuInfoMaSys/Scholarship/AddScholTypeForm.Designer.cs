@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Returnbutton = new System.Windows.Forms.Button();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ScholChar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Returnbutton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ScholTypetextBox = new System.Windows.Forms.TextBox();
             this.AddScholTypebutton = new System.Windows.Forms.Button();
+            this.ScholTypetextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Exportbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -53,17 +54,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(277, 494);
             this.dataGridView1.TabIndex = 2;
             // 
-            // Returnbutton
-            // 
-            this.Returnbutton.Location = new System.Drawing.Point(418, 447);
-            this.Returnbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Returnbutton.Name = "Returnbutton";
-            this.Returnbutton.Size = new System.Drawing.Size(156, 32);
-            this.Returnbutton.TabIndex = 1;
-            this.Returnbutton.Text = "返回";
-            this.Returnbutton.UseVisualStyleBackColor = true;
-            this.Returnbutton.Click += new System.EventHandler(this.Returnbutton_Click);
-            // 
             // Type
             // 
             this.Type.DataPropertyName = "ScholType";
@@ -77,6 +67,18 @@
             this.ScholChar.Name = "ScholChar";
             this.ScholChar.Width = 130;
             // 
+            // Returnbutton
+            // 
+            this.Returnbutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Returnbutton.Location = new System.Drawing.Point(418, 447);
+            this.Returnbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Returnbutton.Name = "Returnbutton";
+            this.Returnbutton.Size = new System.Drawing.Size(156, 32);
+            this.Returnbutton.TabIndex = 1;
+            this.Returnbutton.Text = "返回";
+            this.Returnbutton.UseVisualStyleBackColor = true;
+            this.Returnbutton.Click += new System.EventHandler(this.Returnbutton_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.AddScholTypebutton);
@@ -89,23 +91,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "添加奖学金类型";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "要添加的奖学金类型：";
-            // 
-            // ScholTypetextBox
-            // 
-            this.ScholTypetextBox.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ScholTypetextBox.Location = new System.Drawing.Point(10, 65);
-            this.ScholTypetextBox.Name = "ScholTypetextBox";
-            this.ScholTypetextBox.Size = new System.Drawing.Size(223, 31);
-            this.ScholTypetextBox.TabIndex = 2;
-            // 
             // AddScholTypebutton
             // 
             this.AddScholTypebutton.Location = new System.Drawing.Point(44, 126);
@@ -117,6 +102,34 @@
             this.AddScholTypebutton.UseVisualStyleBackColor = true;
             this.AddScholTypebutton.Click += new System.EventHandler(this.AddScholTypebutton_Click);
             // 
+            // ScholTypetextBox
+            // 
+            this.ScholTypetextBox.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ScholTypetextBox.Location = new System.Drawing.Point(10, 65);
+            this.ScholTypetextBox.Name = "ScholTypetextBox";
+            this.ScholTypetextBox.Size = new System.Drawing.Size(223, 31);
+            this.ScholTypetextBox.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "要添加的奖学金类型：";
+            // 
+            // Exportbutton
+            // 
+            this.Exportbutton.Location = new System.Drawing.Point(442, 382);
+            this.Exportbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Exportbutton.Name = "Exportbutton";
+            this.Exportbutton.Size = new System.Drawing.Size(112, 32);
+            this.Exportbutton.TabIndex = 14;
+            this.Exportbutton.Text = "导出";
+            this.Exportbutton.UseVisualStyleBackColor = true;
+            this.Exportbutton.Click += new System.EventHandler(this.Exportbutton_Click);
+            // 
             // AddScholTypeForm
             // 
             this.AcceptButton = this.AddScholTypebutton;
@@ -124,6 +137,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Returnbutton;
             this.ClientSize = new System.Drawing.Size(695, 573);
+            this.Controls.Add(this.Exportbutton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Returnbutton);
             this.Controls.Add(this.dataGridView1);
@@ -152,5 +166,6 @@
         private System.Windows.Forms.Button AddScholTypebutton;
         private System.Windows.Forms.TextBox ScholTypetextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Exportbutton;
     }
 }

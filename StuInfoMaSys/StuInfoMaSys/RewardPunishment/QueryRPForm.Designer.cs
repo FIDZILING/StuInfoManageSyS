@@ -39,6 +39,7 @@
             this.StuNumtextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Exportbutton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,13 +155,25 @@
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // Exportbutton
+            // 
+            this.Exportbutton.Location = new System.Drawing.Point(191, 453);
+            this.Exportbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Exportbutton.Name = "Exportbutton";
+            this.Exportbutton.Size = new System.Drawing.Size(112, 32);
+            this.Exportbutton.TabIndex = 12;
+            this.Exportbutton.Text = "导出";
+            this.Exportbutton.UseVisualStyleBackColor = true;
+            this.Exportbutton.Click += new System.EventHandler(this.Exportbutton_Click);
+            // 
             // QueryRPForm
             // 
             this.AcceptButton = this.QueryRPbutton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Returnbutton;
-            this.ClientSize = new System.Drawing.Size(639, 514);
+            this.ClientSize = new System.Drawing.Size(639, 507);
+            this.Controls.Add(this.Exportbutton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.AddRPbutton);
@@ -192,5 +205,6 @@
         private System.Windows.Forms.ComboBox LevelcomboBox;
         private System.Windows.Forms.ComboBox TypecomboBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button Exportbutton;
     }
 }

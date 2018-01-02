@@ -55,6 +55,7 @@
             this.origincity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.origincounty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.highschool = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exportbutton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.StuPertabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StuPerdataGridView)).BeginInit();
@@ -143,7 +144,7 @@
             this.StuFamtabPage.Location = new System.Drawing.Point(4, 29);
             this.StuFamtabPage.Name = "StuFamtabPage";
             this.StuFamtabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.StuFamtabPage.Size = new System.Drawing.Size(859, 244);
+            this.StuFamtabPage.Size = new System.Drawing.Size(1293, 244);
             this.StuFamtabPage.TabIndex = 1;
             this.StuFamtabPage.Text = "家庭信息";
             this.StuFamtabPage.UseVisualStyleBackColor = true;
@@ -155,7 +156,7 @@
             this.StuFamdataGridView.Location = new System.Drawing.Point(3, 3);
             this.StuFamdataGridView.Name = "StuFamdataGridView";
             this.StuFamdataGridView.RowTemplate.Height = 27;
-            this.StuFamdataGridView.Size = new System.Drawing.Size(853, 238);
+            this.StuFamdataGridView.Size = new System.Drawing.Size(1287, 238);
             this.StuFamdataGridView.TabIndex = 0;
             // 
             // StuSchtabPage
@@ -164,7 +165,7 @@
             this.StuSchtabPage.Location = new System.Drawing.Point(4, 29);
             this.StuSchtabPage.Name = "StuSchtabPage";
             this.StuSchtabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.StuSchtabPage.Size = new System.Drawing.Size(859, 244);
+            this.StuSchtabPage.Size = new System.Drawing.Size(1293, 244);
             this.StuSchtabPage.TabIndex = 2;
             this.StuSchtabPage.Text = "在校信息";
             this.StuSchtabPage.UseVisualStyleBackColor = true;
@@ -176,7 +177,7 @@
             this.StuSchdataGridView.Location = new System.Drawing.Point(3, 3);
             this.StuSchdataGridView.Name = "StuSchdataGridView";
             this.StuSchdataGridView.RowTemplate.Height = 27;
-            this.StuSchdataGridView.Size = new System.Drawing.Size(853, 238);
+            this.StuSchdataGridView.Size = new System.Drawing.Size(1287, 238);
             this.StuSchdataGridView.TabIndex = 0;
             // 
             // StuAlltabPage
@@ -185,7 +186,7 @@
             this.StuAlltabPage.Location = new System.Drawing.Point(4, 29);
             this.StuAlltabPage.Name = "StuAlltabPage";
             this.StuAlltabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.StuAlltabPage.Size = new System.Drawing.Size(859, 244);
+            this.StuAlltabPage.Size = new System.Drawing.Size(1293, 244);
             this.StuAlltabPage.TabIndex = 3;
             this.StuAlltabPage.Text = "总信息";
             this.StuAlltabPage.UseVisualStyleBackColor = true;
@@ -199,7 +200,7 @@
             this.StuAlldataGridView.Location = new System.Drawing.Point(3, 3);
             this.StuAlldataGridView.Name = "StuAlldataGridView";
             this.StuAlldataGridView.RowTemplate.Height = 27;
-            this.StuAlldataGridView.Size = new System.Drawing.Size(853, 238);
+            this.StuAlldataGridView.Size = new System.Drawing.Size(1287, 238);
             this.StuAlldataGridView.TabIndex = 0;
             // 
             // Column1
@@ -305,6 +306,17 @@
             this.highschool.HeaderText = "高中学校";
             this.highschool.Name = "highschool";
             // 
+            // Exportbutton
+            // 
+            this.Exportbutton.Location = new System.Drawing.Point(903, 411);
+            this.Exportbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Exportbutton.Name = "Exportbutton";
+            this.Exportbutton.Size = new System.Drawing.Size(112, 32);
+            this.Exportbutton.TabIndex = 11;
+            this.Exportbutton.Text = "导出";
+            this.Exportbutton.UseVisualStyleBackColor = true;
+            this.Exportbutton.Click += new System.EventHandler(this.Exportbutton_Click);
+            // 
             // QueryStuInfoForm
             // 
             this.AcceptButton = this.QueryStubutton;
@@ -312,6 +324,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Returnbutton;
             this.ClientSize = new System.Drawing.Size(1325, 456);
+            this.Controls.Add(this.Exportbutton);
             this.Controls.Add(this.Alterbutton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
@@ -367,5 +380,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn origincity;
         private System.Windows.Forms.DataGridViewTextBoxColumn origincounty;
         private System.Windows.Forms.DataGridViewTextBoxColumn highschool;
+        private System.Windows.Forms.Button Exportbutton;
     }
 }

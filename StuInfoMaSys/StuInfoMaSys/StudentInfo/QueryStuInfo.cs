@@ -119,5 +119,26 @@ namespace StuInfoMaSys.StudentInfo
                     StuSchdataGridView.DataSource = stuBaseInfoBLL.Find_SchStuInfo(); break;
             }
         }
+        /// <summary>
+        /// 导出当前到文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Exportbutton_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable;
+            if (tabControl1.SelectedTab.Name == "StuPertabPage")
+                dataTable = (StuPerdataGridView.DataSource as DataTable);
+            else if (tabControl1.SelectedTab.Name == "StuFamtabPage")
+                dataTable = (StuFamdataGridView.DataSource as DataTable);
+            else if (tabControl1.SelectedTab.Name == "StuSchtabPage")
+                dataTable = (StuSchdataGridView.DataSource as DataTable);
+            else
+                dataTable = (StuAlldataGridView.DataSource as DataTable);
+            if (Program.ToExcelFile(dataTable))
+                MessageBox.Show("导出成功！");
+            else
+                MessageBox.Show("导出失败");
+        }
     }
 }

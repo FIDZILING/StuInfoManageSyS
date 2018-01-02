@@ -18,7 +18,7 @@ namespace StuInfoMaSys
         /// 导出到文件
         /// </summary>
         /// <param name="dataTable">数据源</param>
-        public static void ToExcelFile(DataTable dataTable)
+        public static bool ToExcelFile(DataTable dataTable)
         {
             string con = "";
             foreach (DataColumn dc in dataTable.Columns)
@@ -35,10 +35,18 @@ namespace StuInfoMaSys
                 }
                 con = con.TrimEnd(',') + Environment.NewLine;
             }
-            FileStream fs = new FileStream("C:\\test.xls", FileMode.Create);
-            byte[] b = Encoding.GetEncoding("gb2312").GetBytes(con);
-            fs.Write(b, 0, b.Length);
-            fs.Close();
+            try
+            {
+                FileStream fs = new FileStream(@"D:\test.xls", FileMode.Create);
+                byte[] b = Encoding.GetEncoding("gb2312").GetBytes(con);
+                fs.Write(b, 0, b.Length);
+                fs.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
         /// <summary>
         /// 应用程序的主入口点。

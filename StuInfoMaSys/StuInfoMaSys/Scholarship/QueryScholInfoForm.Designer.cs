@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.StuNotextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Exportbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -176,6 +177,17 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "学号：";
             // 
+            // Exportbutton
+            // 
+            this.Exportbutton.Location = new System.Drawing.Point(197, 484);
+            this.Exportbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Exportbutton.Name = "Exportbutton";
+            this.Exportbutton.Size = new System.Drawing.Size(112, 32);
+            this.Exportbutton.TabIndex = 13;
+            this.Exportbutton.Text = "导出";
+            this.Exportbutton.UseVisualStyleBackColor = true;
+            this.Exportbutton.Click += new System.EventHandler(this.Exportbutton_Click);
+            // 
             // QueryScholInfoForm
             // 
             this.AcceptButton = this.QueryScholInfobutton;
@@ -183,6 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Returnbutton;
             this.ClientSize = new System.Drawing.Size(706, 529);
+            this.Controls.Add(this.Exportbutton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.AddScholInfobutton);
@@ -217,5 +230,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox ScholTypecomboBox;
+        private System.Windows.Forms.Button Exportbutton;
     }
 }

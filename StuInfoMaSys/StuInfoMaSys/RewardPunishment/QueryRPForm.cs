@@ -15,7 +15,7 @@ namespace StuInfoMaSys.RewardPunishment
     public partial class QueryRPForm : Form
     {
         /// <summary>
-        /// 奖励字典
+        /// 奖励字典SS
         /// </summary>
         private Dictionary<string, string> rewardSSdictionary = new Dictionary<string, string>
         {
@@ -27,7 +27,7 @@ namespace StuInfoMaSys.RewardPunishment
             { "f", "年级" }
         };
         /// <summary>
-        /// 处罚字典
+        /// 处罚字典SS
         /// </summary>
         private Dictionary<string, string> punishSSdictionary = new Dictionary<string, string>
         {
@@ -40,7 +40,7 @@ namespace StuInfoMaSys.RewardPunishment
             { "7", "年级通报批评" }
         };
         /// <summary>
-        /// 类型字典
+        /// 类型字典SS
         /// </summary>
         private Dictionary<string, string> typeSSdictionary = new Dictionary<string, string>
         {
@@ -48,7 +48,7 @@ namespace StuInfoMaSys.RewardPunishment
             { "2", "惩罚" }
         };
         /// <summary>
-        /// 奖励字典
+        /// 奖励字典IS
         /// </summary>
         private Dictionary<int, string> rewardISdictionary = new Dictionary<int, string>
         {
@@ -60,7 +60,7 @@ namespace StuInfoMaSys.RewardPunishment
             { 5, "f" }
         };
         /// <summary>
-        /// 处罚字典
+        /// 处罚字典IS
         /// </summary>
         private Dictionary<int, string> punishISdictionary = new Dictionary<int, string>
         {
@@ -73,13 +73,16 @@ namespace StuInfoMaSys.RewardPunishment
             { 6, "7" }
         };
         /// <summary>
-        /// 类型字典
+        /// 类型字典IS
         /// </summary>
         private Dictionary<int, string> typeISdictionary = new Dictionary<int, string>
         {
             { 0, "1" },
             { 1, "2" }
         };
+        /// <summary>
+        /// 后备表
+        /// </summary>
         DataTable dataTable;
         private RPBLL rpBLL = new RPBLL();
         private Leader leader;
@@ -98,10 +101,10 @@ namespace StuInfoMaSys.RewardPunishment
             listView1.FullRowSelect = true;
             listView1.Columns.Clear(); // 先清空，后加入
             listView1.Columns.Add("序号", 1 * listView1.Width / 13);
-            listView1.Columns.Add("学号", 2 * listView1.Width / 13);
+            listView1.Columns.Add("学号", 3 * listView1.Width / 13);
             listView1.Columns.Add("奖惩类型", 2 * listView1.Width / 13);
             listView1.Columns.Add("奖惩等级", 2 * listView1.Width / 13);
-            listView1.Columns.Add("获得日期", 3 * listView1.Width / 13);
+            listView1.Columns.Add("获得日期", 2 * listView1.Width / 13);
             listView1.Columns.Add("详细信息", 5 * listView1.Width / 13);
             dataTable = rpBLL.Find_AllRPInfo();
         }
@@ -222,6 +225,37 @@ namespace StuInfoMaSys.RewardPunishment
             LevelcomboBox.ResetText(); // 重设text
             LevelcomboBox.Items.Clear(); // 清空表单
             QueryRPForm_Load(sender, e);
+        }
+        /// <summary>
+        /// 导出当前dataGridView到文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Exportbutton_Click(object sender, EventArgs e)
+        {
+            // 从listview中导出到exdatatable
+            DataTable exdataTable = new DataTable("奖惩信息");
+            exdataTable.Columns.Add("编号", Type.GetType("System.String"));
+            exdataTable.Columns.Add("学号", Type.GetType("System.String"));
+            exdataTable.Columns.Add("奖惩类型", Type.GetType("System.String"));
+            exdataTable.Columns.Add("奖惩等级", Type.GetType("System.String"));
+            exdataTable.Columns.Add("获得日期", Type.GetType("System.String"));
+            exdataTable.Columns.Add("详细信息", Type.GetType("System.String"));
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                DataRow dataRow = exdataTable.NewRow(); //创建新行
+                dataRow["编号"] = listView1.Items[i].SubItems[0].Text;
+                dataRow["学号"] = listView1.Items[i].SubItems[1].Text;
+                dataRow["奖惩类型"] = listView1.Items[i].SubItems[2].Text;
+                dataRow["奖惩等级"] = listView1.Items[i].SubItems[3].Text;
+                dataRow["获得日期"] = listView1.Items[i].SubItems[4].Text;
+                dataRow["详细信息"] = listView1.Items[i].SubItems[5].Text;
+                exdataTable.Rows.Add(dataRow); // 添加行到表
+            }
+            if (Program.ToExcelFile(exdataTable))
+                MessageBox.Show("导出成功！");
+            else
+                MessageBox.Show("导出失败");
         }
     }
 }

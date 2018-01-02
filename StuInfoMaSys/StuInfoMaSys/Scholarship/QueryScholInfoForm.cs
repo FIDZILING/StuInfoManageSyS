@@ -92,5 +92,18 @@ namespace StuInfoMaSys.Scholarship
             dataGridView1.ReadOnly = true; // 设置只读
             this.dataGridView1.DataSource = scholBLL.Find_AllInfo();
         }
+        /// <summary>
+        /// 导出当前dataGridView到文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Exportbutton_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = (dataGridView1.DataSource as DataTable);
+            if (Program.ToExcelFile(dataTable))
+                MessageBox.Show("导出成功！");
+            else
+                MessageBox.Show("导出失败");
+        }
     }
 }

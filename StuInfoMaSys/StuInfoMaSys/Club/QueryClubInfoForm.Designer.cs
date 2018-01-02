@@ -40,13 +40,14 @@
             this.teach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teachTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlterClubInfobutton = new System.Windows.Forms.Button();
+            this.Exportbutton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // QueryClubInfobutton
             // 
-            this.QueryClubInfobutton.Location = new System.Drawing.Point(418, 36);
+            this.QueryClubInfobutton.Location = new System.Drawing.Point(433, 36);
             this.QueryClubInfobutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.QueryClubInfobutton.Name = "QueryClubInfobutton";
             this.QueryClubInfobutton.Size = new System.Drawing.Size(112, 32);
@@ -57,7 +58,7 @@
             // 
             // AddClubInfobutton
             // 
-            this.AddClubInfobutton.Location = new System.Drawing.Point(175, 448);
+            this.AddClubInfobutton.Location = new System.Drawing.Point(223, 448);
             this.AddClubInfobutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddClubInfobutton.Name = "AddClubInfobutton";
             this.AddClubInfobutton.Size = new System.Drawing.Size(112, 32);
@@ -69,7 +70,7 @@
             // Returnbutton
             // 
             this.Returnbutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Returnbutton.Location = new System.Drawing.Point(444, 448);
+            this.Returnbutton.Location = new System.Drawing.Point(459, 448);
             this.Returnbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Returnbutton.Name = "Returnbutton";
             this.Returnbutton.Size = new System.Drawing.Size(112, 32);
@@ -149,7 +150,7 @@
             // 
             // AlterClubInfobutton
             // 
-            this.AlterClubInfobutton.Location = new System.Drawing.Point(303, 448);
+            this.AlterClubInfobutton.Location = new System.Drawing.Point(341, 448);
             this.AlterClubInfobutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AlterClubInfobutton.Name = "AlterClubInfobutton";
             this.AlterClubInfobutton.Size = new System.Drawing.Size(112, 32);
@@ -158,13 +159,25 @@
             this.AlterClubInfobutton.UseVisualStyleBackColor = true;
             this.AlterClubInfobutton.Click += new System.EventHandler(this.AlterClubInfobutton_Click);
             // 
+            // Exportbutton
+            // 
+            this.Exportbutton.Location = new System.Drawing.Point(105, 448);
+            this.Exportbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Exportbutton.Name = "Exportbutton";
+            this.Exportbutton.Size = new System.Drawing.Size(112, 32);
+            this.Exportbutton.TabIndex = 12;
+            this.Exportbutton.Text = "导出";
+            this.Exportbutton.UseVisualStyleBackColor = true;
+            this.Exportbutton.Click += new System.EventHandler(this.Exportbutton_Click);
+            // 
             // QueryClubInfoForm
             // 
             this.AcceptButton = this.QueryClubInfobutton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Returnbutton;
-            this.ClientSize = new System.Drawing.Size(679, 530);
+            this.ClientSize = new System.Drawing.Size(643, 493);
+            this.Controls.Add(this.Exportbutton);
             this.Controls.Add(this.AlterClubInfobutton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -199,5 +212,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn teach;
         private System.Windows.Forms.DataGridViewTextBoxColumn teachTel;
         private System.Windows.Forms.Button AlterClubInfobutton;
+        private System.Windows.Forms.Button Exportbutton;
     }
 }
