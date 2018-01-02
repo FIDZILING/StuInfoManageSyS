@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using System.Data;
 using Model;
+using System.Data.SqlClient;
 
 namespace BLL
 {
@@ -26,7 +27,7 @@ namespace BLL
         private StringBuilder PowerInFind(StringBuilder Power)
         {
             if (leader.Identify == "1")
-                Power.Append("");
+                Power.Append(" where dbo.StudentBaseInformation.College like '%_%'");
             else if (leader.Identify == "2")
             {
                 Power.Append(" where dbo.StudentBaseInformation.College='");
@@ -269,13 +270,130 @@ namespace BLL
         }
 
         /// <summary>
-        /// 通过学号叉裙本科生所有信息
+        /// 通过学号查找本科生所有信息
         /// </summary>
         /// <param name="StuNo">学号</param>
         /// <returns></returns>
-        public DataTable Find_AllByStuNo(string StuNo)
+        public DataTable Find_AllByStuNoNOVague(string StuNo)
         {
-            return stuBaseInfoDAL.Find_AllByStuNo(StuNo);
+            return stuBaseInfoDAL.Find_AllByStuNoNOVague(StuNo);
+        }
+
+        /// <summary>
+        /// 通过学号、性别、民族、政治面貌、籍贯-省查找本科生个人信息（模糊查询）
+        /// </summary>
+        /// <param name="StuNo">学号</param>
+        /// <param name="Sex">性别</param>
+        /// <param name="Nation">民族</param>
+        /// <param name="Symbol">政治面貌</param>
+        /// <param name="OriginPro">籍贯-省</param>
+        /// <returns></returns>
+        public DataTable Find_PerStuBySomethings(string StuNo,string Sex,string Nation,string Symbol,string OriginPro)
+        {
+            StringBuilder Power = new StringBuilder();
+            Power = PowerInFind(Power);
+            if (StuNo == "") StuNo = "_";
+            if (Sex == "") Sex = "_";
+            if (Nation == "") Nation = "_";
+            if (Symbol == "") Symbol = "_";
+            if (OriginPro == "") OriginPro = "_";
+            StuNo = "%" + StuNo + "%";
+            Sex = "%" + Sex + "%";
+            Nation = "%" + Nation + "%";
+            Symbol = "%" + Symbol + "%";
+            OriginPro = "%" + OriginPro + "%";
+            return stuBaseInfoDAL.Find_PerStuBySomethings(Power, StuNo, Sex, Nation, Symbol, OriginPro);
+        }
+
+        /// <summary>
+        /// 通过学号、住址-省查询本科生家庭信息
+        /// </summary>
+        /// <param name="StuNo">学号</param>
+        /// <param name="HomePro">住址-省</param>
+        /// <returns></returns>
+        public DataTable Find_FamStuBySomethings(string StuNo,string HomePro)
+        {
+            StringBuilder Power = new StringBuilder();
+            Power = PowerInFind(Power);
+            if (StuNo == "") StuNo = "_";
+            if (HomePro == "") HomePro = "_";
+            StuNo = "%" + StuNo + "%";
+            HomePro = "%" + HomePro + "%";
+            return stuBaseInfoDAL.Find_FamStuBySomethings(Power, StuNo, HomePro);
+        }
+
+        /// <summary>
+        /// 通过学号、在校状态（类型）、年级、学院、专业、班级查找本科生在校信息
+        /// </summary>
+        /// <param name="StuNo">学号</param>
+        /// <param name="SchoolType">在校状态（类型）</param>
+        /// <param name="Grade">年级</param>
+        /// <param name="College">学院</param>
+        /// <param name="Profession">专业</param>
+        /// <param name="Classes">班级</param>
+        /// <returns></returns>
+        public DataTable Find_SchStuBySomethings(string StuNo,string SchoolType,string Grade,string College,string Profession,string Classes)
+        {
+            StringBuilder Power = new StringBuilder();
+            Power = PowerInFind(Power);
+            if (StuNo == "") StuNo = "_";
+            if (SchoolType == "") SchoolType = "_";
+            if (Grade == "") Grade = "_";
+            if (College == "") College = "_";
+            if (Profession == "") Profession = "_";
+            if (Classes == "") Classes = "_";
+            StuNo = "%" + StuNo + "%";
+            SchoolType = "%" + SchoolType + "%";
+            Grade = "%" + Grade + "%";
+            College = "%" + College + "%";
+            Profession = "%" + Profession + "%";
+            Classes = "%" + Classes + "%";
+            return stuBaseInfoDAL.Find_SchStuBySomethings(Power, StuNo, SchoolType, Grade, College, Profession, Classes);
+        }
+
+        /// <summary>
+        /// 通过超级多的信息来查找本科生所有信息
+        /// </summary>
+        /// <param name="StuNo">学号</param>
+        /// <param name="Sex">性别</param>
+        /// <param name="Nation">民族</param>
+        /// <param name="Symbol">政治面貌</param>
+        /// <param name="OriginPro">籍贯-省</param>
+        /// <param name="HomePro">住址-省</param>
+        /// <param name="SchoolType">在校状态（类型）</param>
+        /// <param name="Grade">年级</param>
+        /// <param name="College">学院</param>
+        /// <param name="Profession">专业</param>
+        /// <param name="Classes">班级</param>
+        /// <returns></returns>
+        public DataTable Find_AllStuBySomethings(string StuNo, string Sex, string Nation, string Symbol, string OriginPro,
+            string HomePro,string SchoolType, string Grade, string College, string Profession, string Classes)
+        {
+            StringBuilder Power = new StringBuilder();
+            Power = PowerInFind(Power);
+            if (StuNo == "") StuNo = "_";
+            if (Sex == "") Sex = "_";
+            if (Nation == "") Nation = "_";
+            if (Symbol == "") Symbol = "_";
+            if (OriginPro == "") OriginPro = "_";
+            if (HomePro == "") HomePro = "_";
+            if (SchoolType == "") SchoolType = "_";
+            if (Grade == "") Grade = "_";
+            if (College == "") College = "_";
+            if (Profession == "") Profession = "_";
+            if (Classes == "") Classes = "_";
+            StuNo = "%" + StuNo + "%";
+            Sex = "%" + Sex + "%";
+            Nation = "%" + Nation + "%";
+            Symbol = "%" + Symbol + "%";
+            OriginPro = "%" + OriginPro + "%";
+            HomePro = "%" + HomePro + "%";
+            SchoolType = "%" + SchoolType + "%";
+            Grade = "%" + Grade + "%";
+            College = "%" + College + "%";
+            Profession = "%" + Profession + "%";
+            Classes = "%" + Classes + "%";
+            return stuBaseInfoDAL.Find_AllStuBySomethings(Power, StuNo, Sex, Nation, Symbol, OriginPro, HomePro, SchoolType, Grade, College, Profession, Classes);
         }
     }
 }
