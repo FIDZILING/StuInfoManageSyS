@@ -218,5 +218,64 @@ namespace BLL
         {
             return stuBaseInfoDAL.Change_SchStuInfo(StuNo, SchoolType, Grade, College, Profession, Classes, DropNum, OutSchool);
         }
+
+        /// <summary>
+        /// 通过省调用到市
+        /// </summary>
+        /// <param name="Pro">市</param>
+        /// <returns></returns>
+        public DataTable Back_City(string Pro)
+        {
+            return stuBaseInfoDAL.Back_City(Pro);
+        }
+
+        /// <summary>
+        /// 通过市调用到区/县
+        /// </summary>
+        /// <param name="City">市</param>
+        /// <returns></returns>
+        public DataTable Back_Country(string City)
+        {
+            return stuBaseInfoDAL.Back_Country(City);
+        }
+
+        /// <summary>
+        /// 查找寝室地区
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Back_DorArea()
+        {
+            return stuBaseInfoDAL.Back_DorArea();
+        }
+
+        /// <summary>
+        /// 通过寝室地区查找寝室楼栋
+        /// </summary>
+        /// <param name="DorArea">寝室地区</param>
+        /// <returns></returns>
+        public DataTable Back_DorBuilding(string DorArea)
+        {
+            return stuBaseInfoDAL.Back_DorBuilding(DorArea);
+        }
+
+        /// <summary>
+        /// 通过寝室楼栋查找寝室号
+        /// </summary>
+        /// <param name="DorBuilding">寝室楼栋</param>
+        /// <returns></returns>
+        public DataTable Back_DorNum(string DorBuilding)
+        {
+            return stuBaseInfoDAL.Back_DorNum(DorBuilding);
+        }
+
+        /// <summary>
+        /// 通过学号叉裙本科生所有信息
+        /// </summary>
+        /// <param name="StuNo">学号</param>
+        /// <returns></returns>
+        public DataTable Find_AllByStuNo(string StuNo)
+        {
+            return stuBaseInfoDAL.Find_AllByStuNo(StuNo);
+        }
     }
 }

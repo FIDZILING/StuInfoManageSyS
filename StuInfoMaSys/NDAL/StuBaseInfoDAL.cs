@@ -430,7 +430,230 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// 通过省调用到市
+        /// </summary>
+        /// <param name="Pro">市</param>
+        /// <returns></returns>
+        public DataTable Back_City(string Pro)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("select distinct dbo.ProCityCountry.City");
+            Sql_Str.Append(" from dbo.ProCityCountry");
+            Sql_Str.Append(" where Pro=@Pro");
+            SqlParameter Param = new SqlParameter("@Pro", Pro);
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
 
-        
+        /// <summary>
+        /// 通过市调用到区/县
+        /// </summary>
+        /// <param name="City">市</param>
+        /// <returns></returns>
+        public DataTable Back_Country(string City)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("select dbo.ProCityCountry.Country");
+            Sql_Str.Append(" from dbo.ProCityCountry");
+            Sql_Str.Append(" where City=@City");
+            SqlParameter Param = new SqlParameter("@City", City);
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 查找寝室地区
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Back_DorArea()
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("select dbo.Dormitory.DorArea");
+            Sql_Str.Append(" from dbo.Dormitory");
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 通过寝室地区查找寝室楼栋
+        /// </summary>
+        /// <param name="DorArea">寝室地区</param>
+        /// <returns></returns>
+        public DataTable Back_DorBuilding(string DorArea)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("select distinct dbo.Dormitory.DorBuilding");
+            Sql_Str.Append(" from dbo.Dormitory");
+            Sql_Str.Append(" where DorArea=@DorArea");
+            SqlParameter Param = new SqlParameter("@DorArea", DorArea);
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 通过寝室楼栋查找寝室号
+        /// </summary>
+        /// <param name="DorBuilding">寝室楼栋</param>
+        /// <returns></returns>
+        public DataTable Back_DorNum(string DorBuilding)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("select dbo.Dormitory.DorNum");
+            Sql_Str.Append(" from dbo.Dormitory");
+            Sql_Str.Append(" where DorBuilding=@DorBuilding");
+            SqlParameter Param = new SqlParameter("@DorBuilding", DorBuilding);
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 通过学号查询本科生所有信息
+        /// </summary>
+        /// <param name="StuNo">学号</param>
+        /// <returns></returns>
+        public DataTable Find_AllByStuNo(string StuNo)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
+            Sql_Str.Append("dbo.StudentBaseInformation.SchoolType,");
+            Sql_Str.Append("dbo.StudentBaseInformation.Grade,dbo.StudentBaseInformation.College,");
+            Sql_Str.Append("dbo.StudentBaseInformation.Profession,dbo.StudentBaseInformation.Classes,");
+            Sql_Str.Append("dbo.Dormitory.DorArea,dbo.Dormitory.DorBuilding,dbo.Dormitory.DorNum,");
+            Sql_Str.Append("dbo.StudentBaseInformation.Sex,dbo.StudentBaseInformation.Nation,");
+            Sql_Str.Append("dbo.StudentBaseInformation.Birthday,dbo.StudentBaseInformation.Symbol,");
+            Sql_Str.Append("dbo.StudentBaseInformation.TelNum,dbo.StudentBaseInformation.QQNum,dbo.StudentBaseInformation.IDNum,");
+            Sql_Str.Append("dbo.StudentBaseInformation.OriginPro,dbo.StudentBaseInformation.OriginCity,dbo.StudentBaseInformation.OriginCounty,");
+            Sql_Str.Append("dbo.StudentBaseInformation.HighSchool,");
+            Sql_Str.Append("dbo.StudentBaseInformation.FamilyNum,");
+            Sql_Str.Append("dbo.StudentBaseInformation.HomePro,dbo.StudentBaseInformation.HomeCity,dbo.StudentBaseInformation.HomeCounty,dbo.StudentBaseInformation.HomeOther,");
+            Sql_Str.Append("dbo.StudentBaseInformation.FaName,dbo.StudentBaseInformation.FaTelNum,dbo.StudentBaseInformation.FaIncome,");
+            Sql_Str.Append("dbo.StudentBaseInformation.MaName,dbo.StudentBaseInformation.MaTelNum,dbo.StudentBaseInformation.MaIncome,");
+            Sql_Str.Append("dbo.StudentBaseInformation.OutSchool");
+            Sql_Str.Append(" from dbo.StudentBaseInformation left outer join dbo.Dormitory on (dbo.StudentBaseInformation.DropNum=dbo.Dormitory.ID)");
+            Sql_Str.Append(" where StuNo=@StuNo");
+            SqlParameter Paras = new SqlParameter("@StuNo", StuNo);
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Paras);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
     }
 }
