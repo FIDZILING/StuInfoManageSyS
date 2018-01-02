@@ -16,18 +16,17 @@ namespace DAL
         /// 查找本科生所有信息
         /// </summary>
         /// <returns></returns>
-        public DataTable Find_ALLStuInformation(string Power)
+        public DataTable Find_ALLStuInformation(StringBuilder Power)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select * from dbo.StudentBaseInformation");
-            Sql_Str.Append(" where @Power");
-            SqlParameter Param = new SqlParameter("@Power", Power);
+            Sql_Str.Append(" where ");
+            Sql_Str.Append(Power);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
-                Cmd.Parameters.Add(Param);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
@@ -50,7 +49,7 @@ namespace DAL
         /// 查找本科生家庭信息
         /// </summary>
         /// <returns></returns>
-        public DataTable Find_FamStuInfo(string Power)
+        public DataTable Find_FamStuInfo(StringBuilder Power)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
@@ -59,14 +58,13 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.FaName,dbo.StudentBaseInformation.FaTelNum,dbo.StudentBaseInformation.FaIncome,");
             Sql_Str.Append("dbo.StudentBaseInformation.MaName,dbo.StudentBaseInformation.MaTelNum,dbo.StudentBaseInformation.MaIncome");
             Sql_Str.Append(" from dbo.StudentBaseInformation");
-            Sql_Str.Append(" where @Power");
-            SqlParameter Param = new SqlParameter("@Power", Power);
+            Sql_Str.Append(" where ");
+            Sql_Str.Append(Power);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
-                Cmd.Parameters.Add(Param);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
@@ -89,7 +87,7 @@ namespace DAL
         /// 查找本科生个人信息
         /// </summary>
         /// <returns></returns>
-        public DataTable Find_PerStuInfo(string Power)
+        public DataTable Find_PerStuInfo(StringBuilder Power)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
@@ -99,14 +97,13 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.OriginPro,dbo.StudentBaseInformation.OriginCity,dbo.StudentBaseInformation.OriginCounty,");
             Sql_Str.Append("dbo.StudentBaseInformation.HighSchool");
             Sql_Str.Append(" from dbo.StudentBaseInformation");
-            Sql_Str.Append(" where @Power");
-            SqlParameter Param = new SqlParameter("@Power", Power);
+            Sql_Str.Append(" where ");
+            Sql_Str.Append(Power);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
-                Cmd.Parameters.Add(Param);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
@@ -129,7 +126,7 @@ namespace DAL
         /// 查找本科生在校信息
         /// </summary>
         /// <returns></returns>
-        public DataTable Find_SchStuInfo(string Power)
+        public DataTable Find_SchStuInfo(StringBuilder Power)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
@@ -139,14 +136,13 @@ namespace DAL
             Sql_Str.Append("dbo.Dormitory.DorArea,dbo.Dormitory.DorBuilding,dbo.Dormitory.DorNum,");
             Sql_Str.Append("dbo.StudentBaseInformation.OutSchool");
             Sql_Str.Append(" from dbo.StudentBaseInformation,dbo.Dormitory");
-            Sql_Str.Append(" where dbo.StudentBaseInformation.DropNum=dbo.Dormitory.ID and @Power");
-            SqlParameter Param = new SqlParameter("@Power", Power);
+            Sql_Str.Append(" where dbo.StudentBaseInformation.DropNum=dbo.Dormitory.ID and ");
+            Sql_Str.Append(Power);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
-                Cmd.Parameters.Add(Param);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);

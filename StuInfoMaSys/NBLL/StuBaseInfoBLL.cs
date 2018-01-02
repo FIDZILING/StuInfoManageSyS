@@ -25,13 +25,23 @@ namespace BLL
         /// <returns></returns>
         public DataTable Find_ALLStuInformation()
         {
-            string Power = "";
+            StringBuilder Power = new StringBuilder();
             if (leader.Identify == "1")
-                Power = "College like %";
+                Power.Append("Grade like '2%'");
             else if (leader.Identify == "2")
-                Power = "College=" + leader.College;
+            {
+                Power.Append("College='");
+                Power.Append(leader.College);
+                Power.Append("'");
+            }
             else if (leader.Identify == "3")
-                Power = "College=" + leader.College + "Grade=" + leader.Grade;
+            {
+                Power.Append("College='");
+                Power.Append(leader.College);
+                Power.Append("' and Grade='");
+                Power.Append(leader.Grade);
+                Power.Append("'");
+            }
             return stuBaseInfoDAL.Find_ALLStuInformation(Power);
         }
 
@@ -41,13 +51,23 @@ namespace BLL
         /// <returns></returns>
         public DataTable Find_FamStuInfo()
         {
-            string Power = "";
+            StringBuilder Power = new StringBuilder();
             if (leader.Identify == "1")
-                Power = "College like %";
+                Power.Append("Grade like '2%'");
             else if (leader.Identify == "2")
-                Power = "College=" + leader.College;
+            {
+                Power.Append("College='");
+                Power.Append(leader.College);
+                Power.Append("'");
+            }
             else if (leader.Identify == "3")
-                Power = "College=" + leader.College + "Grade=" + leader.Grade;
+            {
+                Power.Append("College='");
+                Power.Append(leader.College);
+                Power.Append("' and Grade='");
+                Power.Append(leader.Grade);
+                Power.Append("'");
+            }
             return stuBaseInfoDAL.Find_FamStuInfo(Power);
         }
 
@@ -57,13 +77,23 @@ namespace BLL
         /// <returns></returns>
         public DataTable Find_PerStuInfo()
         {
-            string Power = "";
+            StringBuilder Power = new StringBuilder();
             if (leader.Identify == "1")
-                Power = "College like %";
+                Power.Append("Grade like '2%'");
             else if (leader.Identify == "2")
-                Power = "College=" + leader.College;
+            {
+                Power.Append("College='");
+                Power.Append(leader.College);
+                Power.Append("'");
+            }
             else if (leader.Identify == "3")
-                Power = "College=" + leader.College + "Grade=" + leader.Grade;
+            {
+                Power.Append("College='");
+                Power.Append(leader.College);
+                Power.Append("' and Grade='");
+                Power.Append(leader.Grade);
+                Power.Append("'");
+            }
             return stuBaseInfoDAL.Find_PerStuInfo(Power);
         }
 
@@ -73,13 +103,23 @@ namespace BLL
         /// <returns></returns>
         public DataTable Find_SchStuInfo()
         {
-            string Power = "";
+            StringBuilder Power = new StringBuilder();
             if (leader.Identify == "1")
-                Power = "College like %";
+                Power.Append("Grade like '2%'");
             else if (leader.Identify == "2")
-                Power = "College=" + leader.College;
+            {
+                Power.Append("College='");
+                Power.Append(leader.College);
+                Power.Append("'");
+            }
             else if (leader.Identify == "3")
-                Power = "College=" + leader.College + "Grade=" + leader.Grade;
+            {
+                Power.Append("College='");
+                Power.Append(leader.College);
+                Power.Append("' and Grade='");
+                Power.Append(leader.Grade);
+                Power.Append("'");
+            }
             return stuBaseInfoDAL.Find_SchStuInfo(Power);
         }
 
