@@ -196,16 +196,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\aModel\Model.csproj">
-      <Project>{C17F0A72-9362-46C5-AF60-B7006492568B}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NBLL\BLL.csproj">
-      <Project>{ABAD92D4-6BB7-4E1E-8ECB-3D4024B6BD05}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -233,6 +223,16 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\aModel\Model.csproj">
+      <Project>{C17F0A72-9362-46C5-AF60-B7006492568B}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBLL\BLL.csproj">
+      <Project>{ABAD92D4-6BB7-4E1E-8ECB-3D4024B6BD05}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

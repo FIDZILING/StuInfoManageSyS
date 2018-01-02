@@ -27,7 +27,7 @@ namespace BLL
         private StringBuilder PowerInFind(StringBuilder Power)
         {
             if (leader.Identify == "1")
-                Power.Append(" where dbo.StudentBaseInformation.College like '%_%'");
+                Power.Append(" where dbo.StudentBaseInformation.StuNo like '%_%'");
             else if (leader.Identify == "2")
             {
                 Power.Append(" where dbo.StudentBaseInformation.College='");
@@ -148,7 +148,7 @@ namespace BLL
         /// <param name="OutSchool">出校信息</param>
         /// <returns></returns>
         public bool Change_AllStuInfo(string StuNo, string FamilyNum, string HomePro, string HomeCity, string HomeCounty, string HomeOther, string FaName, string FaTelNum, string FaIncome, string MaName, string MaTelNum, string MaIncome,
-            string Nation, DateTime Birthday, string Symbol, string TelNum,string QQNum, string IDNum, string OriginPro, string OriginCity, string OriginCounty, string HighSchool,
+            string Nation, DateTime Birthday, string Symbol, string TelNum, string QQNum, string IDNum, string OriginPro, string OriginCity, string OriginCounty, string HighSchool,
              string SchoolType, string Grade, string College, string Profession, string Classes, string DropNum, string OutSchool)
         {
             if (stuBaseInfoDAL.Change_FamStuInfo(StuNo, FamilyNum, HomePro, HomeCity, HomeCounty, HomeOther, FaName, FaTelNum, FaIncome, MaName, MaTelNum, MaIncome) == true
@@ -288,7 +288,7 @@ namespace BLL
         /// <param name="Symbol">政治面貌</param>
         /// <param name="OriginPro">籍贯-省</param>
         /// <returns></returns>
-        public DataTable Find_PerStuBySomethings(string StuNo,string Sex,string Nation,string Symbol,string OriginPro)
+        public DataTable Find_PerStuBySomethings(string StuNo, string Sex, string Nation, string Symbol, string OriginPro)
         {
             StringBuilder Power = new StringBuilder();
             Power = PowerInFind(Power);
@@ -311,7 +311,7 @@ namespace BLL
         /// <param name="StuNo">学号</param>
         /// <param name="HomePro">住址-省</param>
         /// <returns></returns>
-        public DataTable Find_FamStuBySomethings(string StuNo,string HomePro)
+        public DataTable Find_FamStuBySomethings(string StuNo, string HomePro)
         {
             StringBuilder Power = new StringBuilder();
             Power = PowerInFind(Power);
@@ -332,7 +332,7 @@ namespace BLL
         /// <param name="Profession">专业</param>
         /// <param name="Classes">班级</param>
         /// <returns></returns>
-        public DataTable Find_SchStuBySomethings(string StuNo,string SchoolType,string Grade,string College,string Profession,string Classes)
+        public DataTable Find_SchStuBySomethings(string StuNo, string SchoolType, string Grade, string College, string Profession, string Classes)
         {
             StringBuilder Power = new StringBuilder();
             Power = PowerInFind(Power);
@@ -367,7 +367,7 @@ namespace BLL
         /// <param name="Classes">班级</param>
         /// <returns></returns>
         public DataTable Find_AllStuBySomethings(string StuNo, string Sex, string Nation, string Symbol, string OriginPro,
-            string HomePro,string SchoolType, string Grade, string College, string Profession, string Classes)
+            string HomePro, string SchoolType, string Grade, string College, string Profession, string Classes)
         {
             StringBuilder Power = new StringBuilder();
             Power = PowerInFind(Power);

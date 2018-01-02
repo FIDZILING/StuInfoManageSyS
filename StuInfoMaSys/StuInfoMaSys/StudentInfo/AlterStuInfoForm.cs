@@ -155,7 +155,48 @@ namespace StuInfoMaSys.StudentInfo
         /// <param name="e"></param>
         private void AlterStuInfobutton_Click(object sender, EventArgs e)
         {
-
+            switch (select)
+            {
+                case 1:
+                    if (stuBaseInfoBLL.Change_PerStuInfo(stuInfo.StuNo, NationcomboBox.Text, BirthdaydateTimePicker.Value.Date,
+                        SymbolcomboBox.Text, TelNumtextBox.Text, QQNumtextBox.Text, IDNumtextBox.Text, OriginProcomboBox.Text,
+                        OriginCitycomboBox.Text, OriginCountycomboBox.Text, HighSchooltextBox.Text))
+                        MessageBox.Show("修改成功！");
+                    else
+                        MessageBox.Show("修改失败！");
+                    break;
+                case 2:
+                    if (stuBaseInfoBLL.Change_FamStuInfo(stuInfo.StuNo, FamilyNumtextBox.Text, HomeProcomboBox.Text,
+                        HomeCitycomboBox.Text, HomeCountycomboBox.Text, HomeOthertextBox.Text, FaNametextBox.Text,
+                        FaTeltextBox.Text, FaIncometextBox.Text, MaNametextBox.Text, MaTeltextBox.Text, MaIncometextBox.Text))
+                        MessageBox.Show("修改成功！");
+                    else
+                        MessageBox.Show("修改失败！");
+                    break;
+                case 3:
+                    string dorid3 = stuBaseInfoBLL.Find_DorID(DorAreacomboBox.Text, DorBuildingcomboBox.Text, DorNumcomboBox.Text);
+                    if (stuBaseInfoBLL.Change_SchStuInfo(stuInfo.StuNo, SchoolTypecomboBox.SelectedIndex.ToString(),
+                        GradetextBox.Text, CollegetextBox.Text, ProfessiontextBox.Text, ClassestextBox.Text, dorid3,
+                        OutSchooltextBox.Text))
+                        MessageBox.Show("修改成功！");
+                    else
+                        MessageBox.Show("修改失败！");
+                    break;
+                case 0:
+                    string dorid0 = stuBaseInfoBLL.Find_DorID(DorAreacomboBox.Text, DorBuildingcomboBox.Text, DorNumcomboBox.Text);
+                    if (stuBaseInfoBLL.Change_AllStuInfo(stuInfo.StuNo, FamilyNumtextBox.Text, HomeProcomboBox.Text,
+                        HomeCitycomboBox.Text, HomeCountycomboBox.Text, HomeOthertextBox.Text, FaNametextBox.Text,
+                        FaTeltextBox.Text, FaIncometextBox.Text, MaNametextBox.Text, MaTeltextBox.Text, MaIncometextBox.Text,
+                        NationcomboBox.Text, BirthdaydateTimePicker.Value.Date, SymbolcomboBox.Text, TelNumtextBox.Text,
+                        QQNumtextBox.Text, IDNumtextBox.Text, OriginProcomboBox.Text, OriginCitycomboBox.Text,
+                        OriginCountycomboBox.Text, HighSchooltextBox.Text, SchoolTypecomboBox.SelectedIndex.ToString(),
+                        GradetextBox.Text, CollegetextBox.Text, ProfessiontextBox.Text, ClassestextBox.Text, dorid0,
+                        OutSchooltextBox.Text))
+                        MessageBox.Show("修改成功！");
+                    else
+                        MessageBox.Show("修改失败！");
+                    break;
+            }
         }
         /// <summary>
         /// 加载窗体
@@ -225,7 +266,7 @@ namespace StuInfoMaSys.StudentInfo
             MaNametextBox.Text = stuInfo.MaName;
             MaTeltextBox.Text = stuInfo.MaTelNum;
             MaIncometextBox.Text = stuInfo.MaIncome;
-            SchoolTypetextBox.Text = stuInfo.SchoolType;
+            SchoolTypecomboBox.SelectedIndex = int.Parse(stuInfo.SchoolType);
             CollegetextBox.Text = stuInfo.College;
             GradetextBox.Text = stuInfo.Grade;
             ProfessiontextBox.Text = stuInfo.Profession;
@@ -239,7 +280,7 @@ namespace StuInfoMaSys.StudentInfo
             OutSchooltextBox.Text = stuInfo.OutSchool;
             #endregion
         }
-        #region 设置comboBox
+        #region 设置comboBox SelectedIndexChanged
         /// <summary>
         /// 设置籍贯-市comboBox
         /// </summary>

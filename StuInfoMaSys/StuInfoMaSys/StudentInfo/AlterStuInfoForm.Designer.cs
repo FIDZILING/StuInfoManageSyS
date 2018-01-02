@@ -56,7 +56,6 @@
             this.GradetextBox = new System.Windows.Forms.TextBox();
             this.DorAreacomboBox = new System.Windows.Forms.ComboBox();
             this.CollegetextBox = new System.Windows.Forms.TextBox();
-            this.SchoolTypetextBox = new System.Windows.Forms.TextBox();
             this.ProfessiontextBox = new System.Windows.Forms.TextBox();
             this.OutSchooltextBox = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -87,6 +86,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.StuNoNameSexlabel = new System.Windows.Forms.Label();
+            this.SchoolTypecomboBox = new System.Windows.Forms.ComboBox();
             this.StuPergroupBox.SuspendLayout();
             this.StuSchgroupBox.SuspendLayout();
             this.StuFamgroupBox.SuspendLayout();
@@ -298,13 +298,13 @@
             // 
             // StuSchgroupBox
             // 
+            this.StuSchgroupBox.Controls.Add(this.SchoolTypecomboBox);
             this.StuSchgroupBox.Controls.Add(this.DorNumcomboBox);
             this.StuSchgroupBox.Controls.Add(this.ClassestextBox);
             this.StuSchgroupBox.Controls.Add(this.DorBuildingcomboBox);
             this.StuSchgroupBox.Controls.Add(this.GradetextBox);
             this.StuSchgroupBox.Controls.Add(this.DorAreacomboBox);
             this.StuSchgroupBox.Controls.Add(this.CollegetextBox);
-            this.StuSchgroupBox.Controls.Add(this.SchoolTypetextBox);
             this.StuSchgroupBox.Controls.Add(this.ProfessiontextBox);
             this.StuSchgroupBox.Controls.Add(this.OutSchooltextBox);
             this.StuSchgroupBox.Controls.Add(this.label23);
@@ -370,13 +370,6 @@
             this.CollegetextBox.Name = "CollegetextBox";
             this.CollegetextBox.Size = new System.Drawing.Size(179, 27);
             this.CollegetextBox.TabIndex = 47;
-            // 
-            // SchoolTypetextBox
-            // 
-            this.SchoolTypetextBox.Location = new System.Drawing.Point(123, 16);
-            this.SchoolTypetextBox.Name = "SchoolTypetextBox";
-            this.SchoolTypetextBox.Size = new System.Drawing.Size(130, 27);
-            this.SchoolTypetextBox.TabIndex = 46;
             // 
             // ProfessiontextBox
             // 
@@ -650,6 +643,22 @@
             this.StuNoNameSexlabel.TabIndex = 1;
             this.StuNoNameSexlabel.Text = "学号：";
             // 
+            // SchoolTypecomboBox
+            // 
+            this.SchoolTypecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SchoolTypecomboBox.FormattingEnabled = true;
+            this.SchoolTypecomboBox.Items.AddRange(new object[] {
+            "未到大一",
+            "正常在校",
+            "正常离校",
+            "延期毕业",
+            "休学",
+            "退学"});
+            this.SchoolTypecomboBox.Location = new System.Drawing.Point(123, 18);
+            this.SchoolTypecomboBox.Name = "SchoolTypecomboBox";
+            this.SchoolTypecomboBox.Size = new System.Drawing.Size(130, 28);
+            this.SchoolTypecomboBox.TabIndex = 50;
+            // 
             // AlterStuInfoForm
             // 
             this.AcceptButton = this.AlterStuInfobutton;
@@ -734,7 +743,6 @@
         private System.Windows.Forms.TextBox GradetextBox;
         private System.Windows.Forms.ComboBox DorAreacomboBox;
         private System.Windows.Forms.TextBox CollegetextBox;
-        private System.Windows.Forms.TextBox SchoolTypetextBox;
         private System.Windows.Forms.TextBox ProfessiontextBox;
         private System.Windows.Forms.TextBox OutSchooltextBox;
         private System.Windows.Forms.Label label23;
@@ -743,5 +751,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox SchoolTypecomboBox;
     }
 }
