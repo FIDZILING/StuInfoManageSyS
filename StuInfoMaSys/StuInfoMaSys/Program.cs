@@ -36,12 +36,12 @@ namespace StuInfoMaSys
 
             Microsoft.Office.Interop.Excel.Workbook xlBook = xlApp.Workbooks.Add(true);
 
-            for (int i = 0;i < dataTable.Columns.Count;i++)             //将datatable的列名导入excel表的第一行
+            foreach (DataColumn dc in dataTable.Columns)             //将datatable的列名导入excel表的第一行
             {
                 columnIndex++;
-                xlApp.Cells[rowIndex, columnIndex] = dataTable.Columns;
+                xlApp.Cells[rowIndex, columnIndex] = dc.ColumnName;
             }
-            
+
             //将数据写入到Excel表中
             for (int i = 0; i < rowNum; i++)
             {
