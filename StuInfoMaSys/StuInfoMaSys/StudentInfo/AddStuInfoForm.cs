@@ -61,8 +61,8 @@ namespace StuInfoMaSys.StudentInfo
                 MessageBox.Show("未选择在校类型！");
                 return;
             }
-            if (stuBaseInfoBLL.Add_BaseStuInfo(stunum, name, SexcomboBox.SelectedItem.ToString(),
-                SchoolTypecomboBox.SelectedIndex.ToString()))
+            if (stuBaseInfoBLL.Add_BaseStuInfo(stunum, name, SchoolTypecomboBox.SelectedIndex.ToString(),
+                SexcomboBox.SelectedItem.ToString()))
                 MessageBox.Show("添加成功！");
             else
                 MessageBox.Show("添加失败！");

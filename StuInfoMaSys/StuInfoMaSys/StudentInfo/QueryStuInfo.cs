@@ -46,7 +46,7 @@ namespace StuInfoMaSys.StudentInfo
             this.Close();
         }
         /// <summary>
-        /// 修改
+        /// 修改按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -65,6 +65,49 @@ namespace StuInfoMaSys.StudentInfo
                 StartPosition = FormStartPosition.CenterScreen
             };
             alterStuInfoForm.Show();
+        }
+        /// <summary>
+        /// Tab选择时显示dataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab.Name == "StuPertabPage")
+                StuPerdataGridView.DataSource = stuBaseInfoBLL.Find_PerStuInfo();
+            else if (tabControl1.SelectedTab.Name == "StuFamtabPage")
+                StuFamdataGridView.DataSource = stuBaseInfoBLL.Find_FamStuInfo();
+            else if (tabControl1.SelectedTab.Name == "StuSchtabPage")
+                StuSchdataGridView.DataSource = stuBaseInfoBLL.Find_SchStuInfo();
+            else
+                StuAlldataGridView.DataSource = stuBaseInfoBLL.Find_ALLStuInformation();
+        }
+
+        private void QueryStuInfoForm_Load(object sender, EventArgs e)
+        {
+            #region dataGridView 设置
+            StuPerdataGridView.RowTemplate.Height = 30; // 行高
+            // 颜色交替
+            StuPerdataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+            StuPerdataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(224, 254, 254);
+            StuPerdataGridView.ReadOnly = true; // 设置只读
+            StuFamdataGridView.RowTemplate.Height = 30; // 行高
+            // 颜色交替
+            StuFamdataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+            StuFamdataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(224, 254, 254);
+            StuFamdataGridView.ReadOnly = true; // 设置只读
+            StuSchdataGridView.RowTemplate.Height = 30; // 行高
+            // 颜色交替
+            StuSchdataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+            StuSchdataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(224, 254, 254);
+            StuSchdataGridView.ReadOnly = true; // 设置只读
+            StuAlldataGridView.RowTemplate.Height = 30; // 行高
+            // 颜色交替
+            StuAlldataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+            StuAlldataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(224, 254, 254);
+            StuAlldataGridView.ReadOnly = true; // 设置只读
+            #endregion
+            StuAlldataGridView.DataSource = stuBaseInfoBLL.Find_ALLStuInformation();
         }
     }
 }

@@ -31,9 +31,13 @@
             this.Returnbutton = new System.Windows.Forms.Button();
             this.AlterStuInfobutton = new System.Windows.Forms.Button();
             this.StuPergroupBox = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.StuSchgroupBox = new System.Windows.Forms.GroupBox();
             this.StuFamgroupBox = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.StuNoNameSexlabel = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.StuPergroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,13 +66,23 @@
             // 
             // StuPergroupBox
             // 
+            this.StuPergroupBox.Controls.Add(this.comboBox1);
+            this.StuPergroupBox.Controls.Add(this.label2);
+            this.StuPergroupBox.Controls.Add(this.dateTimePicker1);
             this.StuPergroupBox.Controls.Add(this.textBox1);
-            this.StuPergroupBox.Location = new System.Drawing.Point(30, 12);
+            this.StuPergroupBox.Location = new System.Drawing.Point(30, 53);
             this.StuPergroupBox.Name = "StuPergroupBox";
-            this.StuPergroupBox.Size = new System.Drawing.Size(877, 192);
+            this.StuPergroupBox.Size = new System.Drawing.Size(877, 151);
             this.StuPergroupBox.TabIndex = 9;
             this.StuPergroupBox.TabStop = false;
             this.StuPergroupBox.Text = "个人信息";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(401, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 27);
+            this.textBox1.TabIndex = 0;
             // 
             // StuSchgroupBox
             // 
@@ -88,13 +102,39 @@
             this.StuFamgroupBox.TabStop = false;
             this.StuFamgroupBox.Text = "家庭信息";
             // 
-            // textBox1
+            // StuNoNameSexlabel
             // 
-            this.textBox1.Location = new System.Drawing.Point(375, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 27);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "123";
+            this.StuNoNameSexlabel.AutoSize = true;
+            this.StuNoNameSexlabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.StuNoNameSexlabel.Location = new System.Drawing.Point(25, 23);
+            this.StuNoNameSexlabel.Name = "StuNoNameSexlabel";
+            this.StuNoNameSexlabel.Size = new System.Drawing.Size(72, 27);
+            this.StuNoNameSexlabel.TabIndex = 1;
+            this.StuNoNameSexlabel.Text = "学号：";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(229, 111);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(165, 27);
+            this.dateTimePicker1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "民族：";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(123, 37);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.TabIndex = 12;
             // 
             // AlterStuInfoForm
             // 
@@ -104,6 +144,7 @@
             this.CancelButton = this.Returnbutton;
             this.ClientSize = new System.Drawing.Size(949, 613);
             this.Controls.Add(this.StuSchgroupBox);
+            this.Controls.Add(this.StuNoNameSexlabel);
             this.Controls.Add(this.StuFamgroupBox);
             this.Controls.Add(this.StuPergroupBox);
             this.Controls.Add(this.AlterStuInfobutton);
@@ -115,9 +156,11 @@
             this.Name = "AlterStuInfoForm";
             this.ShowIcon = false;
             this.Text = "修改本科生信息";
+            this.Load += new System.EventHandler(this.AlterStuInfoForm_Load);
             this.StuPergroupBox.ResumeLayout(false);
             this.StuPergroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -129,5 +172,9 @@
         private System.Windows.Forms.GroupBox StuSchgroupBox;
         private System.Windows.Forms.GroupBox StuFamgroupBox;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label StuNoNameSexlabel;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

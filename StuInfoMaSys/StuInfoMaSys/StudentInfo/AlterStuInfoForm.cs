@@ -61,5 +61,14 @@ namespace StuInfoMaSys.StudentInfo
         {
 
         }
+        /// <summary>
+        /// 加载窗体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AlterStuInfoForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
