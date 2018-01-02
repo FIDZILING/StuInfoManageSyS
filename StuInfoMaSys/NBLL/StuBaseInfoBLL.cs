@@ -18,14 +18,13 @@ namespace BLL
             this.leader = leader;
         }
 
-
         /// <summary>
-        /// 查找本科生所有信息
+        /// 查找函数使用的权限判断
         /// </summary>
+        /// <param name="Power">权限</param>
         /// <returns></returns>
-        public DataTable Find_ALLStuInformation()
+        private StringBuilder PowerInFind(StringBuilder Power)
         {
-            StringBuilder Power = new StringBuilder();
             if (leader.Identify == "1")
                 Power.Append("");
             else if (leader.Identify == "2")
@@ -42,6 +41,17 @@ namespace BLL
                 Power.Append(leader.Grade);
                 Power.Append("'");
             }
+            return Power;
+        }
+
+        /// <summary>
+        /// 查找本科生所有信息
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Find_ALLStuInformation()
+        {
+            StringBuilder Power = new StringBuilder();
+            Power = PowerInFind(Power);
             return stuBaseInfoDAL.Find_ALLStuInformation(Power);
         }
 
@@ -52,22 +62,7 @@ namespace BLL
         public DataTable Find_FamStuInfo()
         {
             StringBuilder Power = new StringBuilder();
-            if (leader.Identify == "1")
-                Power.Append("");
-            else if (leader.Identify == "2")
-            {
-                Power.Append(" where dbo.StudentBaseInformation.College='");
-                Power.Append(leader.College);
-                Power.Append("'");
-            }
-            else if (leader.Identify == "3")
-            {
-                Power.Append(" where dbo.StudentBaseInformation.College='");
-                Power.Append(leader.College);
-                Power.Append("' and dbo.StudentBaseInformation.Grade='");
-                Power.Append(leader.Grade);
-                Power.Append("'");
-            }
+            Power = PowerInFind(Power);
             return stuBaseInfoDAL.Find_FamStuInfo(Power);
         }
 
@@ -78,22 +73,7 @@ namespace BLL
         public DataTable Find_PerStuInfo()
         {
             StringBuilder Power = new StringBuilder();
-            if (leader.Identify == "1")
-                Power.Append("");
-            else if (leader.Identify == "2")
-            {
-                Power.Append(" where dbo.StudentBaseInformation.College='");
-                Power.Append(leader.College);
-                Power.Append("'");
-            }
-            else if (leader.Identify == "3")
-            {
-                Power.Append(" where dbo.StudentBaseInformation.College='");
-                Power.Append(leader.College);
-                Power.Append("' and dbo.StudentBaseInformation.Grade='");
-                Power.Append(leader.Grade);
-                Power.Append("'");
-            }
+            Power = PowerInFind(Power);
             return stuBaseInfoDAL.Find_PerStuInfo(Power);
         }
 
@@ -104,22 +84,7 @@ namespace BLL
         public DataTable Find_SchStuInfo()
         {
             StringBuilder Power = new StringBuilder();
-            if (leader.Identify == "1")
-                Power.Append("");
-            else if (leader.Identify == "2")
-            {
-                Power.Append(" where dbo.StudentBaseInformation.College='");
-                Power.Append(leader.College);
-                Power.Append("'");
-            }
-            else if (leader.Identify == "3")
-            {
-                Power.Append(" where dbo.StudentBaseInformation.College='");
-                Power.Append(leader.College);
-                Power.Append("' and dbo.StudentBaseInformation.Grade='");
-                Power.Append(leader.Grade);
-                Power.Append("'");
-            }
+            Power = PowerInFind(Power);
             return stuBaseInfoDAL.Find_SchStuInfo(Power);
         }
 

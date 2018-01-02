@@ -19,8 +19,22 @@ namespace DAL
         public DataTable Find_ALLStuInformation(StringBuilder Power)
         {
             StringBuilder Sql_Str = new StringBuilder();
-            Sql_Str.Append("select * from dbo.StudentBaseInformation");
-
+            Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
+            Sql_Str.Append("dbo.StudentBaseInformation.SchoolType,");
+            Sql_Str.Append("dbo.StudentBaseInformation.Grade,dbo.StudentBaseInformation.College,");
+            Sql_Str.Append("dbo.StudentBaseInformation.Profession,dbo.StudentBaseInformation.Classes,");
+            Sql_Str.Append("dbo.Dormitory.DorArea,dbo.Dormitory.DorBuilding,dbo.Dormitory.DorNum,");
+            Sql_Str.Append("dbo.StudentBaseInformation.Sex,dbo.StudentBaseInformation.Nation,");
+            Sql_Str.Append("dbo.StudentBaseInformation.Birthday,dbo.StudentBaseInformation.Symbol,");
+            Sql_Str.Append("dbo.StudentBaseInformation.TelNum,dbo.StudentBaseInformation.QQNum,dbo.StudentBaseInformation.IDNum,");
+            Sql_Str.Append("dbo.StudentBaseInformation.OriginPro,dbo.StudentBaseInformation.OriginCity,dbo.StudentBaseInformation.OriginCounty,");
+            Sql_Str.Append("dbo.StudentBaseInformation.HighSchool,");
+            Sql_Str.Append("dbo.StudentBaseInformation.FamilyNum,");
+            Sql_Str.Append("dbo.StudentBaseInformation.HomePro,dbo.StudentBaseInformation.HomeCity,dbo.StudentBaseInformation.HomeCounty,dbo.StudentBaseInformation.HomeOther,");
+            Sql_Str.Append("dbo.StudentBaseInformation.FaName,dbo.StudentBaseInformation.FaTelNum,dbo.StudentBaseInformation.FaIncome,");
+            Sql_Str.Append("dbo.StudentBaseInformation.MaName,dbo.StudentBaseInformation.MaTelNum,dbo.StudentBaseInformation.MaIncome,");
+            Sql_Str.Append("dbo.StudentBaseInformation.OutSchool");
+            Sql_Str.Append(" from dbo.StudentBaseInformation left outer join dbo.Dormitory on (dbo.StudentBaseInformation.DropNum=dbo.Dormitory.ID)");
             Sql_Str.Append(Power);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
@@ -415,5 +429,8 @@ namespace DAL
                 }
             }
         }
+
+
+        
     }
 }
