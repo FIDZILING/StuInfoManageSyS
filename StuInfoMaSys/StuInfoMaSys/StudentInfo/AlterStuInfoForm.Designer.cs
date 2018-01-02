@@ -54,6 +54,7 @@
             this.AlterStuInfobutton.TabIndex = 8;
             this.AlterStuInfobutton.Text = "修改";
             this.AlterStuInfobutton.UseVisualStyleBackColor = true;
+            this.AlterStuInfobutton.Click += new System.EventHandler(this.AlterStuInfobutton_Click);
             // 
             // AlterStuInfoForm
             // 

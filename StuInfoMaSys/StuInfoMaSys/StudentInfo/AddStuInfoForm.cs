@@ -50,6 +50,20 @@ namespace StuInfoMaSys.StudentInfo
                 MessageBox.Show("姓名不能为空！");
                 return;
             }
+            if (SexcomboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("未选择性别！");
+                return;
+            }
+            if (SchoolTypecomboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("未选择在校类型！");
+                return;
+            }
+            if (true)
+                MessageBox.Show("添加成功！");
+            else
+                MessageBox.Show("添加失败！");
         }
     }
 }

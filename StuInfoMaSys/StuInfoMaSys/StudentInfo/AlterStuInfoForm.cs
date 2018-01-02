@@ -15,6 +15,7 @@ namespace StuInfoMaSys.StudentInfo
     public partial class AlterStuInfoForm : Form
     {
         private Leader leader;
+        private StuInfo stuInfo;
         private StuBaseInfoBLL stuBaseInfoBLL = new StuBaseInfoBLL();
         public AlterStuInfoForm(Leader leader)
         {
@@ -29,6 +30,15 @@ namespace StuInfoMaSys.StudentInfo
         private void Returnbutton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AlterStuInfobutton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
