@@ -30,12 +30,17 @@
         {
             this.Returnbutton = new System.Windows.Forms.Button();
             this.AlterStuInfobutton = new System.Windows.Forms.Button();
+            this.StuPergroupBox = new System.Windows.Forms.GroupBox();
+            this.StuSchgroupBox = new System.Windows.Forms.GroupBox();
+            this.StuFamgroupBox = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.StuPergroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // Returnbutton
             // 
             this.Returnbutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Returnbutton.Location = new System.Drawing.Point(562, 480);
+            this.Returnbutton.Location = new System.Drawing.Point(795, 539);
             this.Returnbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Returnbutton.Name = "Returnbutton";
             this.Returnbutton.Size = new System.Drawing.Size(112, 32);
@@ -46,8 +51,7 @@
             // 
             // AlterStuInfobutton
             // 
-            this.AlterStuInfobutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.AlterStuInfobutton.Location = new System.Drawing.Point(432, 480);
+            this.AlterStuInfobutton.Location = new System.Drawing.Point(664, 539);
             this.AlterStuInfobutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AlterStuInfobutton.Name = "AlterStuInfobutton";
             this.AlterStuInfobutton.Size = new System.Drawing.Size(112, 32);
@@ -56,6 +60,42 @@
             this.AlterStuInfobutton.UseVisualStyleBackColor = true;
             this.AlterStuInfobutton.Click += new System.EventHandler(this.AlterStuInfobutton_Click);
             // 
+            // StuPergroupBox
+            // 
+            this.StuPergroupBox.Controls.Add(this.textBox1);
+            this.StuPergroupBox.Location = new System.Drawing.Point(30, 12);
+            this.StuPergroupBox.Name = "StuPergroupBox";
+            this.StuPergroupBox.Size = new System.Drawing.Size(877, 192);
+            this.StuPergroupBox.TabIndex = 9;
+            this.StuPergroupBox.TabStop = false;
+            this.StuPergroupBox.Text = "个人信息";
+            // 
+            // StuSchgroupBox
+            // 
+            this.StuSchgroupBox.Location = new System.Drawing.Point(30, 376);
+            this.StuSchgroupBox.Name = "StuSchgroupBox";
+            this.StuSchgroupBox.Size = new System.Drawing.Size(877, 139);
+            this.StuSchgroupBox.TabIndex = 10;
+            this.StuSchgroupBox.TabStop = false;
+            this.StuSchgroupBox.Text = "在校信息";
+            // 
+            // StuFamgroupBox
+            // 
+            this.StuFamgroupBox.Location = new System.Drawing.Point(30, 210);
+            this.StuFamgroupBox.Name = "StuFamgroupBox";
+            this.StuFamgroupBox.Size = new System.Drawing.Size(877, 160);
+            this.StuFamgroupBox.TabIndex = 10;
+            this.StuFamgroupBox.TabStop = false;
+            this.StuFamgroupBox.Text = "家庭信息";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(375, 78);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 27);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "123";
+            // 
             // AlterStuInfoForm
             // 
             this.AcceptButton = this.AlterStuInfobutton;
@@ -63,6 +103,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Returnbutton;
             this.ClientSize = new System.Drawing.Size(949, 613);
+            this.Controls.Add(this.StuSchgroupBox);
+            this.Controls.Add(this.StuFamgroupBox);
+            this.Controls.Add(this.StuPergroupBox);
             this.Controls.Add(this.AlterStuInfobutton);
             this.Controls.Add(this.Returnbutton);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -72,6 +115,8 @@
             this.Name = "AlterStuInfoForm";
             this.ShowIcon = false;
             this.Text = "修改本科生信息";
+            this.StuPergroupBox.ResumeLayout(false);
+            this.StuPergroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -80,5 +125,9 @@
 
         private System.Windows.Forms.Button Returnbutton;
         private System.Windows.Forms.Button AlterStuInfobutton;
+        private System.Windows.Forms.GroupBox StuPergroupBox;
+        private System.Windows.Forms.GroupBox StuSchgroupBox;
+        private System.Windows.Forms.GroupBox StuFamgroupBox;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

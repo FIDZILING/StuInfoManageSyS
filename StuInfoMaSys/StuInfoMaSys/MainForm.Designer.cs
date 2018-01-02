@@ -129,18 +129,21 @@
             this.QueryStuPerInfoToolStripMenuItem.Name = "QueryStuPerInfoToolStripMenuItem";
             this.QueryStuPerInfoToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.QueryStuPerInfoToolStripMenuItem.Text = "查询本科生个人信息";
+            this.QueryStuPerInfoToolStripMenuItem.Click += new System.EventHandler(this.QueryStuPerInfoToolStripMenuItem_Click);
             // 
             // QueryStuFamInfoToolStripMenuItem
             // 
             this.QueryStuFamInfoToolStripMenuItem.Name = "QueryStuFamInfoToolStripMenuItem";
             this.QueryStuFamInfoToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.QueryStuFamInfoToolStripMenuItem.Text = "查询本科生家庭信息";
+            this.QueryStuFamInfoToolStripMenuItem.Click += new System.EventHandler(this.QueryStuFamInfoToolStripMenuItem_Click);
             // 
             // QueryStuSchInfoToolStripMenuItem
             // 
             this.QueryStuSchInfoToolStripMenuItem.Name = "QueryStuSchInfoToolStripMenuItem";
             this.QueryStuSchInfoToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.QueryStuSchInfoToolStripMenuItem.Text = "查询本科生在校信息";
+            this.QueryStuSchInfoToolStripMenuItem.Click += new System.EventHandler(this.QueryStuSchInfoToolStripMenuItem_Click);
             // 
             // RPToolStripMenuItem
             // 
@@ -511,6 +514,7 @@
             this.QueryStuSchInfobutton.TabIndex = 7;
             this.QueryStuSchInfobutton.Text = "查询本科生在校信息";
             this.QueryStuSchInfobutton.UseVisualStyleBackColor = true;
+            this.QueryStuSchInfobutton.Click += new System.EventHandler(this.QueryStuSchInfobutton_Click);
             // 
             // QueryStuFamInfobutton
             // 
@@ -520,6 +524,7 @@
             this.QueryStuFamInfobutton.TabIndex = 6;
             this.QueryStuFamInfobutton.Text = "查询本科生家庭信息";
             this.QueryStuFamInfobutton.UseVisualStyleBackColor = true;
+            this.QueryStuFamInfobutton.Click += new System.EventHandler(this.QueryStuFamInfobutton_Click);
             // 
             // QueryStuPerInfobutton
             // 
@@ -529,6 +534,7 @@
             this.QueryStuPerInfobutton.TabIndex = 4;
             this.QueryStuPerInfobutton.Text = "查询本科生个人信息";
             this.QueryStuPerInfobutton.UseVisualStyleBackColor = true;
+            this.QueryStuPerInfobutton.Click += new System.EventHandler(this.QueryStuPerInfobutton_Click);
             // 
             // AddStuPerInfobutton
             // 

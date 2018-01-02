@@ -16,11 +16,32 @@ namespace StuInfoMaSys.StudentInfo
     {
         private Leader leader;
         private StuInfo stuInfo;
-        private StuBaseInfoBLL stuBaseInfoBLL = new StuBaseInfoBLL();
-        public AlterStuInfoForm(Leader leader)
+        private int select;
+        private StuBaseInfoBLL stuBaseInfoBLL;
+        public AlterStuInfoForm(Leader leader, StuInfo stuInfo, int select)
         {
             this.leader = leader;
+            stuBaseInfoBLL = new StuBaseInfoBLL(leader);
+            this.stuInfo = stuInfo;
             InitializeComponent();
+            // 读取 StuInfo 信息并显示
+            // 根据之前的选择设置能否编辑
+            switch (select)
+            {
+                case 0: break;
+                case 1:
+                    StuFamgroupBox.Enabled = false;
+                    StuSchgroupBox.Enabled = false;
+                    break;
+                case 2:
+                    StuPergroupBox.Enabled = false;
+                    StuSchgroupBox.Enabled = false;
+                    break;
+                case 3:
+                    StuPergroupBox.Enabled = false;
+                    StuFamgroupBox.Enabled = false;
+                    break;
+            }
         }
         /// <summary>
         /// 返回

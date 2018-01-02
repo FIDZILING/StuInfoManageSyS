@@ -54,7 +54,6 @@
             // 
             // AddStuInfobutton
             // 
-            this.AddStuInfobutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.AddStuInfobutton.Location = new System.Drawing.Point(72, 336);
             this.AddStuInfobutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddStuInfobutton.Name = "AddStuInfobutton";

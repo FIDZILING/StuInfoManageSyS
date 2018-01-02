@@ -335,5 +335,83 @@ namespace StuInfoMaSys
             };
             addStuInfoForm.Show();
         }
+        /// <summary>
+        /// 查询本科生个人信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryStuPerInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QueryStuInfoForm queryStuInfoForm = new QueryStuInfoForm(leader, 1)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryStuInfoForm.Show();
+        }
+        /// <summary>
+        /// 查询本科生个人信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryStuPerInfobutton_Click(object sender, EventArgs e)
+        {
+            QueryStuInfoForm queryStuInfoForm = new QueryStuInfoForm(leader, 1)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryStuInfoForm.Show();
+        }
+        /// <summary>
+        /// 查询本科生家庭信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryStuFamInfobutton_Click(object sender, EventArgs e)
+        {
+            QueryStuInfoForm queryStuInfoForm = new QueryStuInfoForm(leader, 2)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryStuInfoForm.Show();
+        }
+        /// <summary>
+        /// 查询本科生家庭信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryStuFamInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QueryStuInfoForm queryStuInfoForm = new QueryStuInfoForm(leader, 2)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryStuInfoForm.Show();
+        }
+        /// <summary>
+        /// 查询本科生在校信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryStuSchInfobutton_Click(object sender, EventArgs e)
+        {
+            QueryStuInfoForm queryStuInfoForm = new QueryStuInfoForm(leader, 3)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryStuInfoForm.Show();
+        }
+        /// <summary>
+        /// 查询本科生在校信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryStuSchInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QueryStuInfoForm queryStuInfoForm = new QueryStuInfoForm(leader, 3)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            queryStuInfoForm.Show();
+        }
     }
 }

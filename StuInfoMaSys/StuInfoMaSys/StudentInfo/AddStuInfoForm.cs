@@ -15,10 +15,11 @@ namespace StuInfoMaSys.StudentInfo
     public partial class AddStuInfoForm : Form
     {
         private Leader leader;
-        private StuBaseInfoBLL stuBaseInfoBLL = new StuBaseInfoBLL();
+        private StuBaseInfoBLL stuBaseInfoBLL;
         public AddStuInfoForm(Leader leader)
         {
             this.leader = leader;
+            stuBaseInfoBLL = new StuBaseInfoBLL(leader);
             InitializeComponent();
             SchoolTypecomboBox.SelectedIndex = 0;
         }
@@ -60,7 +61,8 @@ namespace StuInfoMaSys.StudentInfo
                 MessageBox.Show("未选择在校类型！");
                 return;
             }
-            if (true)
+            if (stuBaseInfoBLL.Add_BaseStuInfo(stunum, name, SexcomboBox.SelectedItem.ToString(),
+                SchoolTypecomboBox.SelectedIndex.ToString()))
                 MessageBox.Show("添加成功！");
             else
                 MessageBox.Show("添加失败！");
