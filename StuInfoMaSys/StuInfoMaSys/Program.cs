@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,6 +12,14 @@ namespace StuInfoMaSys
     static class Program
     {
         public static Leader programleader;
+        /// <summary>
+        /// 导出到文件
+        /// </summary>
+        /// <param name="dataTable">数据源</param>
+        public static void ToExcelFile(DataTable dataTable)
+        {
+
+        }
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>

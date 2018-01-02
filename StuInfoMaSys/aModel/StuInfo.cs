@@ -9,7 +9,7 @@ namespace Model
     /// <summary>
     /// 本科生信息
     /// </summary>
-    class StuInfo
+    public class StuInfo
     {
         /// <summary>
         /// 学号
