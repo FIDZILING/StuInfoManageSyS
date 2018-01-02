@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class StuBaseInfoDAL
+    public class StuBaseInfoDAL
     {
         private static string Sql_Con_Str = DealDAL.Sql_Con_Str;
 
@@ -16,15 +16,18 @@ namespace DAL
         /// 查找本科生所有信息
         /// </summary>
         /// <returns></returns>
-        public DataTable Find_ALLStuInformation()
+        public DataTable Find_ALLStuInformation(string Power)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select * from dbo.StudentBaseInformation");
+            Sql_Str.Append(" where @Power");
+            SqlParameter Param = new SqlParameter("@Power", Power);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
@@ -47,7 +50,7 @@ namespace DAL
         /// 查找本科生家庭信息
         /// </summary>
         /// <returns></returns>
-        public DataTable Find_FamStuInfo()
+        public DataTable Find_FamStuInfo(string Power)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
@@ -56,11 +59,14 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.FaName,dbo.StudentBaseInformation.FaTelNum,dbo.StudentBaseInformation.FaIncome,");
             Sql_Str.Append("dbo.StudentBaseInformation.MaName,dbo.StudentBaseInformation.MaTelNum,dbo.StudentBaseInformation.MaIncome");
             Sql_Str.Append(" from dbo.StudentBaseInformation");
+            Sql_Str.Append(" where @Power");
+            SqlParameter Param = new SqlParameter("@Power", Power);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
@@ -83,7 +89,7 @@ namespace DAL
         /// 查找本科生个人信息
         /// </summary>
         /// <returns></returns>
-        public DataTable Find_PerStuInfo()
+        public DataTable Find_PerStuInfo(string Power)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
@@ -93,11 +99,14 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.OriginPro,dbo.StudentBaseInformation.OriginCity,dbo.StudentBaseInformation.OriginCounty,");
             Sql_Str.Append("dbo.StudentBaseInformation.HighSchool");
             Sql_Str.Append(" from dbo.StudentBaseInformation");
+            Sql_Str.Append(" where @Power");
+            SqlParameter Param = new SqlParameter("@Power", Power);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
@@ -120,25 +129,286 @@ namespace DAL
         /// 查找本科生在校信息
         /// </summary>
         /// <returns></returns>
-        public DataTable Find_SchStuInfo()
+        public DataTable Find_SchStuInfo(string Power)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
-            Sql_Str.Append("dbo.StudentBaseInformation.Sex,dbo.StudentBaseInformation.Nation,");
-            Sql_Str.Append("dbo.StudentBaseInformation.Birthday,dbo.StudentBaseInformation.Symbol,");
-            Sql_Str.Append("dbo.StudentBaseInformation.TelNum,dbo.StudentBaseInformation.QQNum,dbo.StudentBaseInformation.IDNum,");
-            Sql_Str.Append("dbo.StudentBaseInformation.OriginPro,dbo.StudentBaseInformation.OriginCity,dbo.StudentBaseInformation.OriginCounty,");
-            Sql_Str.Append("dbo.StudentBaseInformation.HighSchool");
-            Sql_Str.Append(" from dbo.StudentBaseInformation");
+            Sql_Str.Append("dbo.StudentBaseInformation.SchoolType,");
+            Sql_Str.Append("dbo.StudentBaseInformation.Grade,dbo.StudentBaseInformation.College,");
+            Sql_Str.Append("dbo.StudentBaseInformation.Profession,dbo.StudentBaseInformation.Classes,");
+            Sql_Str.Append("dbo.Dormitory.DorArea,dbo.Dormitory.DorBuilding,dbo.Dormitory.DorNum,");
+            Sql_Str.Append("dbo.StudentBaseInformation.OutSchool");
+            Sql_Str.Append(" from dbo.StudentBaseInformation,dbo.Dormitory");
+            Sql_Str.Append(" where dbo.StudentBaseInformation.DropNum=dbo.Dormitory.ID and @Power");
+            SqlParameter Param = new SqlParameter("@Power", Power);
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.Add(Param);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
                 return Data_Table;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 添加本科生基本信息
+        /// </summary>
+        /// <param name="StuNo">学号</param>
+        /// <param name="StuName">姓名</param>
+        /// <param name="SchoolType">在校状态</param>
+        /// <param name="Sex">性别</param>
+        /// <returns></returns>
+        public bool Add_BaseStuInfo(string StuNo, string StuName,string SchoolType,string Sex)
+        {
+            StringBuilder sqlStr = new StringBuilder();
+            sqlStr.Append("insert into dbo.StudentBaseInformation (StuNo,StuName,SchoolType,Sex)");
+            sqlStr.Append(" values (@StuNo,@StuName,@SchoolType,@Sex)");
+            SqlParameter[] param = {
+                new SqlParameter("@StuNo",StuNo),
+                new SqlParameter("@StuName",StuName),
+                new SqlParameter("@SchoolType",SchoolType),
+                new SqlParameter("@Sex",Sex)
+            };
+            SqlConnection conn = null;
+            try
+            {
+                conn = new SqlConnection(Sql_Con_Str);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr.ToString(), conn);
+                cmd.Parameters.AddRange(param);
+                if ((int)cmd.ExecuteNonQuery() == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (conn != null)
+                    conn.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// 修改学生家庭信息
+        /// </summary>
+        /// <param name="StuNo">学号</param>
+        /// <param name="FamilyNum">家庭人口数</param>
+        /// <param name="HomePro">家庭地址-省</param>
+        /// <param name="HomeCity">家庭地址-市</param>
+        /// <param name="HomeCounty">家庭地址-区/县</param>
+        /// <param name="HomeOther">家庭地址-详细</param>
+        /// <param name="FaName">父亲姓名</param>
+        /// <param name="FaTelNum">父亲电话</param>
+        /// <param name="FaIncome">父亲收入</param>
+        /// <param name="MaName">母亲姓名</param>
+        /// <param name="MaTelNum">母亲电话</param>
+        /// <param name="MaIncome">母亲收入</param>
+        /// <returns></returns>
+        public bool Change_FamStuInfo(string StuNo,string FamilyNum,string HomePro,string HomeCity,string HomeCounty,string HomeOther,
+            string FaName,string FaTelNum,string FaIncome, string MaName, string MaTelNum, string MaIncome)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("update dbo.StudentBaseInformation");
+            Sql_Str.Append(" set FamilyNum=@FamilyNum,HomePro=@HomePro,HomeCity=@HomeCity,HomeOther=@HomeOther,");
+            Sql_Str.Append("FaName=@FaName,FaTelNum=@FaTelNum,FaIncome=@FaIncome,MaName=@MaName,MaTelNum=@MaTelNum,MaIncome=@MaIncome");
+            Sql_Str.Append(" where StuNo=@StuNo");
+            SqlParameter[] Paras = {
+                new SqlParameter("@StuNo", StuNo),
+                new SqlParameter("@FamilyNum", FamilyNum),
+                new SqlParameter("@HomePro", HomePro),
+                new SqlParameter("@HomeCity", HomeCity),
+                new SqlParameter("@HomeCounty", HomeCounty),
+                new SqlParameter("@HomeOther", HomeOther),
+                new SqlParameter("@FaName", FaName),
+                new SqlParameter("@FaTelNum", FaTelNum),
+                new SqlParameter("@FaIncome", FaIncome),
+                new SqlParameter("@MaName", MaName),
+                new SqlParameter("@MaTelNum", MaTelNum),
+                new SqlParameter("@MaIncome", MaIncome)
+            };
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.AddRange(Paras);
+                if ((int)Cmd.ExecuteNonQuery() == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 修改学生个人信息
+        /// </summary>
+        /// <param name="StuNo">学号</param>
+        /// <param name="Nation">民族</param>
+        /// <param name="Birthday">出生日期</param>
+        /// <param name="Symbol">政治面貌</param>
+        /// <param name="TelNum">电话号码</param>
+        /// <param name="QQNum">QQ号码</param>
+        /// <param name="IDNum">身份证号码</param>
+        /// <param name="OriginPro">籍贯-省</param>
+        /// <param name="OriginCity">籍贯-市</param>
+        /// <param name="OriginCounty">籍贯-区/县</param>
+        /// <param name="HighSchool">毕业高中</param>
+        /// <returns></returns>
+        public bool Change_PerStuInfo(string StuNo,string Nation,string Birthday,string Symbol,string TelNum,
+            string QQNum,string IDNum,string OriginPro,string OriginCity,string OriginCounty,string HighSchool)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("update dbo.StudentBaseInformation");
+            Sql_Str.Append(" set Nation=@Nation,Birthday=@Birthday,Symboly=@Symbol,TelNum=@TelNum,");
+            Sql_Str.Append("QQNum=@QQNum,IDNum=@IDNum,OriginPro=@OriginPro,OriginCity=@OriginCity,OriginCounty=@OriginCounty,HighSchool=@HighSchool");
+            Sql_Str.Append(" where StuNo=@StuNo");
+            SqlParameter[] Paras = {
+                new SqlParameter("@StuNo", StuNo),
+                new SqlParameter("@Nation", Nation),
+                new SqlParameter("@Birthday", Birthday),
+                new SqlParameter("@Symbol", Symbol),
+                new SqlParameter("@TelNum", TelNum),
+                new SqlParameter("@QQNum", QQNum),
+                new SqlParameter("@IDNum", IDNum),
+                new SqlParameter("@OriginPro", OriginPro),
+                new SqlParameter("@OriginCity", OriginCity),
+                new SqlParameter("@OriginCounty", OriginCounty),
+                new SqlParameter("@HighSchool", HighSchool)
+            };
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.AddRange(Paras);
+                if ((int)Cmd.ExecuteNonQuery() == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 修改学生在校信息
+        /// </summary>
+        /// <param name="StuNo">学号</param>
+        /// <param name="SchoolType">在校类别</param>
+        /// <param name="Grade">年级</param>
+        /// <param name="College">学院</param>
+        /// <param name="Profession">专业</param>
+        /// <param name="Classes">班级</param>
+        /// <param name="DropNum">寝室编号</param>
+        /// <param name="OutSchool">出校信息</param>
+        /// <returns></returns>
+        public bool Change_SchStuInfo(string StuNo, string SchoolType, string Grade, string College, 
+            string Profession, string Classes, string DropNum, string OutSchool)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("update dbo.StudentBaseInformation");
+            Sql_Str.Append(" set SchoolType=@SchoolType,Grade=@Grade,College=@College,");
+            Sql_Str.Append("Profession=@Profession,Classes=@Classes,DropNum=@DropNum,OutSchool=@OutSchool");
+            Sql_Str.Append(" where StuNo=@StuNo");
+            SqlParameter[] Paras = {
+                new SqlParameter("@StuNo", StuNo),
+                new SqlParameter("@SchoolType", SchoolType),
+                new SqlParameter("@Grade", Grade),
+                new SqlParameter("@College", College),
+                new SqlParameter("@Profession", Profession),
+                new SqlParameter("@Classes", Classes),
+                new SqlParameter("@DropNum", DropNum),
+                new SqlParameter("@OutSchool", OutSchool)
+            };
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.AddRange(Paras);
+                if ((int)Cmd.ExecuteNonQuery() == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 查找寝室ID，返回(string)ID
+        /// </summary>
+        /// <param name="DorArea">寝室区域</param>
+        /// <param name="DorBuilding">寝室楼</param>
+        /// <param name="DorNum">寝室号码</param>
+        public string Find_DorID(string DorArea,string DorBuilding,string DorNum)
+        {
+            StringBuilder Sql_Str = new StringBuilder();
+            Sql_Str.Append("select dbo.Dormitory.ID from dbo.Dormitory");
+            Sql_Str.Append(" where DorArea=@DorArea and DorBuilding=@DorBuilding and DorNum=@DorNum");
+            SqlParameter[] Paras = {
+                 new SqlParameter("@DorArea", DorArea),
+                 new SqlParameter("@DorBuilding", DorBuilding),
+                 new SqlParameter("@DorNum", DorNum)
+            };
+            SqlConnection Conn = new SqlConnection(Sql_Con_Str);
+            try
+            {
+                Conn.Open();
+                SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
+                Cmd.Parameters.AddRange(Paras);
+                DataTable Data_Table = new DataTable();
+                SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Data_Table.Load(dr);
+                return Data_Table.Rows[0][0].ToString();
             }
             catch (Exception ex)
             {

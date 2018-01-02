@@ -48,6 +48,10 @@
     <Compile Include="StuBaseInfoBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\aModel\Model.csproj">
+      <Project>{C17F0A72-9362-46C5-AF60-B7006492568B}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NDAL\DAL.csproj">
       <Project>{19510B67-2118-4895-9AE7-8545B041801A}</Project>
       <Name>DAL</Name>
