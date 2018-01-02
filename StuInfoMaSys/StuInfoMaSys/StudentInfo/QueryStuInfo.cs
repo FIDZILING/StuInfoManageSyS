@@ -54,14 +54,70 @@ namespace StuInfoMaSys.StudentInfo
         /// <param name="e"></param>
         private void Alterbutton_Click(object sender, EventArgs e)
         {
-            int select = 0;
+            #region 获取索引和选择的学号
+            int select;
+            string stuno;
             if (tabControl1.SelectedTab.Name == "StuPertabPage")
+            {
                 select = 1;
+                stuno = StuPerdataGridView.CurrentRow.Cells[0].Value.ToString();
+            }
             else if (tabControl1.SelectedTab.Name == "StuFamtabPage")
+            {
                 select = 2;
+                stuno = StuFamdataGridView.CurrentRow.Cells[0].Value.ToString();
+            }
             else if (tabControl1.SelectedTab.Name == "StuSchtabPage")
+            {
                 select = 3;
-            StuInfo stuInfo = new StuInfo();
+                stuno = StuSchdataGridView.CurrentRow.Cells[0].Value.ToString();
+            }
+            else
+            {
+                select = 0;
+                stuno = StuAlldataGridView.CurrentRow.Cells[0].Value.ToString();
+            }
+            #endregion
+
+            // 获取要修改的学生信息并组装
+            DataTable stuinfodataTable = stuBaseInfoBLL.Find_AllByStuNo(stuno);
+            StuInfo stuInfo = new StuInfo
+            {
+                StuNo = stuinfodataTable.Rows[0][0].ToString(),
+                StuName = stuinfodataTable.Rows[0][1].ToString(),
+                SchoolType = stuinfodataTable.Rows[0][2].ToString(),
+                Grade = stuinfodataTable.Rows[0][3].ToString(),
+                College = stuinfodataTable.Rows[0][4].ToString(),
+                Profession = stuinfodataTable.Rows[0][5].ToString(),
+                Classes = stuinfodataTable.Rows[0][6].ToString(),
+                DorArea = stuinfodataTable.Rows[0][7].ToString(),
+                DorBuilding = stuinfodataTable.Rows[0][8].ToString(),
+                DorNum = stuinfodataTable.Rows[0][9].ToString(),
+                Sex = stuinfodataTable.Rows[0][10].ToString(),
+                Nation = stuinfodataTable.Rows[0][11].ToString(),
+                Birthday = stuinfodataTable.Rows[0][12].ToString(),
+                Symbol = stuinfodataTable.Rows[0][13].ToString(),
+                TelNum = stuinfodataTable.Rows[0][14].ToString(),
+                QQNum = stuinfodataTable.Rows[0][15].ToString(),
+                IDNum = stuinfodataTable.Rows[0][16].ToString(),
+                OriginPro = stuinfodataTable.Rows[0][17].ToString(),
+                OriginCity = stuinfodataTable.Rows[0][18].ToString(),
+                OriginCounty = stuinfodataTable.Rows[0][19].ToString(),
+                HighSchool = stuinfodataTable.Rows[0][20].ToString(),
+                FamilyNum = stuinfodataTable.Rows[0][21].ToString(),
+                HomePro = stuinfodataTable.Rows[0][22].ToString(),
+                HomeCity = stuinfodataTable.Rows[0][23].ToString(),
+                HomeCounty = stuinfodataTable.Rows[0][24].ToString(),
+                HomeOther = stuinfodataTable.Rows[0][25].ToString(),
+                FaName = stuinfodataTable.Rows[0][26].ToString(),
+                FaTelNum = stuinfodataTable.Rows[0][27].ToString(),
+                FaIncome = stuinfodataTable.Rows[0][28].ToString(),
+                MaName = stuinfodataTable.Rows[0][29].ToString(),
+                MaTelNum = stuinfodataTable.Rows[0][30].ToString(),
+                MaIncome = stuinfodataTable.Rows[0][31].ToString(),
+                OutSchool = stuinfodataTable.Rows[0][32].ToString()
+            };
+            // new Form
             AlterStuInfoForm alterStuInfoForm = new AlterStuInfoForm(leader, stuInfo, select)
             {
                 StartPosition = FormStartPosition.CenterScreen
@@ -76,13 +132,33 @@ namespace StuInfoMaSys.StudentInfo
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab.Name == "StuPertabPage")
+            {
+                PergroupBox.Enabled = true;
+                FamgroupBox.Enabled = false;
+                SchgroupBox.Enabled = false;
                 StuPerdataGridView.DataSource = stuBaseInfoBLL.Find_PerStuInfo();
+            }
             else if (tabControl1.SelectedTab.Name == "StuFamtabPage")
+            {
+                PergroupBox.Enabled = false;
+                FamgroupBox.Enabled = true;
+                SchgroupBox.Enabled = false;
                 StuFamdataGridView.DataSource = stuBaseInfoBLL.Find_FamStuInfo();
+            }
             else if (tabControl1.SelectedTab.Name == "StuSchtabPage")
+            {
+                PergroupBox.Enabled = false;
+                FamgroupBox.Enabled = false;
+                SchgroupBox.Enabled = true;
                 StuSchdataGridView.DataSource = stuBaseInfoBLL.Find_SchStuInfo();
+            }
             else
+            {
+                PergroupBox.Enabled = true;
+                FamgroupBox.Enabled = true;
+                SchgroupBox.Enabled = true;
                 StuAlldataGridView.DataSource = stuBaseInfoBLL.Find_ALLStuInformation();
+            }
         }
 
         private void QueryStuInfoForm_Load(object sender, EventArgs e)
@@ -112,11 +188,20 @@ namespace StuInfoMaSys.StudentInfo
             switch (startselect) // 显示默认Tab中的datagridview
             {
                 case 1:
-                    StuPerdataGridView.DataSource = stuBaseInfoBLL.Find_PerStuInfo(); break;
+                    StuPerdataGridView.DataSource = stuBaseInfoBLL.Find_PerStuInfo();
+                    FamgroupBox.Enabled = false;
+                    SchgroupBox.Enabled = false;
+                    break;
                 case 2:
-                    StuFamdataGridView.DataSource = stuBaseInfoBLL.Find_FamStuInfo(); break;
+                    StuFamdataGridView.DataSource = stuBaseInfoBLL.Find_FamStuInfo();
+                    PergroupBox.Enabled = false;
+                    SchgroupBox.Enabled = false;
+                    break;
                 case 3:
-                    StuSchdataGridView.DataSource = stuBaseInfoBLL.Find_SchStuInfo(); break;
+                    StuSchdataGridView.DataSource = stuBaseInfoBLL.Find_SchStuInfo();
+                    PergroupBox.Enabled = false;
+                    SchgroupBox.Enabled = false;
+                    break;
             }
         }
         /// <summary>
@@ -139,6 +224,15 @@ namespace StuInfoMaSys.StudentInfo
                 MessageBox.Show("导出成功！");
             else
                 MessageBox.Show("导出失败");
+        }
+        /// <summary>
+        /// 查询按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QueryStubutton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

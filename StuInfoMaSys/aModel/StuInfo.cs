@@ -40,9 +40,21 @@ namespace Model
         /// </summary>
         public string Grade;
         /// <summary>
-        /// 寝室编号
+        /// 寝室编号ID
         /// </summary>
-        public string DropNum;
+        public string DorpID;
+        /// <summary>
+        /// 寝室园区
+        /// </summary>
+        public string DorArea;
+        /// <summary>
+        /// 寝室楼
+        /// </summary>
+        public string DorBuilding;
+        /// <summary>
+        /// 寝室号
+        /// </summary>
+        public string DorNum;
         /// <summary>
         /// 性别
         /// </summary>
