@@ -2,6 +2,7 @@
 using StuInfoMaSys.Club;
 using StuInfoMaSys.RewardPunishment;
 using StuInfoMaSys.Scholarship;
+using StuInfoMaSys.StudentInfo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -307,6 +308,32 @@ namespace StuInfoMaSys
                 StartPosition = FormStartPosition.CenterScreen
             };
             queryRPForm.Show();
+        }
+        /// <summary>
+        /// 添加本科生信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddStuPerInfobutton_Click(object sender, EventArgs e)
+        {
+            AddStuInfoForm addStuInfoForm = new AddStuInfoForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            addStuInfoForm.Show();
+        }
+        /// <summary>
+        /// 添加本科生信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddStuPerInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddStuInfoForm addStuInfoForm = new AddStuInfoForm(leader)
+            {
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            addStuInfoForm.Show();
         }
     }
 }

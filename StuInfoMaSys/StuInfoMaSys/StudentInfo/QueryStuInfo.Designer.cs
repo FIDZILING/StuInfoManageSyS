@@ -35,7 +35,7 @@
             // Returnbutton
             // 
             this.Returnbutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Returnbutton.Location = new System.Drawing.Point(168, 251);
+            this.Returnbutton.Location = new System.Drawing.Point(733, 382);
             this.Returnbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Returnbutton.Name = "Returnbutton";
             this.Returnbutton.Size = new System.Drawing.Size(112, 32);
@@ -47,7 +47,7 @@
             // QueryStubutton
             // 
             this.QueryStubutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.QueryStubutton.Location = new System.Drawing.Point(12, 251);
+            this.QueryStubutton.Location = new System.Drawing.Point(733, 46);
             this.QueryStubutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.QueryStubutton.Name = "QueryStubutton";
             this.QueryStubutton.Size = new System.Drawing.Size(112, 32);
@@ -61,7 +61,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Returnbutton;
-            this.ClientSize = new System.Drawing.Size(317, 337);
+            this.ClientSize = new System.Drawing.Size(891, 456);
             this.Controls.Add(this.QueryStubutton);
             this.Controls.Add(this.Returnbutton);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));

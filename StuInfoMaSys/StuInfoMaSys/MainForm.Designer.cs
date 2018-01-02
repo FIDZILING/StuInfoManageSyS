@@ -117,6 +117,7 @@
             this.AddStuPerInfoToolStripMenuItem.Name = "AddStuPerInfoToolStripMenuItem";
             this.AddStuPerInfoToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.AddStuPerInfoToolStripMenuItem.Text = "添加本科生个人信息";
+            this.AddStuPerInfoToolStripMenuItem.Click += new System.EventHandler(this.AddStuPerInfoToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -160,7 +161,7 @@
             // QueryRPInfoToolStripMenuItem
             // 
             this.QueryRPInfoToolStripMenuItem.Name = "QueryRPInfoToolStripMenuItem";
-            this.QueryRPInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.QueryRPInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.QueryRPInfoToolStripMenuItem.Text = "查询奖惩信息";
             this.QueryRPInfoToolStripMenuItem.Click += new System.EventHandler(this.QueryRPInfoToolStripMenuItem_Click);
             // 
@@ -537,6 +538,7 @@
             this.AddStuPerInfobutton.TabIndex = 2;
             this.AddStuPerInfobutton.Text = "添加本科生个人信息";
             this.AddStuPerInfobutton.UseVisualStyleBackColor = true;
+            this.AddStuPerInfobutton.Click += new System.EventHandler(this.AddStuPerInfobutton_Click);
             // 
             // MainForm
             // 

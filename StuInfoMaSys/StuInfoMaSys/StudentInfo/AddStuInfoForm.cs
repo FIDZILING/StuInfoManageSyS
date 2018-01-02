@@ -16,9 +16,11 @@ namespace StuInfoMaSys.StudentInfo
     {
         private Leader leader;
         private StuBaseInfoBLL stuBaseInfoBLL = new StuBaseInfoBLL();
-        public AddStuInfoForm()
+        public AddStuInfoForm(Leader leader)
         {
+            this.leader = leader;
             InitializeComponent();
+            SchoolTypecomboBox.SelectedIndex = 0;
         }
         /// <summary>
         /// 返回
@@ -28,6 +30,26 @@ namespace StuInfoMaSys.StudentInfo
         private void Returnbutton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        /// <summary>
+        /// 添加本科生信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddStuInfobutton_Click(object sender, EventArgs e)
+        {
+            string stunum = StuNumtextBox.Text.Trim();
+            if (stunum.Length != 13)
+            {
+                MessageBox.Show("学号长度不符！");
+                return;
+            }
+            string name = NametextBox.Text.Trim();
+            if (name.Length == 0)
+            {
+                MessageBox.Show("姓名不能为空！");
+                return;
+            }
         }
     }
 }

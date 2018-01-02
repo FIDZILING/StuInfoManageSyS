@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +14,11 @@ namespace StuInfoMaSys.StudentInfo
 {
     public partial class AlterStuInfoForm : Form
     {
-        public AlterStuInfoForm()
+        private Leader leader;
+        private StuBaseInfoBLL stuBaseInfoBLL = new StuBaseInfoBLL();
+        public AlterStuInfoForm(Leader leader)
         {
+            this.leader = leader;
             InitializeComponent();
         }
         /// <summary>
