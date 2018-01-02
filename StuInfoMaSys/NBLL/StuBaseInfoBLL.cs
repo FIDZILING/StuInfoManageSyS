@@ -27,18 +27,18 @@ namespace BLL
         {
             StringBuilder Power = new StringBuilder();
             if (leader.Identify == "1")
-                Power.Append("Grade like '2%'");
+                Power.Append("");
             else if (leader.Identify == "2")
             {
-                Power.Append("College='");
+                Power.Append(" where dbo.StudentBaseInformation.College='");
                 Power.Append(leader.College);
                 Power.Append("'");
             }
             else if (leader.Identify == "3")
             {
-                Power.Append("College='");
+                Power.Append(" where dbo.StudentBaseInformation.College='");
                 Power.Append(leader.College);
-                Power.Append("' and Grade='");
+                Power.Append("' and dbo.StudentBaseInformation.Grade='");
                 Power.Append(leader.Grade);
                 Power.Append("'");
             }
@@ -53,18 +53,18 @@ namespace BLL
         {
             StringBuilder Power = new StringBuilder();
             if (leader.Identify == "1")
-                Power.Append("Grade like '2%'");
+                Power.Append("");
             else if (leader.Identify == "2")
             {
-                Power.Append("College='");
+                Power.Append(" where dbo.StudentBaseInformation.College='");
                 Power.Append(leader.College);
                 Power.Append("'");
             }
             else if (leader.Identify == "3")
             {
-                Power.Append("College='");
+                Power.Append(" where dbo.StudentBaseInformation.College='");
                 Power.Append(leader.College);
-                Power.Append("' and Grade='");
+                Power.Append("' and dbo.StudentBaseInformation.Grade='");
                 Power.Append(leader.Grade);
                 Power.Append("'");
             }
@@ -79,18 +79,18 @@ namespace BLL
         {
             StringBuilder Power = new StringBuilder();
             if (leader.Identify == "1")
-                Power.Append("Grade like '2%'");
+                Power.Append("");
             else if (leader.Identify == "2")
             {
-                Power.Append("College='");
+                Power.Append(" where dbo.StudentBaseInformation.College='");
                 Power.Append(leader.College);
                 Power.Append("'");
             }
             else if (leader.Identify == "3")
             {
-                Power.Append("College='");
+                Power.Append(" where dbo.StudentBaseInformation.College='");
                 Power.Append(leader.College);
-                Power.Append("' and Grade='");
+                Power.Append("' and dbo.StudentBaseInformation.Grade='");
                 Power.Append(leader.Grade);
                 Power.Append("'");
             }
@@ -105,18 +105,18 @@ namespace BLL
         {
             StringBuilder Power = new StringBuilder();
             if (leader.Identify == "1")
-                Power.Append("Grade like '2%'");
+                Power.Append("");
             else if (leader.Identify == "2")
             {
-                Power.Append("College='");
+                Power.Append(" where dbo.StudentBaseInformation.College='");
                 Power.Append(leader.College);
                 Power.Append("'");
             }
             else if (leader.Identify == "3")
             {
-                Power.Append("College='");
+                Power.Append(" where dbo.StudentBaseInformation.College='");
                 Power.Append(leader.College);
-                Power.Append("' and Grade='");
+                Power.Append("' and dbo.StudentBaseInformation.Grade='");
                 Power.Append(leader.Grade);
                 Power.Append("'");
             }
