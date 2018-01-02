@@ -296,7 +296,7 @@ namespace DAL
         /// <param name="OriginCounty">籍贯-区/县</param>
         /// <param name="HighSchool">毕业高中</param>
         /// <returns></returns>
-        public bool Change_PerStuInfo(string StuNo,string Nation,string Birthday,string Symbol,string TelNum,
+        public bool Change_PerStuInfo(string StuNo,string Nation,DateTime Birthday,string Symbol,string TelNum,
             string QQNum,string IDNum,string OriginPro,string OriginCity,string OriginCounty,string HighSchool)
         {
             StringBuilder Sql_Str = new StringBuilder();

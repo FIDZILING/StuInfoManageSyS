@@ -20,33 +20,46 @@ namespace StuInfoMaSys
         /// <param name="dataTable">数据源</param>
         public static bool ToExcelFile(DataTable dataTable)
         {
-            string con = "";
-            foreach (DataColumn dc in dataTable.Columns)
-            {
-                con += dc.ColumnName + ",";
-            }
-            con = con.TrimEnd(',') + Environment.NewLine;
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
-            {
-                for (int j = 0; j < dataTable.Columns.Count; j++)
-                {
-                    con += dataTable.Rows[i][j].ToString().Replace("\n", " ").Replace("\r\n", " ").Replace(",", "，") + ",";
-                }
-                con = con.TrimEnd(',') + Environment.NewLine;
-            }
-            try
-            {
-                FileStream fs = new FileStream(@"D:\test.xls", FileMode.Create);
-                byte[] b = Encoding.GetEncoding("gb2312").GetBytes(con);
-                fs.Write(b, 0, b.Length);
-                fs.Close();
-                return true;
-            }
-            catch (Exception ex)
-            {
+            if (dataTable == null)
                 return false;
+            int rowNum = dataTable.Rows.Count;//需要导出的数据的行数
+            int columnNum = dataTable.Columns.Count;//需要导出的数据的列数
+            int rowIndex = 1;//起始行为第二行
+            int columnIndex = 0;//起始列为第一列
+            Microsoft.Office.Interop.Excel.Range range;//Excel的格式设置
+            System.Reflection.Missing miss = System.Reflection.Missing.Value;
+
+            Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+
+            xlApp.DisplayAlerts = true;// 在程序执行过程中使出现的警告框显示
+            xlApp.SheetsInNewWorkbook = 1;
+
+            Microsoft.Office.Interop.Excel.Workbook xlBook = xlApp.Workbooks.Add(true);
+
+            for (int i = 0;i < dataTable.Columns.Count;i++)             //将datatable的列名导入excel表的第一行
+            {
+                columnIndex++;
+                xlApp.Cells[rowIndex, columnIndex] = dataTable.Columns;
             }
+            
+            //将数据写入到Excel表中
+            for (int i = 0; i < rowNum; i++)
+            {
+                rowIndex++;
+                columnIndex = 0;
+                for (int j = 0; j < columnNum; j++)
+                {//按行写入数据
+                    columnIndex++;
+                    range = (Microsoft.Office.Interop.Excel.Range)xlApp.Cells[rowIndex, columnIndex];
+                    range.NumberFormatLocal = "@";//写入到表中的数据格式以文本形式存在
+                    xlApp.Cells[rowIndex, columnIndex] = dataTable.Rows[i][j].ToString();
+                }
+            }
+            //数据保存
+            xlBook.SaveAs(@"Y:\test.xls", miss, miss, miss, miss, miss, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, miss, miss, miss, miss, miss);
+            xlBook.Close(false, miss, miss);
+            xlApp.Quit();
+            return true;
         }
         /// <summary>
         /// 应用程序的主入口点。

@@ -148,7 +148,7 @@ namespace BLL
         /// <param name="OutSchool">出校信息</param>
         /// <returns></returns>
         public bool Change_AllStuInfo(string StuNo, string FamilyNum, string HomePro, string HomeCity, string HomeCounty, string HomeOther, string FaName, string FaTelNum, string FaIncome, string MaName, string MaTelNum, string MaIncome,
-            string Nation, string Birthday, string Symbol, string TelNum,string QQNum, string IDNum, string OriginPro, string OriginCity, string OriginCounty, string HighSchool,
+            string Nation, DateTime Birthday, string Symbol, string TelNum,string QQNum, string IDNum, string OriginPro, string OriginCity, string OriginCounty, string HighSchool,
              string SchoolType, string Grade, string College, string Profession, string Classes, string DropNum, string OutSchool)
         {
             if (stuBaseInfoDAL.Change_FamStuInfo(StuNo, FamilyNum, HomePro, HomeCity, HomeCounty, HomeOther, FaName, FaTelNum, FaIncome, MaName, MaTelNum, MaIncome) == true
@@ -196,7 +196,7 @@ namespace BLL
         /// <param name="OriginCounty">籍贯-区/县</param>
         /// <param name="HighSchool">毕业高中</param>
         /// <returns></returns>
-        public bool Change_PerStuInfo(string StuNo, string Nation, string Birthday, string Symbol, string TelNum,
+        public bool Change_PerStuInfo(string StuNo, string Nation, DateTime Birthday, string Symbol, string TelNum,
             string QQNum, string IDNum, string OriginPro, string OriginCity, string OriginCounty, string HighSchool)
         {
             return stuBaseInfoDAL.Change_PerStuInfo(StuNo, Nation, Birthday, Symbol, TelNum, QQNum, IDNum, OriginPro, OriginCity, OriginCounty, HighSchool);
