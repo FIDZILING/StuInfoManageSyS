@@ -36,13 +36,13 @@ namespace StuInfoMaSys
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (leader.Identify.Equals("2"))
+            if (leader.Identify.Equals("1"))
             {
                 WelcomeLabel.Text = "欢迎 " + leader.ID + " 校领导 " + leader.Name;
             }
             else if (leader.Identify.Equals("2"))
             {
-                WelcomeLabel.Text = "欢迎 " + leader.ID + "" + leader.College + " 领导 " + leader.Name;
+                WelcomeLabel.Text = "欢迎 " + leader.ID + " " + leader.College + " 领导 " + leader.Name;
                 AddStuPerInfobutton.Enabled = false;
                 AddClubInfobutton.Enabled = false;
                 AddScholTypebutton.Enabled = false;
@@ -52,7 +52,7 @@ namespace StuInfoMaSys
             }
             else if (leader.Identify.Equals("3"))
             {
-                WelcomeLabel.Text = "欢迎 " + leader.ID + "" + leader.College + " " + leader.Grade + " 辅导员 " + leader.Name;
+                WelcomeLabel.Text = "欢迎 " + leader.ID + " " + leader.College + " " + leader.Grade + " 辅导员 " + leader.Name;
                 AddStuPerInfobutton.Enabled = false;
                 AddClubInfobutton.Enabled = false;
                 AddScholTypebutton.Enabled = false;

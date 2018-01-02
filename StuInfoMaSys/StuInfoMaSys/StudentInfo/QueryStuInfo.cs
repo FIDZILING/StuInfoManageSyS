@@ -16,6 +16,7 @@ namespace StuInfoMaSys.StudentInfo
     {
         private Leader leader;
         private StuBaseInfoBLL stuBaseInfoBLL;
+        private int startselect;
         /// <summary>
         /// 创建
         /// </summary>
@@ -25,6 +26,7 @@ namespace StuInfoMaSys.StudentInfo
         {
             this.leader = leader;
             stuBaseInfoBLL = new StuBaseInfoBLL(leader);
+            startselect = selectTab;
             InitializeComponent();
             switch (selectTab) // 设置默认Tab
             {
@@ -107,7 +109,15 @@ namespace StuInfoMaSys.StudentInfo
             StuAlldataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(224, 254, 254);
             StuAlldataGridView.ReadOnly = true; // 设置只读
             #endregion
-            StuAlldataGridView.DataSource = stuBaseInfoBLL.Find_ALLStuInformation();
+            switch (startselect) // 显示默认Tab中的datagridview
+            {
+                case 1:
+                    StuPerdataGridView.DataSource = stuBaseInfoBLL.Find_PerStuInfo(); break;
+                case 2:
+                    StuFamdataGridView.DataSource = stuBaseInfoBLL.Find_FamStuInfo(); break;
+                case 3:
+                    StuSchdataGridView.DataSource = stuBaseInfoBLL.Find_SchStuInfo(); break;
+            }
         }
     }
 }
