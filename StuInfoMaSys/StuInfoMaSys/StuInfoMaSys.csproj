@@ -113,6 +113,24 @@
     <Compile Include="Scholarship\QueryScholInfoForm.Designer.cs">
       <DependentUpon>QueryScholInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentInfo\AddStuInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentInfo\AddStuInfoForm.Designer.cs">
+      <DependentUpon>AddStuInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentInfo\AlterStuInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentInfo\AlterStuInfoForm.Designer.cs">
+      <DependentUpon>AlterStuInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentInfo\QueryStuInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentInfo\QueryStuInfo.Designer.cs">
+      <DependentUpon>QueryStuInfo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Club\AddClubInfoForm.resx">
       <DependentUpon>AddClubInfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +173,15 @@
     <EmbeddedResource Include="Scholarship\QueryScholInfoForm.resx">
       <DependentUpon>QueryScholInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudentInfo\AddStuInfoForm.resx">
+      <DependentUpon>AddStuInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentInfo\AlterStuInfoForm.resx">
+      <DependentUpon>AlterStuInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentInfo\QueryStuInfo.resx">
+      <DependentUpon>QueryStuInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -178,8 +205,6 @@
       <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="StudentInfo\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
