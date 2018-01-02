@@ -80,7 +80,7 @@ namespace StuInfoMaSys.StudentInfo
             #endregion
 
             // 获取要修改的学生信息并组装
-            DataTable stuinfodataTable = stuBaseInfoBLL.Find_AllByStuNo(stuno);
+            DataTable stuinfodataTable = stuBaseInfoBLL.Find_AllByStuNoNOVague(stuno);
             StuInfo stuInfo = new StuInfo
             {
                 StuNo = stuinfodataTable.Rows[0][0].ToString(),

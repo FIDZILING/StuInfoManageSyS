@@ -207,12 +207,41 @@ namespace StuInfoMaSys.StudentInfo
             QQNumtextBox.Text = stuInfo.QQNum;
             IDNumtextBox.Text = stuInfo.IDNum;
             OriginProcomboBox.Text = stuInfo.OriginPro;
+            SetOriginCity();
             OriginCitycomboBox.Text = stuInfo.OriginCity;
+            SetOriginCounty();
             OriginCountycomboBox.Text = stuInfo.OriginCounty;
+            HighSchooltextBox.Text = stuInfo.HighSchool;
+            FamilyNumtextBox.Text = stuInfo.FamilyNum;
+            HomeProcomboBox.Text = stuInfo.HomePro;
+            SetHomeCity();
+            HomeCitycomboBox.Text = stuInfo.HomeCity;
+            SetHomeCounty();
+            HomeCountycomboBox.Text = stuInfo.HomeCounty;
+            HomeOthertextBox.Text = stuInfo.HomeOther;
+            FaNametextBox.Text = stuInfo.FaName;
+            FaTeltextBox.Text = stuInfo.FaTelNum;
+            FaIncometextBox.Text = stuInfo.FaIncome;
+            MaNametextBox.Text = stuInfo.MaName;
+            MaTeltextBox.Text = stuInfo.MaTelNum;
+            MaIncometextBox.Text = stuInfo.MaIncome;
+            SchoolTypetextBox.Text = stuInfo.SchoolType;
+            CollegetextBox.Text = stuInfo.College;
+            GradetextBox.Text = stuInfo.Grade;
+            ProfessiontextBox.Text = stuInfo.Profession;
+            ClassestextBox.Text = stuInfo.Classes;
+            SetDorArea();
+            DorAreacomboBox.Text = stuInfo.DorArea;
+            SetDorBuilding();
+            DorBuildingcomboBox.Text = stuInfo.DorBuilding;
+            SetDorNum();
+            DorNumcomboBox.Text = stuInfo.DorNum;
+            OutSchooltextBox.Text = stuInfo.OutSchool;
             #endregion
         }
+        #region 设置comboBox
         /// <summary>
-        /// 设置籍贯-市
+        /// 设置籍贯-市comboBox
         /// </summary>
         private void SetOriginCity()
         {
@@ -222,7 +251,7 @@ namespace StuInfoMaSys.StudentInfo
                 OriginCitycomboBox.Items.Add(dataTable.Rows[i][0].ToString());
         }
         /// <summary>
-        /// 设置籍贯-区/县
+        /// 设置籍贯-区/县comboBox
         /// </summary>
         private void SetOriginCounty()
         {
@@ -232,7 +261,7 @@ namespace StuInfoMaSys.StudentInfo
                 OriginCountycomboBox.Items.Add(dataTable.Rows[i][0].ToString());
         }
         /// <summary>
-        /// 设置家庭地址-市
+        /// 设置家庭地址-市comboBox
         /// </summary>
         private void SetHomeCity()
         {
@@ -242,7 +271,7 @@ namespace StuInfoMaSys.StudentInfo
                 HomeCitycomboBox.Items.Add(dataTable.Rows[i][0].ToString());
         }
         /// <summary>
-        /// 设置家庭地址-区/县
+        /// 设置家庭地址-区/县comboBox
         /// </summary>
         private void SetHomeCounty()
         {
@@ -251,5 +280,66 @@ namespace StuInfoMaSys.StudentInfo
             for (int i = 0; i < dataTable.Rows.Count; i++)
                 HomeCountycomboBox.Items.Add(dataTable.Rows[i][0].ToString());
         }
+        /// <summary>
+        /// 设置寝室园区comboBox
+        /// </summary>
+        private void SetDorArea()
+        {
+            DorAreacomboBox.Items.Clear();
+            DataTable dataTable = stuBaseInfoBLL.Back_DorArea();
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+                DorAreacomboBox.Items.Add(dataTable.Rows[i][0].ToString());
+        }
+        /// <summary>
+        /// 设置寝室楼栋comboBox
+        /// </summary>
+        private void SetDorBuilding()
+        {
+            DorBuildingcomboBox.Items.Clear();
+            DataTable dataTable = stuBaseInfoBLL.Back_DorBuilding(DorAreacomboBox.Text);
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+                DorBuildingcomboBox.Items.Add(dataTable.Rows[i][0].ToString());
+        }
+        /// <summary>
+        /// 设置寝室号comboBox
+        /// </summary>
+        private void SetDorNum()
+        {
+            DorNumcomboBox.Items.Clear();
+            DataTable dataTable = stuBaseInfoBLL.Back_DorNum(DorBuildingcomboBox.Text);
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+                DorNumcomboBox.Items.Add(dataTable.Rows[i][0].ToString());
+        }
+
+        private void OriginProcomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetOriginCity();
+        }
+
+        private void OriginCitycomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetOriginCounty();
+        }
+
+        private void HomeProcomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetHomeCity();
+        }
+
+        private void HomeCitycomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetHomeCounty();
+        }
+
+        private void DorAreacomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetDorBuilding();
+        }
+
+        private void DorBuildingcomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetDorNum();
+        }
+        #endregion
     }
 }

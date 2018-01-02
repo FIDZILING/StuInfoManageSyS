@@ -191,6 +191,7 @@
             this.OriginCitycomboBox.Name = "OriginCitycomboBox";
             this.OriginCitycomboBox.Size = new System.Drawing.Size(161, 28);
             this.OriginCitycomboBox.TabIndex = 23;
+            this.OriginCitycomboBox.SelectedIndexChanged += new System.EventHandler(this.OriginCitycomboBox_SelectedIndexChanged);
             // 
             // OriginProcomboBox
             // 
@@ -200,6 +201,7 @@
             this.OriginProcomboBox.Name = "OriginProcomboBox";
             this.OriginProcomboBox.Size = new System.Drawing.Size(130, 28);
             this.OriginProcomboBox.TabIndex = 22;
+            this.OriginProcomboBox.SelectedIndexChanged += new System.EventHandler(this.OriginProcomboBox_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -343,6 +345,7 @@
             this.DorBuildingcomboBox.Name = "DorBuildingcomboBox";
             this.DorBuildingcomboBox.Size = new System.Drawing.Size(161, 28);
             this.DorBuildingcomboBox.TabIndex = 33;
+            this.DorBuildingcomboBox.SelectedIndexChanged += new System.EventHandler(this.DorBuildingcomboBox_SelectedIndexChanged);
             // 
             // GradetextBox
             // 
@@ -359,6 +362,7 @@
             this.DorAreacomboBox.Name = "DorAreacomboBox";
             this.DorAreacomboBox.Size = new System.Drawing.Size(130, 28);
             this.DorAreacomboBox.TabIndex = 32;
+            this.DorAreacomboBox.SelectedIndexChanged += new System.EventHandler(this.DorAreacomboBox_SelectedIndexChanged);
             // 
             // CollegetextBox
             // 
@@ -590,6 +594,7 @@
             this.HomeCitycomboBox.Name = "HomeCitycomboBox";
             this.HomeCitycomboBox.Size = new System.Drawing.Size(161, 28);
             this.HomeCitycomboBox.TabIndex = 29;
+            this.HomeCitycomboBox.SelectedIndexChanged += new System.EventHandler(this.HomeCitycomboBox_SelectedIndexChanged);
             // 
             // FaNametextBox
             // 
@@ -615,6 +620,7 @@
             this.HomeProcomboBox.Name = "HomeProcomboBox";
             this.HomeProcomboBox.Size = new System.Drawing.Size(130, 28);
             this.HomeProcomboBox.TabIndex = 28;
+            this.HomeProcomboBox.SelectedIndexChanged += new System.EventHandler(this.HomeProcomboBox_SelectedIndexChanged);
             // 
             // label10
             // 
