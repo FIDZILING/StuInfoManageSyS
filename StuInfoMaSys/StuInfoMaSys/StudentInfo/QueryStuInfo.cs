@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace StuInfoMaSys.StudentInfo
 {
-    public partial class QueryStuInfo : Form
+    public partial class QueryStuInfoForm : Form
     {
-        public QueryStuInfo()
+        public QueryStuInfoForm()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// 返回
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Returnbutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NBLL
+namespace BLL
 {
-    class StuBaseInfoBLL
+    public class StuBaseInfoBLL
     {
+
     }
 }

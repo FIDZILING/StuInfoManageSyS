@@ -16,5 +16,14 @@ namespace StuInfoMaSys.StudentInfo
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// 返回
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Returnbutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

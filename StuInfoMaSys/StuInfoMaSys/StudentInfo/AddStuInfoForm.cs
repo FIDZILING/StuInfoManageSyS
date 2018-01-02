@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model;
+using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,20 @@ namespace StuInfoMaSys.StudentInfo
 {
     public partial class AddStuInfoForm : Form
     {
+        private Leader leader;
+        private StuBaseInfoBLL stuBaseInfoBLL = new StuBaseInfoBLL();
         public AddStuInfoForm()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// 返回
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Returnbutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
