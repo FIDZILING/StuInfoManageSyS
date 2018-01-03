@@ -185,7 +185,8 @@ namespace StuInfoMaSys.StudentInfo
             StuAlldataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(224, 254, 254);
             StuAlldataGridView.ReadOnly = true; // 设置只读
             #endregion
-            switch (startselect) // 显示默认Tab中的datagridview
+            // 显示默认Tab中的datagridview
+            switch (startselect)
             {
                 case 1:
                     StuPerdataGridView.DataSource = stuBaseInfoBLL.Find_PerStuInfo();
@@ -232,7 +233,44 @@ namespace StuInfoMaSys.StudentInfo
         /// <param name="e"></param>
         private void QueryStubutton_Click(object sender, EventArgs e)
         {
+            string stuno = StuNumtextBox.Text.Trim();
 
+            string sex = "";
+            if (SexcomboBox.SelectedIndex != -1)
+                sex = SexcomboBox.SelectedItem.ToString();
+            string nation = NationtextBox.Text.Trim();
+            string symbol = "";
+            if (SymbolcomboBox.SelectedIndex != -1)
+                symbol = SymbolcomboBox.SelectedItem.ToString();
+            string originPro = OriginProtextBox.Text.Trim();
+
+            string homePro = HomeProtextBox.Text.Trim();
+
+            string schooltype = "";
+            if (SchoolTypecomboBox.SelectedIndex != -1)
+                schooltype = SchoolTypecomboBox.SelectedText.ToString();
+            string grade = GradetextBox.Text.Trim();
+            string college = CollegetextBox.Text.Trim();
+            string profession = ProfessiontextBox.Text.Trim();
+            string classes = ClasstextBox.Text.Trim();
+            if (tabControl1.SelectedTab.Name == "StuPertabPage")
+            {
+                StuPerdataGridView.DataSource = stuBaseInfoBLL.Find_PerStuBySomethings(stuno, sex, nation, symbol, originPro);
+            }
+            else if (tabControl1.SelectedTab.Name == "StuFamtabPage")
+            {
+                StuFamdataGridView.DataSource = stuBaseInfoBLL.Find_FamStuBySomethings(stuno, homePro);
+            }
+            else if (tabControl1.SelectedTab.Name == "StuSchtabPage")
+            {
+                StuSchdataGridView.DataSource = stuBaseInfoBLL.Find_SchStuBySomethings(stuno, schooltype, grade,
+                    college, profession, classes);
+            }
+            else
+            {
+                StuAlldataGridView.DataSource = stuBaseInfoBLL.Find_AllStuBySomethings(stuno, sex, nation, symbol, originPro,
+                    homePro, schooltype, grade, college, profession, classes);
+            }
         }
     }
 }
