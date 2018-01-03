@@ -201,7 +201,7 @@ namespace StuInfoMaSys.StudentInfo
                 case 3:
                     StuSchdataGridView.DataSource = stuBaseInfoBLL.Find_SchStuInfo();
                     PergroupBox.Enabled = false;
-                    SchgroupBox.Enabled = false;
+                    FamgroupBox.Enabled = false;
                     break;
             }
         }
