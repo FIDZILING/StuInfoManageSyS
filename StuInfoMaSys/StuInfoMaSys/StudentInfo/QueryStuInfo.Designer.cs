@@ -33,15 +33,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.StuPertabPage = new System.Windows.Forms.TabPage();
             this.StuPerdataGridView = new System.Windows.Forms.DataGridView();
-            this.StuFamtabPage = new System.Windows.Forms.TabPage();
-            this.StuFamdataGridView = new System.Windows.Forms.DataGridView();
-            this.StuSchtabPage = new System.Windows.Forms.TabPage();
-            this.StuSchdataGridView = new System.Windows.Forms.DataGridView();
-            this.StuAlltabPage = new System.Windows.Forms.TabPage();
-            this.StuAlldataGridView = new System.Windows.Forms.DataGridView();
-            this.PergroupBox = new System.Windows.Forms.GroupBox();
-            this.Alterbutton = new System.Windows.Forms.Button();
-            this.Exportbutton = new System.Windows.Forms.Button();
             this.stunoper = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stunameper = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexper = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,17 +46,8 @@
             this.origincityper = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.origincountyper = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.highschoolper = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stunosch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stunamesch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schooltypesch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gradesch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.collegesch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.professionsch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classessch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dorareasch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dorbuildingsch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dornumsch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outshcoolsch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StuFamtabPage = new System.Windows.Forms.TabPage();
+            this.StuFamdataGridView = new System.Windows.Forms.DataGridView();
             this.stunofam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stunamefam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.familynumfam = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +61,21 @@
             this.manamefam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matelnumfam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maincomefam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StuSchtabPage = new System.Windows.Forms.TabPage();
+            this.StuSchdataGridView = new System.Windows.Forms.DataGridView();
+            this.stunosch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stunamesch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schooltypesch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gradesch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.collegesch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.professionsch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classessch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dorareasch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dorbuildingsch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dornumsch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outshcoolsch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StuAlltabPage = new System.Windows.Forms.TabPage();
+            this.StuAlldataGridView = new System.Windows.Forms.DataGridView();
             this.stuno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stuname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schooltype = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,30 +109,33 @@
             this.matelnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maincome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.outshcool = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FamgroupBox = new System.Windows.Forms.GroupBox();
-            this.SchgroupBox = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.StuNumtextBox = new System.Windows.Forms.TextBox();
-            this.SexcomboBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.SymbolcomboBox = new System.Windows.Forms.ComboBox();
-            this.HomeProtextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.SchoolTypecomboBox = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.NationtextBox = new System.Windows.Forms.TextBox();
+            this.PergroupBox = new System.Windows.Forms.GroupBox();
             this.OriginProtextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.GradetextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.CollegetextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.NationtextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.SymbolcomboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SexcomboBox = new System.Windows.Forms.ComboBox();
+            this.Alterbutton = new System.Windows.Forms.Button();
+            this.Exportbutton = new System.Windows.Forms.Button();
+            this.FamgroupBox = new System.Windows.Forms.GroupBox();
+            this.HomeProtextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.SchgroupBox = new System.Windows.Forms.GroupBox();
             this.ClasstextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.ProfessiontextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.CollegetextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.GradetextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.SchoolTypecomboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.StuNumtextBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.StuPertabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StuPerdataGridView)).BeginInit();
@@ -221,168 +221,6 @@
             this.StuPerdataGridView.Size = new System.Drawing.Size(1287, 399);
             this.StuPerdataGridView.TabIndex = 0;
             // 
-            // StuFamtabPage
-            // 
-            this.StuFamtabPage.Controls.Add(this.StuFamdataGridView);
-            this.StuFamtabPage.Location = new System.Drawing.Point(4, 29);
-            this.StuFamtabPage.Name = "StuFamtabPage";
-            this.StuFamtabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.StuFamtabPage.Size = new System.Drawing.Size(1293, 405);
-            this.StuFamtabPage.TabIndex = 1;
-            this.StuFamtabPage.Text = "家庭信息";
-            this.StuFamtabPage.UseVisualStyleBackColor = true;
-            // 
-            // StuFamdataGridView
-            // 
-            this.StuFamdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StuFamdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.stunofam,
-            this.stunamefam,
-            this.familynumfam,
-            this.homeprofam,
-            this.homecityfam,
-            this.homecountyfam,
-            this.homeotherfam,
-            this.fanamefam,
-            this.fatelfam,
-            this.faincomefam,
-            this.manamefam,
-            this.matelnumfam,
-            this.maincomefam});
-            this.StuFamdataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StuFamdataGridView.Location = new System.Drawing.Point(3, 3);
-            this.StuFamdataGridView.Name = "StuFamdataGridView";
-            this.StuFamdataGridView.RowTemplate.Height = 27;
-            this.StuFamdataGridView.Size = new System.Drawing.Size(1287, 399);
-            this.StuFamdataGridView.TabIndex = 0;
-            // 
-            // StuSchtabPage
-            // 
-            this.StuSchtabPage.Controls.Add(this.StuSchdataGridView);
-            this.StuSchtabPage.Location = new System.Drawing.Point(4, 29);
-            this.StuSchtabPage.Name = "StuSchtabPage";
-            this.StuSchtabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.StuSchtabPage.Size = new System.Drawing.Size(1293, 405);
-            this.StuSchtabPage.TabIndex = 2;
-            this.StuSchtabPage.Text = "在校信息";
-            this.StuSchtabPage.UseVisualStyleBackColor = true;
-            // 
-            // StuSchdataGridView
-            // 
-            this.StuSchdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StuSchdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.stunosch,
-            this.stunamesch,
-            this.schooltypesch,
-            this.gradesch,
-            this.collegesch,
-            this.professionsch,
-            this.classessch,
-            this.dorareasch,
-            this.dorbuildingsch,
-            this.dornumsch,
-            this.outshcoolsch});
-            this.StuSchdataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StuSchdataGridView.Location = new System.Drawing.Point(3, 3);
-            this.StuSchdataGridView.Name = "StuSchdataGridView";
-            this.StuSchdataGridView.RowTemplate.Height = 27;
-            this.StuSchdataGridView.Size = new System.Drawing.Size(1287, 399);
-            this.StuSchdataGridView.TabIndex = 0;
-            // 
-            // StuAlltabPage
-            // 
-            this.StuAlltabPage.Controls.Add(this.StuAlldataGridView);
-            this.StuAlltabPage.Location = new System.Drawing.Point(4, 29);
-            this.StuAlltabPage.Name = "StuAlltabPage";
-            this.StuAlltabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.StuAlltabPage.Size = new System.Drawing.Size(1293, 405);
-            this.StuAlltabPage.TabIndex = 3;
-            this.StuAlltabPage.Text = "总信息";
-            this.StuAlltabPage.UseVisualStyleBackColor = true;
-            // 
-            // StuAlldataGridView
-            // 
-            this.StuAlldataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StuAlldataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.stuno,
-            this.stuname,
-            this.schooltype,
-            this.grade,
-            this.college,
-            this.professopm,
-            this.classes,
-            this.dorarea,
-            this.dorbuilding,
-            this.dornum,
-            this.sex,
-            this.nation,
-            this.birthday,
-            this.symbol,
-            this.telnum,
-            this.qqnum,
-            this.idnum,
-            this.originpro,
-            this.origincity,
-            this.origincountry,
-            this.highschool,
-            this.familynum,
-            this.homepro,
-            this.homecity,
-            this.homecounty,
-            this.homeother,
-            this.faname,
-            this.fatelnum,
-            this.faincome,
-            this.maname,
-            this.matelnum,
-            this.maincome,
-            this.outshcool});
-            this.StuAlldataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StuAlldataGridView.Location = new System.Drawing.Point(3, 3);
-            this.StuAlldataGridView.Name = "StuAlldataGridView";
-            this.StuAlldataGridView.RowTemplate.Height = 27;
-            this.StuAlldataGridView.Size = new System.Drawing.Size(1287, 399);
-            this.StuAlldataGridView.TabIndex = 0;
-            // 
-            // PergroupBox
-            // 
-            this.PergroupBox.Controls.Add(this.OriginProtextBox);
-            this.PergroupBox.Controls.Add(this.label7);
-            this.PergroupBox.Controls.Add(this.NationtextBox);
-            this.PergroupBox.Controls.Add(this.label6);
-            this.PergroupBox.Controls.Add(this.SymbolcomboBox);
-            this.PergroupBox.Controls.Add(this.label3);
-            this.PergroupBox.Controls.Add(this.label2);
-            this.PergroupBox.Controls.Add(this.SexcomboBox);
-            this.PergroupBox.Location = new System.Drawing.Point(167, 12);
-            this.PergroupBox.Name = "PergroupBox";
-            this.PergroupBox.Size = new System.Drawing.Size(358, 100);
-            this.PergroupBox.TabIndex = 5;
-            this.PergroupBox.TabStop = false;
-            this.PergroupBox.Text = "个人信息查询条件";
-            // 
-            // Alterbutton
-            // 
-            this.Alterbutton.Location = new System.Drawing.Point(1050, 563);
-            this.Alterbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Alterbutton.Name = "Alterbutton";
-            this.Alterbutton.Size = new System.Drawing.Size(112, 32);
-            this.Alterbutton.TabIndex = 2;
-            this.Alterbutton.Text = "修改";
-            this.Alterbutton.UseVisualStyleBackColor = true;
-            this.Alterbutton.Click += new System.EventHandler(this.Alterbutton_Click);
-            // 
-            // Exportbutton
-            // 
-            this.Exportbutton.Location = new System.Drawing.Point(908, 563);
-            this.Exportbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Exportbutton.Name = "Exportbutton";
-            this.Exportbutton.Size = new System.Drawing.Size(112, 32);
-            this.Exportbutton.TabIndex = 3;
-            this.Exportbutton.Text = "导出";
-            this.Exportbutton.UseVisualStyleBackColor = true;
-            this.Exportbutton.Click += new System.EventHandler(this.Exportbutton_Click);
-            // 
             // stunoper
             // 
             this.stunoper.DataPropertyName = "StuNo";
@@ -461,72 +299,40 @@
             this.highschoolper.HeaderText = "高中学校";
             this.highschoolper.Name = "highschoolper";
             // 
-            // stunosch
+            // StuFamtabPage
             // 
-            this.stunosch.DataPropertyName = "StuNo";
-            this.stunosch.HeaderText = "学号";
-            this.stunosch.Name = "stunosch";
+            this.StuFamtabPage.Controls.Add(this.StuFamdataGridView);
+            this.StuFamtabPage.Location = new System.Drawing.Point(4, 29);
+            this.StuFamtabPage.Name = "StuFamtabPage";
+            this.StuFamtabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.StuFamtabPage.Size = new System.Drawing.Size(1293, 405);
+            this.StuFamtabPage.TabIndex = 1;
+            this.StuFamtabPage.Text = "家庭信息";
+            this.StuFamtabPage.UseVisualStyleBackColor = true;
             // 
-            // stunamesch
+            // StuFamdataGridView
             // 
-            this.stunamesch.DataPropertyName = "StuName";
-            this.stunamesch.HeaderText = "姓名";
-            this.stunamesch.Name = "stunamesch";
-            // 
-            // schooltypesch
-            // 
-            this.schooltypesch.DataPropertyName = "SchoolType";
-            this.schooltypesch.HeaderText = "在校状态";
-            this.schooltypesch.Name = "schooltypesch";
-            // 
-            // gradesch
-            // 
-            this.gradesch.DataPropertyName = "Grade";
-            this.gradesch.HeaderText = "年级";
-            this.gradesch.Name = "gradesch";
-            // 
-            // collegesch
-            // 
-            this.collegesch.DataPropertyName = "College";
-            this.collegesch.HeaderText = "学院";
-            this.collegesch.Name = "collegesch";
-            // 
-            // professionsch
-            // 
-            this.professionsch.DataPropertyName = "Profession";
-            this.professionsch.HeaderText = "专业";
-            this.professionsch.Name = "professionsch";
-            // 
-            // classessch
-            // 
-            this.classessch.DataPropertyName = "Classes";
-            this.classessch.HeaderText = "班级";
-            this.classessch.Name = "classessch";
-            // 
-            // dorareasch
-            // 
-            this.dorareasch.DataPropertyName = "DorArea";
-            this.dorareasch.HeaderText = "住宿园区";
-            this.dorareasch.Name = "dorareasch";
-            // 
-            // dorbuildingsch
-            // 
-            this.dorbuildingsch.DataPropertyName = "DorBuilding";
-            this.dorbuildingsch.HeaderText = "住宿楼栋";
-            this.dorbuildingsch.Name = "dorbuildingsch";
-            // 
-            // dornumsch
-            // 
-            this.dornumsch.DataPropertyName = "DorNum";
-            this.dornumsch.HeaderText = "寝室号";
-            this.dornumsch.Name = "dornumsch";
-            // 
-            // outshcoolsch
-            // 
-            this.outshcoolsch.DataPropertyName = "OutSchool";
-            this.outshcoolsch.HeaderText = "离校信息说明";
-            this.outshcoolsch.Name = "outshcoolsch";
-            this.outshcoolsch.Width = 200;
+            this.StuFamdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StuFamdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.stunofam,
+            this.stunamefam,
+            this.familynumfam,
+            this.homeprofam,
+            this.homecityfam,
+            this.homecountyfam,
+            this.homeotherfam,
+            this.fanamefam,
+            this.fatelfam,
+            this.faincomefam,
+            this.manamefam,
+            this.matelnumfam,
+            this.maincomefam});
+            this.StuFamdataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StuFamdataGridView.Location = new System.Drawing.Point(3, 3);
+            this.StuFamdataGridView.Name = "StuFamdataGridView";
+            this.StuFamdataGridView.RowTemplate.Height = 27;
+            this.StuFamdataGridView.Size = new System.Drawing.Size(1287, 399);
+            this.StuFamdataGridView.TabIndex = 0;
             // 
             // stunofam
             // 
@@ -606,6 +412,161 @@
             this.maincomefam.DataPropertyName = "MaIncome";
             this.maincomefam.HeaderText = "母亲年收入";
             this.maincomefam.Name = "maincomefam";
+            // 
+            // StuSchtabPage
+            // 
+            this.StuSchtabPage.Controls.Add(this.StuSchdataGridView);
+            this.StuSchtabPage.Location = new System.Drawing.Point(4, 29);
+            this.StuSchtabPage.Name = "StuSchtabPage";
+            this.StuSchtabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.StuSchtabPage.Size = new System.Drawing.Size(1293, 405);
+            this.StuSchtabPage.TabIndex = 2;
+            this.StuSchtabPage.Text = "在校信息";
+            this.StuSchtabPage.UseVisualStyleBackColor = true;
+            // 
+            // StuSchdataGridView
+            // 
+            this.StuSchdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StuSchdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.stunosch,
+            this.stunamesch,
+            this.schooltypesch,
+            this.gradesch,
+            this.collegesch,
+            this.professionsch,
+            this.classessch,
+            this.dorareasch,
+            this.dorbuildingsch,
+            this.dornumsch,
+            this.outshcoolsch});
+            this.StuSchdataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StuSchdataGridView.Location = new System.Drawing.Point(3, 3);
+            this.StuSchdataGridView.Name = "StuSchdataGridView";
+            this.StuSchdataGridView.RowTemplate.Height = 27;
+            this.StuSchdataGridView.Size = new System.Drawing.Size(1287, 399);
+            this.StuSchdataGridView.TabIndex = 0;
+            // 
+            // stunosch
+            // 
+            this.stunosch.DataPropertyName = "StuNo";
+            this.stunosch.HeaderText = "学号";
+            this.stunosch.Name = "stunosch";
+            // 
+            // stunamesch
+            // 
+            this.stunamesch.DataPropertyName = "StuName";
+            this.stunamesch.HeaderText = "姓名";
+            this.stunamesch.Name = "stunamesch";
+            // 
+            // schooltypesch
+            // 
+            this.schooltypesch.DataPropertyName = "SchoolType";
+            this.schooltypesch.HeaderText = "在校状态";
+            this.schooltypesch.Name = "schooltypesch";
+            // 
+            // gradesch
+            // 
+            this.gradesch.DataPropertyName = "Grade";
+            this.gradesch.HeaderText = "年级";
+            this.gradesch.Name = "gradesch";
+            // 
+            // collegesch
+            // 
+            this.collegesch.DataPropertyName = "College";
+            this.collegesch.HeaderText = "学院";
+            this.collegesch.Name = "collegesch";
+            // 
+            // professionsch
+            // 
+            this.professionsch.DataPropertyName = "Profession";
+            this.professionsch.HeaderText = "专业";
+            this.professionsch.Name = "professionsch";
+            // 
+            // classessch
+            // 
+            this.classessch.DataPropertyName = "Classes";
+            this.classessch.HeaderText = "班级";
+            this.classessch.Name = "classessch";
+            // 
+            // dorareasch
+            // 
+            this.dorareasch.DataPropertyName = "DorArea";
+            this.dorareasch.HeaderText = "住宿园区";
+            this.dorareasch.Name = "dorareasch";
+            // 
+            // dorbuildingsch
+            // 
+            this.dorbuildingsch.DataPropertyName = "DorBuilding";
+            this.dorbuildingsch.HeaderText = "住宿楼栋";
+            this.dorbuildingsch.Name = "dorbuildingsch";
+            // 
+            // dornumsch
+            // 
+            this.dornumsch.DataPropertyName = "DorNum";
+            this.dornumsch.HeaderText = "寝室号";
+            this.dornumsch.Name = "dornumsch";
+            // 
+            // outshcoolsch
+            // 
+            this.outshcoolsch.DataPropertyName = "OutSchool";
+            this.outshcoolsch.HeaderText = "离校信息说明";
+            this.outshcoolsch.Name = "outshcoolsch";
+            this.outshcoolsch.Width = 200;
+            // 
+            // StuAlltabPage
+            // 
+            this.StuAlltabPage.Controls.Add(this.StuAlldataGridView);
+            this.StuAlltabPage.Location = new System.Drawing.Point(4, 29);
+            this.StuAlltabPage.Name = "StuAlltabPage";
+            this.StuAlltabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.StuAlltabPage.Size = new System.Drawing.Size(1293, 405);
+            this.StuAlltabPage.TabIndex = 3;
+            this.StuAlltabPage.Text = "总信息";
+            this.StuAlltabPage.UseVisualStyleBackColor = true;
+            // 
+            // StuAlldataGridView
+            // 
+            this.StuAlldataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StuAlldataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.stuno,
+            this.stuname,
+            this.schooltype,
+            this.grade,
+            this.college,
+            this.professopm,
+            this.classes,
+            this.dorarea,
+            this.dorbuilding,
+            this.dornum,
+            this.sex,
+            this.nation,
+            this.birthday,
+            this.symbol,
+            this.telnum,
+            this.qqnum,
+            this.idnum,
+            this.originpro,
+            this.origincity,
+            this.origincountry,
+            this.highschool,
+            this.familynum,
+            this.homepro,
+            this.homecity,
+            this.homecounty,
+            this.homeother,
+            this.faname,
+            this.fatelnum,
+            this.faincome,
+            this.maname,
+            this.matelnum,
+            this.maincome,
+            this.outshcool});
+            this.StuAlldataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StuAlldataGridView.Location = new System.Drawing.Point(3, 3);
+            this.StuAlldataGridView.Name = "StuAlldataGridView";
+            this.StuAlldataGridView.RowTemplate.Height = 27;
+            this.StuAlldataGridView.Size = new System.Drawing.Size(1287, 399);
+            this.StuAlldataGridView.TabIndex = 0;
             // 
             // stuno
             // 
@@ -805,6 +766,124 @@
             this.outshcool.HeaderText = "离校信息说明";
             this.outshcool.Name = "outshcool";
             // 
+            // PergroupBox
+            // 
+            this.PergroupBox.Controls.Add(this.OriginProtextBox);
+            this.PergroupBox.Controls.Add(this.label7);
+            this.PergroupBox.Controls.Add(this.NationtextBox);
+            this.PergroupBox.Controls.Add(this.label6);
+            this.PergroupBox.Controls.Add(this.SymbolcomboBox);
+            this.PergroupBox.Controls.Add(this.label3);
+            this.PergroupBox.Controls.Add(this.label2);
+            this.PergroupBox.Controls.Add(this.SexcomboBox);
+            this.PergroupBox.Location = new System.Drawing.Point(167, 12);
+            this.PergroupBox.Name = "PergroupBox";
+            this.PergroupBox.Size = new System.Drawing.Size(358, 100);
+            this.PergroupBox.TabIndex = 5;
+            this.PergroupBox.TabStop = false;
+            this.PergroupBox.Text = "个人信息查询条件";
+            // 
+            // OriginProtextBox
+            // 
+            this.OriginProtextBox.Location = new System.Drawing.Point(225, 62);
+            this.OriginProtextBox.Name = "OriginProtextBox";
+            this.OriginProtextBox.Size = new System.Drawing.Size(96, 27);
+            this.OriginProtextBox.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(147, 62);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 20);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "籍贯-省：";
+            // 
+            // NationtextBox
+            // 
+            this.NationtextBox.Location = new System.Drawing.Point(69, 62);
+            this.NationtextBox.Name = "NationtextBox";
+            this.NationtextBox.Size = new System.Drawing.Size(72, 27);
+            this.NationtextBox.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 62);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "民族：";
+            // 
+            // SymbolcomboBox
+            // 
+            this.SymbolcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SymbolcomboBox.FormattingEnabled = true;
+            this.SymbolcomboBox.Items.AddRange(new object[] {
+            "",
+            "共青团员",
+            "中共党员",
+            "中共预备党员",
+            "群众",
+            "其他"});
+            this.SymbolcomboBox.Location = new System.Drawing.Point(225, 26);
+            this.SymbolcomboBox.Name = "SymbolcomboBox";
+            this.SymbolcomboBox.Size = new System.Drawing.Size(96, 28);
+            this.SymbolcomboBox.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(147, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "政治面貌：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "性别：";
+            // 
+            // SexcomboBox
+            // 
+            this.SexcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SexcomboBox.FormattingEnabled = true;
+            this.SexcomboBox.Items.AddRange(new object[] {
+            "",
+            "男",
+            "女"});
+            this.SexcomboBox.Location = new System.Drawing.Point(69, 26);
+            this.SexcomboBox.Name = "SexcomboBox";
+            this.SexcomboBox.Size = new System.Drawing.Size(72, 28);
+            this.SexcomboBox.TabIndex = 0;
+            // 
+            // Alterbutton
+            // 
+            this.Alterbutton.Location = new System.Drawing.Point(1050, 563);
+            this.Alterbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Alterbutton.Name = "Alterbutton";
+            this.Alterbutton.Size = new System.Drawing.Size(112, 32);
+            this.Alterbutton.TabIndex = 2;
+            this.Alterbutton.Text = "修改";
+            this.Alterbutton.UseVisualStyleBackColor = true;
+            this.Alterbutton.Click += new System.EventHandler(this.Alterbutton_Click);
+            // 
+            // Exportbutton
+            // 
+            this.Exportbutton.Location = new System.Drawing.Point(908, 563);
+            this.Exportbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Exportbutton.Name = "Exportbutton";
+            this.Exportbutton.Size = new System.Drawing.Size(112, 32);
+            this.Exportbutton.TabIndex = 3;
+            this.Exportbutton.Text = "导出";
+            this.Exportbutton.UseVisualStyleBackColor = true;
+            this.Exportbutton.Click += new System.EventHandler(this.Exportbutton_Click);
+            // 
             // FamgroupBox
             // 
             this.FamgroupBox.Controls.Add(this.HomeProtextBox);
@@ -815,6 +894,22 @@
             this.FamgroupBox.TabIndex = 6;
             this.FamgroupBox.TabStop = false;
             this.FamgroupBox.Text = "家庭信息查询条件";
+            // 
+            // HomeProtextBox
+            // 
+            this.HomeProtextBox.Location = new System.Drawing.Point(22, 59);
+            this.HomeProtextBox.Name = "HomeProtextBox";
+            this.HomeProtextBox.Size = new System.Drawing.Size(113, 27);
+            this.HomeProtextBox.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 20);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "住址-省：";
             // 
             // SchgroupBox
             // 
@@ -834,172 +929,6 @@
             this.SchgroupBox.TabIndex = 7;
             this.SchgroupBox.TabStop = false;
             this.SchgroupBox.Text = "在校查询条件";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "学号：";
-            // 
-            // StuNumtextBox
-            // 
-            this.StuNumtextBox.Location = new System.Drawing.Point(19, 55);
-            this.StuNumtextBox.Name = "StuNumtextBox";
-            this.StuNumtextBox.Size = new System.Drawing.Size(130, 27);
-            this.StuNumtextBox.TabIndex = 0;
-            // 
-            // SexcomboBox
-            // 
-            this.SexcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SexcomboBox.FormattingEnabled = true;
-            this.SexcomboBox.Items.AddRange(new object[] {
-            "男",
-            "女"});
-            this.SexcomboBox.Location = new System.Drawing.Point(69, 26);
-            this.SexcomboBox.Name = "SexcomboBox";
-            this.SexcomboBox.Size = new System.Drawing.Size(72, 28);
-            this.SexcomboBox.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "性别：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(147, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "政治面貌：";
-            // 
-            // SymbolcomboBox
-            // 
-            this.SymbolcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SymbolcomboBox.FormattingEnabled = true;
-            this.SymbolcomboBox.Items.AddRange(new object[] {
-            "共青团员",
-            "中共党员",
-            "中共预备党员",
-            "群众",
-            "其他"});
-            this.SymbolcomboBox.Location = new System.Drawing.Point(225, 26);
-            this.SymbolcomboBox.Name = "SymbolcomboBox";
-            this.SymbolcomboBox.Size = new System.Drawing.Size(96, 28);
-            this.SymbolcomboBox.TabIndex = 1;
-            // 
-            // HomeProtextBox
-            // 
-            this.HomeProtextBox.Location = new System.Drawing.Point(22, 59);
-            this.HomeProtextBox.Name = "HomeProtextBox";
-            this.HomeProtextBox.Size = new System.Drawing.Size(113, 27);
-            this.HomeProtextBox.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 20);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "住址-省：";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 20);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "在校状态：";
-            // 
-            // SchoolTypecomboBox
-            // 
-            this.SchoolTypecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SchoolTypecomboBox.FormattingEnabled = true;
-            this.SchoolTypecomboBox.Items.AddRange(new object[] {
-            "未到大一",
-            "正常在校",
-            "正常离校",
-            "延期毕业",
-            "休学",
-            "退学"});
-            this.SchoolTypecomboBox.Location = new System.Drawing.Point(14, 54);
-            this.SchoolTypecomboBox.Name = "SchoolTypecomboBox";
-            this.SchoolTypecomboBox.Size = new System.Drawing.Size(87, 28);
-            this.SchoolTypecomboBox.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 62);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "民族：";
-            // 
-            // NationtextBox
-            // 
-            this.NationtextBox.Location = new System.Drawing.Point(69, 62);
-            this.NationtextBox.Name = "NationtextBox";
-            this.NationtextBox.Size = new System.Drawing.Size(72, 27);
-            this.NationtextBox.TabIndex = 2;
-            // 
-            // OriginProtextBox
-            // 
-            this.OriginProtextBox.Location = new System.Drawing.Point(225, 62);
-            this.OriginProtextBox.Name = "OriginProtextBox";
-            this.OriginProtextBox.Size = new System.Drawing.Size(96, 27);
-            this.OriginProtextBox.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(147, 62);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 20);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "籍贯-省：";
-            // 
-            // GradetextBox
-            // 
-            this.GradetextBox.Location = new System.Drawing.Point(167, 23);
-            this.GradetextBox.Name = "GradetextBox";
-            this.GradetextBox.Size = new System.Drawing.Size(100, 27);
-            this.GradetextBox.TabIndex = 8;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(107, 23);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 20);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "年级：";
-            // 
-            // CollegetextBox
-            // 
-            this.CollegetextBox.Location = new System.Drawing.Point(333, 23);
-            this.CollegetextBox.Name = "CollegetextBox";
-            this.CollegetextBox.Size = new System.Drawing.Size(96, 27);
-            this.CollegetextBox.TabIndex = 10;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(273, 23);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 20);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "学院：";
             // 
             // ClasstextBox
             // 
@@ -1032,6 +961,80 @@
             this.label11.Size = new System.Drawing.Size(54, 20);
             this.label11.TabIndex = 13;
             this.label11.Text = "专业：";
+            // 
+            // CollegetextBox
+            // 
+            this.CollegetextBox.Location = new System.Drawing.Point(333, 23);
+            this.CollegetextBox.Name = "CollegetextBox";
+            this.CollegetextBox.Size = new System.Drawing.Size(96, 27);
+            this.CollegetextBox.TabIndex = 10;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(273, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 20);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "学院：";
+            // 
+            // GradetextBox
+            // 
+            this.GradetextBox.Location = new System.Drawing.Point(167, 23);
+            this.GradetextBox.Name = "GradetextBox";
+            this.GradetextBox.Size = new System.Drawing.Size(100, 27);
+            this.GradetextBox.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "在校状态：";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(107, 23);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 20);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "年级：";
+            // 
+            // SchoolTypecomboBox
+            // 
+            this.SchoolTypecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SchoolTypecomboBox.FormattingEnabled = true;
+            this.SchoolTypecomboBox.Items.AddRange(new object[] {
+            "",
+            "未到大一",
+            "正常在校",
+            "正常离校",
+            "延期毕业",
+            "休学",
+            "退学"});
+            this.SchoolTypecomboBox.Location = new System.Drawing.Point(14, 54);
+            this.SchoolTypecomboBox.Name = "SchoolTypecomboBox";
+            this.SchoolTypecomboBox.Size = new System.Drawing.Size(87, 28);
+            this.SchoolTypecomboBox.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "学号：";
+            // 
+            // StuNumtextBox
+            // 
+            this.StuNumtextBox.Location = new System.Drawing.Point(19, 55);
+            this.StuNumtextBox.Name = "StuNumtextBox";
+            this.StuNumtextBox.Size = new System.Drawing.Size(130, 27);
+            this.StuNumtextBox.TabIndex = 0;
             // 
             // QueryStuInfoForm
             // 
