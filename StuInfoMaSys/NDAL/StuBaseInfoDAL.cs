@@ -690,9 +690,9 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.HighSchool");
             Sql_Str.Append(" from dbo.StudentBaseInformation");
             Sql_Str.Append(Power);
-            Sql_Str.Append(" and StuNo like @StuNo and Sex like @Sex");
-            Sql_Str.Append(" and Nation like @Nation and Symbol like @Symbol");
-            Sql_Str.Append(" and OriginPro like @OriginPro");
+            Sql_Str.Append(" and (StuNo like @StuNo or StuNo is null) and (Sex like @Sex or Sex is null)");
+            Sql_Str.Append(" and (Nation like @Nation or Nation is null) and (Symbol like @Symbol or Symbol is null)");
+            Sql_Str.Append(" and (OriginPro like @OriginPro or OriginPro is null)");
             SqlParameter[] Param = {
                 new SqlParameter("@StuNo",StuNo),
                 new SqlParameter("@Sex",Sex),
@@ -741,7 +741,7 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.MaName,dbo.StudentBaseInformation.MaTelNum,dbo.StudentBaseInformation.MaIncome");
             Sql_Str.Append(" from dbo.StudentBaseInformation");
             Sql_Str.Append(Power);
-            Sql_Str.Append(" and StuNo like @StuNo and HomePro like @HomePro");
+            Sql_Str.Append(" and (StuNo like @StuNo or StuNo is null) and (HomePro like @HomePro or HomePro is null)");
             SqlParameter[] Param = {
                 new SqlParameter("@StuNo",StuNo),
                 new SqlParameter("@HomePro",HomePro),
@@ -791,9 +791,9 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.OutSchool");
             Sql_Str.Append(" from dbo.StudentBaseInformation left outer join dbo.Dormitory on (dbo.StudentBaseInformation.DropNum=dbo.Dormitory.ID)");
             Sql_Str.Append(Power);
-            Sql_Str.Append(" and StuNo like @StuNo and SchoolType like @SchoolType");
-            Sql_Str.Append(" and Grade like @Grade and College like @College");
-            Sql_Str.Append(" and Profession like @Profession and Classes like @Classes");
+            Sql_Str.Append(" and (StuNo like @StuNo or StuNo is null) and (SchoolType like @SchoolType or SchoolType is null)");
+            Sql_Str.Append(" and (Grade like @Grade or Grade is null) and (College like @College or College is null)");
+            Sql_Str.Append(" and (Profession like @Profession or Profession is null) and (Classes like @Classes or Classes is null)");
             SqlParameter[] Param = {
                 new SqlParameter("@StuNo",StuNo),
                 new SqlParameter("@SchoolType",SchoolType),
@@ -807,7 +807,7 @@ namespace DAL
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
-                Cmd.Parameters.Add(Param);
+                Cmd.Parameters.AddRange(Param);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);
@@ -863,12 +863,12 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.OutSchool");
             Sql_Str.Append(" from dbo.StudentBaseInformation left outer join dbo.Dormitory on (dbo.StudentBaseInformation.DropNum=dbo.Dormitory.ID)");
             Sql_Str.Append(Power);
-            Sql_Str.Append(" and StuNo like @StuNo and Sex like @Sex");
-            Sql_Str.Append(" and Nation like @Nation and Symbol like @Symbol");
-            Sql_Str.Append(" and OriginPro like @OriginPro and HomePro like @HomePro");
-            Sql_Str.Append(" and SchoolType like @SchoolType");
-            Sql_Str.Append(" and Grade like @Grade and College like @College");
-            Sql_Str.Append(" and Profession like @Profession and Classes like @Classes");
+            Sql_Str.Append(" and (StuNo like @StuNo or StuNo is null) and (Sex like @Sex or Sex is null)");
+            Sql_Str.Append(" and (Nation like @Nation or Nation is null) and (Symbol like @Symbol or Symbol is null)");
+            Sql_Str.Append(" and (OriginPro like @OriginPro or OriginPro is null) and (HomePro like @HomePro or HomePro is null)");
+            Sql_Str.Append(" and (SchoolType like @SchoolType or SchoolType is null)");
+            Sql_Str.Append(" and (Grade like @Grade or Grade is null) and (College like @College or College is null)");
+            Sql_Str.Append(" and (Profession like @Profession or Profession is null) and (Classes like @Classes or Classes is null)");
             SqlParameter[] Param = {
                 new SqlParameter("@StuNo",StuNo),
                 new SqlParameter("@Sex",Sex),
@@ -887,7 +887,7 @@ namespace DAL
             {
                 Conn.Open();
                 SqlCommand Cmd = new SqlCommand(Sql_Str.ToString(), Conn);
-                Cmd.Parameters.Add(Param);
+                Cmd.Parameters.AddRange(Param);
                 DataTable Data_Table = new DataTable();
                 SqlDataReader dr = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Data_Table.Load(dr);

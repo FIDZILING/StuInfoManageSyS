@@ -27,7 +27,7 @@ namespace BLL
         private StringBuilder PowerInFind(StringBuilder Power)
         {
             if (leader.Identify == "1")
-                Power.Append(" where dbo.StudentBaseInformation.StuNo like '%_%'");
+                Power.Append(" where (dbo.StudentBaseInformation.College like '%_%' or dbo.StudentBaseInformation.College is null)");
             else if (leader.Identify == "2")
             {
                 Power.Append(" where dbo.StudentBaseInformation.College='");
