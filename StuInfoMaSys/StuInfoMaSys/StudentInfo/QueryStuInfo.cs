@@ -247,8 +247,8 @@ namespace StuInfoMaSys.StudentInfo
             string homePro = HomeProtextBox.Text.Trim();
 
             string schooltype = "";
-            if (SchoolTypecomboBox.SelectedIndex != -1)
-                schooltype = SchoolTypecomboBox.SelectedText.ToString();
+            if (SchoolTypecomboBox.SelectedIndex != -1 && SchoolTypecomboBox.SelectedIndex != 0)
+                schooltype = (SchoolTypecomboBox.SelectedIndex - 1).ToString();
             string grade = GradetextBox.Text.Trim();
             string college = CollegetextBox.Text.Trim();
             string profession = ProfessiontextBox.Text.Trim();

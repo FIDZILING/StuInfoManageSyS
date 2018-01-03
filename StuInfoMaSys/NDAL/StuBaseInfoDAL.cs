@@ -672,14 +672,10 @@ namespace DAL
         /// <summary>
         /// 通过学号、性别、民族、政治面貌、籍贯-省查找本科生个人信息（模糊查询）
         /// </summary>
-        /// <param name="Power">权利</param>
-        /// <param name="StuNo">学号</param>
-        /// <param name="Sex">性别</param>
-        /// <param name="Nation">民族</param>
-        /// <param name="Symbol">政治面貌</param>
-        /// <param name="OriginPro">籍贯-省</param>
+        /// <param name="Power">权利sql</param>
+        /// <param name="Param">查找条件</param>
         /// <returns></returns>
-        public DataTable Find_PerStuBySomethings(StringBuilder Power, string StuNo, string Sex, string Nation, string Symbol, string OriginPro)
+        public DataTable Find_PerStuBySomethings(StringBuilder Power, SqlParameter[] Param)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
@@ -690,16 +686,6 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.HighSchool");
             Sql_Str.Append(" from dbo.StudentBaseInformation");
             Sql_Str.Append(Power);
-            Sql_Str.Append(" and (StuNo like @StuNo or StuNo is null) and (Sex like @Sex or Sex is null)");
-            Sql_Str.Append(" and (Nation like @Nation or Nation is null) and (Symbol like @Symbol or Symbol is null)");
-            Sql_Str.Append(" and (OriginPro like @OriginPro or OriginPro is null)");
-            SqlParameter[] Param = {
-                new SqlParameter("@StuNo",StuNo),
-                new SqlParameter("@Sex",Sex),
-                new SqlParameter("@Nation",Nation),
-                new SqlParameter("@Symbol",Symbol),
-                new SqlParameter("@OriginPro",OriginPro)
-            };
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
@@ -725,13 +711,12 @@ namespace DAL
         }
 
         /// <summary>
-        /// 通过学号、住址-省查询本科生家庭信息
+        /// 通过学号、住址-省查询本科生家庭信息（模糊查询）
         /// </summary>
-        /// <param name="Power">权利</param>
-        /// <param name="StuNo">学号</param>
-        /// <param name="HomePro">住址-省</param>
+        /// <param name="Power">权利sql</param>
+        /// <param name="Param">查找条件</param>
         /// <returns></returns>
-        public DataTable Find_FamStuBySomethings(StringBuilder Power, string StuNo, string HomePro)
+        public DataTable Find_FamStuBySomethings(StringBuilder Power, SqlParameter[] Param)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
@@ -741,11 +726,6 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.MaName,dbo.StudentBaseInformation.MaTelNum,dbo.StudentBaseInformation.MaIncome");
             Sql_Str.Append(" from dbo.StudentBaseInformation");
             Sql_Str.Append(Power);
-            Sql_Str.Append(" and (StuNo like @StuNo or StuNo is null) and (HomePro like @HomePro or HomePro is null)");
-            SqlParameter[] Param = {
-                new SqlParameter("@StuNo",StuNo),
-                new SqlParameter("@HomePro",HomePro),
-            };
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
@@ -771,16 +751,12 @@ namespace DAL
         }
 
         /// <summary>
-        /// 通过学号、在校状态（类型）、年级、学院、专业、班级查找本科生在校信息
+        /// 通过学号、在校状态（类型）、年级、学院、专业、班级查找本科生在校信息（模糊查询）
         /// </summary>
-        /// <param name="StuNo">学号</param>
-        /// <param name="SchoolType">在校状态（类型）</param>
-        /// <param name="Grade">年级</param>
-        /// <param name="College">学院</param>
-        /// <param name="Profession">专业</param>
-        /// <param name="Classes">班级</param>
+        /// <param name="Power">权利sql</param>
+        /// <param name="Param">查找条件</param>
         /// <returns></returns>
-        public DataTable Find_SchStuBySomethings(StringBuilder Power, string StuNo, string SchoolType, string Grade, string College, string Profession, string Classes)
+        public DataTable Find_SchStuBySomethings(StringBuilder Power, SqlParameter[] Param)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
@@ -791,17 +767,6 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.OutSchool");
             Sql_Str.Append(" from dbo.StudentBaseInformation left outer join dbo.Dormitory on (dbo.StudentBaseInformation.DropNum=dbo.Dormitory.ID)");
             Sql_Str.Append(Power);
-            Sql_Str.Append(" and (StuNo like @StuNo or StuNo is null) and (SchoolType like @SchoolType or SchoolType is null)");
-            Sql_Str.Append(" and (Grade like @Grade or Grade is null) and (College like @College or College is null)");
-            Sql_Str.Append(" and (Profession like @Profession or Profession is null) and (Classes like @Classes or Classes is null)");
-            SqlParameter[] Param = {
-                new SqlParameter("@StuNo",StuNo),
-                new SqlParameter("@SchoolType",SchoolType),
-                new SqlParameter("@Grade",Grade),
-                new SqlParameter("@College",College),
-                new SqlParameter("@Profession",Profession),
-                new SqlParameter("@Classes",Classes)
-            };
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {
@@ -827,23 +792,12 @@ namespace DAL
         }
 
         /// <summary>
-        /// 通过超级多的信息来查找本科生所有信息
+        /// 通过超级多的信息来查找本科生所有信息（模糊查询）
         /// </summary>
-        /// <param name="Demand">权利</param>
-        /// <param name="StuNo">学号</param>
-        /// <param name="Sex">性别</param>
-        /// <param name="Nation">民族</param>
-        /// <param name="Symbol">政治面貌</param>
-        /// <param name="OriginPro">籍贯-省</param>
-        /// <param name="HomePro">住址-省</param>
-        /// <param name="SchoolType">在校状态（类型）</param>
-        /// <param name="Grade">年级</param>
-        /// <param name="College">学院</param>
-        /// <param name="Profession">专业</param>
-        /// <param name="Classes">班级</param>
+        /// <param name="Power">权利sql</param>
+        /// <param name="Param">查找条件</param>
         /// <returns></returns>
-        public DataTable Find_AllStuBySomethings(StringBuilder Power, string StuNo, string Sex, string Nation, string Symbol, string OriginPro,
-            string HomePro, string SchoolType, string Grade, string College, string Profession, string Classes)
+        public DataTable Find_AllStuBySomethings(StringBuilder Power, SqlParameter[] Param)
         {
             StringBuilder Sql_Str = new StringBuilder();
             Sql_Str.Append("select dbo.StudentBaseInformation.StuNo,dbo.StudentBaseInformation.StuName,");
@@ -863,25 +817,6 @@ namespace DAL
             Sql_Str.Append("dbo.StudentBaseInformation.OutSchool");
             Sql_Str.Append(" from dbo.StudentBaseInformation left outer join dbo.Dormitory on (dbo.StudentBaseInformation.DropNum=dbo.Dormitory.ID)");
             Sql_Str.Append(Power);
-            Sql_Str.Append(" and (StuNo like @StuNo or StuNo is null) and (Sex like @Sex or Sex is null)");
-            Sql_Str.Append(" and (Nation like @Nation or Nation is null) and (Symbol like @Symbol or Symbol is null)");
-            Sql_Str.Append(" and (OriginPro like @OriginPro or OriginPro is null) and (HomePro like @HomePro or HomePro is null)");
-            Sql_Str.Append(" and (SchoolType like @SchoolType or SchoolType is null)");
-            Sql_Str.Append(" and (Grade like @Grade or Grade is null) and (College like @College or College is null)");
-            Sql_Str.Append(" and (Profession like @Profession or Profession is null) and (Classes like @Classes or Classes is null)");
-            SqlParameter[] Param = {
-                new SqlParameter("@StuNo",StuNo),
-                new SqlParameter("@Sex",Sex),
-                new SqlParameter("@Nation",Nation),
-                new SqlParameter("@Symbol",Symbol),
-                new SqlParameter("@OriginPro",OriginPro),
-                new SqlParameter("@HomePro",HomePro),
-                new SqlParameter("@SchoolType",SchoolType),
-                new SqlParameter("@Grade",Grade),
-                new SqlParameter("@College",College),
-                new SqlParameter("@Profession",Profession),
-                new SqlParameter("@Classes",Classes)
-            };
             SqlConnection Conn = new SqlConnection(Sql_Con_Str);
             try
             {

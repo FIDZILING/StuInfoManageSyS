@@ -292,17 +292,14 @@ namespace BLL
         {
             StringBuilder Power = new StringBuilder();
             Power = PowerInFind(Power);
-            if (StuNo == "") StuNo = "_";
-            if (Sex == "") Sex = "_";
-            if (Nation == "") Nation = "_";
-            if (Symbol == "") Symbol = "_";
-            if (OriginPro == "") OriginPro = "_";
-            StuNo = "%" + StuNo + "%";
-            Sex = "%" + Sex + "%";
-            Nation = "%" + Nation + "%";
-            Symbol = "%" + Symbol + "%";
-            OriginPro = "%" + OriginPro + "%";
-            return stuBaseInfoDAL.Find_PerStuBySomethings(Power, StuNo, Sex, Nation, Symbol, OriginPro);
+            List<SqlParameter> listStr = new List<SqlParameter>();
+            if (StuNo != "") { StuNo = "%" + StuNo + "%"; Power.Append(" and StuNo like @StuNo"); listStr.Add(new SqlParameter("@StuNo", StuNo)); }
+            if (Sex != "") { Sex = "%" + Sex + "%"; Power.Append(" and Sex like @Sex"); listStr.Add(new SqlParameter("@Sex", Sex)); }
+            if (Nation != "") { Nation = "%" + Nation + "%"; Power.Append(" and Nation like @Nation"); listStr.Add(new SqlParameter("@Nation", Nation)); }
+            if (Symbol != "") { Symbol = "%" + Symbol + "%"; Power.Append(" and Symbol like @Symbol"); listStr.Add(new SqlParameter("@Symbol", Symbol)); }
+            if (OriginPro != "") { OriginPro = "%" + OriginPro + "%"; Power.Append(" and OriginPro like @OriginPro"); listStr.Add(new SqlParameter("@OriginPro", OriginPro)); }
+            SqlParameter[] Param = listStr.ToArray();
+            return stuBaseInfoDAL.Find_PerStuBySomethings(Power, Param);
         }
 
         /// <summary>
@@ -315,11 +312,11 @@ namespace BLL
         {
             StringBuilder Power = new StringBuilder();
             Power = PowerInFind(Power);
-            if (StuNo == "") StuNo = "_";
-            if (HomePro == "") HomePro = "_";
-            StuNo = "%" + StuNo + "%";
-            HomePro = "%" + HomePro + "%";
-            return stuBaseInfoDAL.Find_FamStuBySomethings(Power, StuNo, HomePro);
+            List<SqlParameter> listStr = new List<SqlParameter>();
+            if (StuNo != "") { StuNo = "%" + StuNo + "%"; Power.Append(" and StuNo like @StuNo"); listStr.Add(new SqlParameter("@StuNo", StuNo)); }
+            if (HomePro != "") { HomePro = "%" + HomePro + "%"; Power.Append(" and HomePro like @HomePro"); listStr.Add(new SqlParameter("@HomePro", HomePro)); }
+            SqlParameter[] Param = listStr.ToArray();
+            return stuBaseInfoDAL.Find_FamStuBySomethings(Power, Param);
         }
 
         /// <summary>
@@ -336,19 +333,15 @@ namespace BLL
         {
             StringBuilder Power = new StringBuilder();
             Power = PowerInFind(Power);
-            if (StuNo == "") StuNo = "_";
-            if (SchoolType == "") SchoolType = "_";
-            if (Grade == "") Grade = "_";
-            if (College == "") College = "_";
-            if (Profession == "") Profession = "_";
-            if (Classes == "") Classes = "_";
-            StuNo = "%" + StuNo + "%";
-            SchoolType = "%" + SchoolType + "%";
-            Grade = "%" + Grade + "%";
-            College = "%" + College + "%";
-            Profession = "%" + Profession + "%";
-            Classes = "%" + Classes + "%";
-            return stuBaseInfoDAL.Find_SchStuBySomethings(Power, StuNo, SchoolType, Grade, College, Profession, Classes);
+            List<SqlParameter> listStr = new List<SqlParameter>();
+            if (StuNo != "") {StuNo = "%" + StuNo + "%"; Power.Append(" and StuNo like @StuNo"); listStr.Add(new SqlParameter("@StuNo", StuNo)); }
+            if (SchoolType != "") { SchoolType = "%" + SchoolType + "%"; Power.Append(" and SchoolType like @SchoolType"); listStr.Add(new SqlParameter("@SchoolType", SchoolType)); }
+            if (Grade != "") { Grade = "%" + Grade + "%"; Power.Append(" and Grade like @Grade"); listStr.Add(new SqlParameter("@Grade", Grade)); }
+            if (College != "") { College = "%" + College + "%"; Power.Append(" and College like @College"); listStr.Add(new SqlParameter("@College", College)); }
+            if (Profession != "") { Profession = "%" + Profession + "%"; Power.Append(" and Profession like @Profession"); listStr.Add(new SqlParameter("@Profession", Profession)); }
+            if (Classes != "") { Classes = "%" + Classes + "%"; Power.Append(" and Classes like @Classes"); listStr.Add(new SqlParameter("@Classes", Classes)); }
+            SqlParameter[] Param = listStr.ToArray();
+            return stuBaseInfoDAL.Find_SchStuBySomethings(Power, Param);
         }
 
         /// <summary>
@@ -371,29 +364,20 @@ namespace BLL
         {
             StringBuilder Power = new StringBuilder();
             Power = PowerInFind(Power);
-            if (StuNo == "") StuNo = "_";
-            if (Sex == "") Sex = "_";
-            if (Nation == "") Nation = "_";
-            if (Symbol == "") Symbol = "_";
-            if (OriginPro == "") OriginPro = "_";
-            if (HomePro == "") HomePro = "_";
-            if (SchoolType == "") SchoolType = "_";
-            if (Grade == "") Grade = "_";
-            if (College == "") College = "_";
-            if (Profession == "") Profession = "_";
-            if (Classes == "") Classes = "_";
-            StuNo = "%" + StuNo + "%";
-            Sex = "%" + Sex + "%";
-            Nation = "%" + Nation + "%";
-            Symbol = "%" + Symbol + "%";
-            OriginPro = "%" + OriginPro + "%";
-            HomePro = "%" + HomePro + "%";
-            SchoolType = "%" + SchoolType + "%";
-            Grade = "%" + Grade + "%";
-            College = "%" + College + "%";
-            Profession = "%" + Profession + "%";
-            Classes = "%" + Classes + "%";
-            return stuBaseInfoDAL.Find_AllStuBySomethings(Power, StuNo, Sex, Nation, Symbol, OriginPro, HomePro, SchoolType, Grade, College, Profession, Classes);
+            List<SqlParameter> listStr = new List<SqlParameter>();
+            if (StuNo != "") { StuNo = "%" + StuNo + "%"; Power.Append(" and StuNo like @StuNo"); listStr.Add(new SqlParameter("@StuNo", StuNo)); }
+            if (Sex != "") { Sex = "%" + Sex + "%"; Power.Append(" and Sex like @Sex"); listStr.Add(new SqlParameter("@Sex", Sex)); }
+            if (Nation != "") { Nation = "%" + Nation + "%"; Power.Append(" and Nation like @Nation"); listStr.Add(new SqlParameter("@Nation", Nation)); }
+            if (Symbol != "") { Symbol = "%" + Symbol + "%"; Power.Append(" and Symbol like @Symbol"); listStr.Add(new SqlParameter("@Symbol", Symbol)); }
+            if (OriginPro != "") { OriginPro = "%" + OriginPro + "%"; Power.Append(" and OriginPro like @OriginPro"); listStr.Add(new SqlParameter("@OriginPro", OriginPro)); }
+            if (HomePro != "") { HomePro = "%" + HomePro + "%"; Power.Append(" and HomePro like @HomePro"); listStr.Add(new SqlParameter("@HomePro", HomePro)); }
+            if (SchoolType != "") { SchoolType = "%" + SchoolType + "%"; Power.Append(" and SchoolType like @SchoolType"); listStr.Add(new SqlParameter("@SchoolType", SchoolType)); }
+            if (Grade != "") { Grade = "%" + Grade + "%"; Power.Append(" and Grade like @Grade"); listStr.Add(new SqlParameter("@Grade", Grade)); }
+            if (College != "") { College = "%" + College + "%"; Power.Append(" and College like @College"); listStr.Add(new SqlParameter("@College", College)); }
+            if (Profession != "") { Profession = "%" + Profession + "%"; Power.Append(" and Profession like @Profession"); listStr.Add(new SqlParameter("@Profession", Profession)); }
+            if (Classes != "") { Classes = "%" + Classes + "%"; Power.Append(" and Classes like @Classes"); listStr.Add(new SqlParameter("@Classes", Classes)); }
+            SqlParameter[] Param = listStr.ToArray();
+            return stuBaseInfoDAL.Find_AllStuBySomethings(Power, Param);
         }
     }
 }
