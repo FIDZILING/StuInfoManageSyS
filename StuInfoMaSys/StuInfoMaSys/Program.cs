@@ -25,22 +25,21 @@ namespace StuInfoMaSys
             {
                 Filter = "Excel97-2003工作簿|*.xls"
             };
-            if (dataTable == null)
-                return false;
-            int rowNum = dataTable.Rows.Count;//需要导出的数据的行数
-            int columnNum = dataTable.Columns.Count;//需要导出的数据的列数
-            int rowIndex = 1;//起始行为第二行
-            int columnIndex = 0;//起始列为第一列
-            Microsoft.Office.Interop.Excel.Range range;//Excel的格式设置
-            System.Reflection.Missing miss = System.Reflection.Missing.Value;
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                int rowNum = dataTable.Rows.Count;//需要导出的数据的行数
+                int columnNum = dataTable.Columns.Count;//需要导出的数据的列数
+                int rowIndex = 1;//起始行为第二行
+                int columnIndex = 0;//起始列为第一列
+                Microsoft.Office.Interop.Excel.Range range;//Excel的格式设置
+                System.Reflection.Missing miss = System.Reflection.Missing.Value;
 
-            Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application
-            {
-                DisplayAlerts = true,// 在程序执行过程中使出现的警告框显示
-                SheetsInNewWorkbook = 1
-            };
-            try
-            {
+                Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application
+                {
+                    DisplayAlerts = true,// 在程序执行过程中使出现的警告框显示
+                    SheetsInNewWorkbook = 1
+                };
+
                 Microsoft.Office.Interop.Excel.Workbook xlBook = xlApp.Workbooks.Add(true);
 
                 foreach (DataColumn dc in dataTable.Columns)             //将datatable的列名导入excel表的第一行
@@ -49,35 +48,29 @@ namespace StuInfoMaSys
                     xlApp.Cells[rowIndex, columnIndex] = dc.ColumnName;
                 }
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    //将数据写入到Excel表中
-                    for (int i = 0; i < rowNum; i++)
-                    {
-                        rowIndex++;
-                        columnIndex = 0;
-                        for (int j = 0; j < columnNum; j++)
-                        {//按行写入数据
-                            columnIndex++;
-                            range = (Microsoft.Office.Interop.Excel.Range)xlApp.Cells[rowIndex, columnIndex];
-                            range.NumberFormatLocal = "@";//写入到表中的数据格式以文本形式存在
-                            xlApp.Cells[rowIndex, columnIndex] = dataTable.Rows[i][j].ToString();
-                        }
-                    }
-                    //数据保存
-                    xlBook.SaveAs(saveFileDialog.FileName, miss, miss, miss, miss, miss, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, miss, miss, miss, miss, miss);
-                    xlBook.Close(false, miss, miss);
-                    xlApp.Quit();
-                    return true;
-                }
-                else
-                    return false;
 
+                //将数据写入到Excel表中
+                for (int i = 0; i < rowNum; i++)
+                {
+                    rowIndex++;
+                    columnIndex = 0;
+                    for (int j = 0; j < columnNum; j++)
+                    {//按行写入数据
+                        columnIndex++;
+                        range = (Microsoft.Office.Interop.Excel.Range)xlApp.Cells[rowIndex, columnIndex];
+                        range.NumberFormatLocal = "@";//写入到表中的数据格式以文本形式存在
+                        xlApp.Cells[rowIndex, columnIndex] = dataTable.Rows[i][j].ToString();
+                    }
+                }
+                //数据保存
+                xlBook.SaveAs(saveFileDialog.FileName, miss, miss, miss, miss, miss, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, miss, miss, miss, miss, miss);
+                xlBook.Close(false, miss, miss);
+                xlApp.Quit();
+                return true;
             }
-            catch (Exception ex)
-            {
+            else
                 return false;
-            }
+
         }
         /// <summary>
         /// 应用程序的主入口点。
